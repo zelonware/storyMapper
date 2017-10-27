@@ -3,7 +3,7 @@ package com.geekstorming.storymapper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class InicioActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
