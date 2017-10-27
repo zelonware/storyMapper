@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">StoryMapper</string>
+
+    <!-- Login Activity -->
+    <string name="txtV_Username">Nombre de usuario:</string>
+    <string name="txtV_Passwd">Contraseña:</string>
+    <string name="chkB_RememberMe">Recordar contraseña</string>
+    <string name="btn_SignIn">Entrar</string>
+    <string name="btn_SignUp">Registrarme</string>
+
 </resources>

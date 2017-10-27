@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">StoryMapper</string>
+
+    <!-- Login Activity -->
+    <string name="txtV_Username">Username:</string>
+    <string name="txtV_Passwd">Password:</string>
+    <string name="chkB_RememberMe">Remember me</string>
+    <string name="btn_SignIn">Sign In</string>
+    <string name="btn_SignUp">Sign Up</string>
+</resources>

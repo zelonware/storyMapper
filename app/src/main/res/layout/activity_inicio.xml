@@ -7,13 +7,95 @@
     android:layout_height="match_parent"
     tools:context="com.geekstorming.storymapper.LoginActivity">
 
-    <TextView
+    <android.support.constraint.Guideline
+        android:id="@+id/gL_Login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="20dp"/>
+
+    <TextView
+        android:id="@+id/txtV_Username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/txtV_Username"
+        app:layout_constraintLeft_toLeftOf="@+id/gL_Login"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:id="@+id/edT_Username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintLeft_toLeftOf="@+id/txtV_Username"
+        app:layout_constraintTop_toBottomOf="@+id/txtV_Username"/>
+
+    <TextView
+        android:id="@+id/txtV_Passwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/txtV_Passwd"
+        app:layout_constraintLeft_toLeftOf="@+id/gL_Login"
+        app:layout_constraintTop_toBottomOf="@+id/edT_Username"/>
+
+    <EditText
+        android:id="@+id/edT_Passwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintLeft_toLeftOf="@+id/gL_Login"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtV_Passwd"/>
+
+    <CheckBox
+        android:id="@+id/chkB_RememberMe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/chkB_RememberMe"
+        app:layout_constraintLeft_toLeftOf="@+id/edT_Passwd"
+        app:layout_constraintTop_toBottomOf="@+id/edT_Passwd"/>
+
+    <Button
+        android:id="@+id/btn_SignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/btn_SignIn"
+        app:layout_constraintLeft_toLeftOf="@+id/gL_Login"
+        app:layout_constraintTop_toBottomOf="@+id/chkB_RememberMe"
+        android:onClick="onClick_EnterApp"
+        />
+
+    <Button
+        android:id="@+id/btn_SignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="0dp"
+        android:text="@string/btn_SignUp"
+        app:layout_constraintLeft_toRightOf="@+id/btn_SignIn"
+        app:layout_constraintTop_toTopOf="@+id/btn_SignIn"/>
 
 </android.support.constraint.ConstraintLayout>
