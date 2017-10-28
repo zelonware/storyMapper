@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dimensiones para MaterialLetterIcon, Ivan Baranov -->
+    <dimen name="letter_icon_size">48dp</dimen>
+    <dimen name="list_top_padding">8dp</dimen>
+    <dimen name="list_primary_text">16sp</dimen>
+    <dimen name="list_secondary_text">14sp</dimen>
+
+</resources>
