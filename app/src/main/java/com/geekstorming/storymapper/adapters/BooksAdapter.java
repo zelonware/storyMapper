@@ -15,6 +15,7 @@ import com.geekstorming.storymapper.repos.BookRepository;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
 /**
+ * Books Adapter
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 

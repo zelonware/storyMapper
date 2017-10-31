@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".BooksActivity">
         </activity>
+        <activity android:name=".CharacterActivity">
+        </activity>
     </application>
 
 </manifest>

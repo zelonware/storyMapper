@@ -8,4 +8,7 @@
     <string name="chkB_RememberMe">Remember me</string>
     <string name="btn_SignIn">Sign In</string>
     <string name="btn_SignUp">Sign Up</string>
+
+    <string name="title_Books">Projects</string>
+    <string name="title_Characters">Characters</string>
 </resources>

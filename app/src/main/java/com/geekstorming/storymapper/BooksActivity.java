@@ -2,11 +2,13 @@ package com.geekstorming.storymapper;
 
 import android.app.ListActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 import com.geekstorming.storymapper.adapters.BooksAdapter;
 
 /**
- * Books Adapter
+ * Books Activity
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 public class BooksActivity extends ListActivity {

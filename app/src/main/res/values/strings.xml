@@ -8,4 +8,7 @@
     <string name="btn_SignIn">Entrar</string>
     <string name="btn_SignUp">Registrarme</string>
 
+    <string name="title_Books">Proyectos</string>
+    <string name="title_Characters">Personajes</string>
+
 </resources>

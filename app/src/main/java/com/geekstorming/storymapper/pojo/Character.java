@@ -13,7 +13,7 @@ public class Character {
     String characterName;
     String characterDesc;
 
-    Faction characterFaction;
+    int characterFaction;
 
     // Getters + Setters
 
@@ -41,17 +41,17 @@ public class Character {
         this.characterDesc = characterDesc;
     }
 
-    public Faction getCharacterFaction() {
+    public int getCharacterFaction() {
         return characterFaction;
     }
 
-    public void setCharacterFaction(Faction characterFaction) {
+    public void setCharacterFaction(int characterFaction) {
         this.characterFaction = characterFaction;
     }
 
     // Constructor
 
-    public Character(int characterID, String characterName, String characterDesc, Faction characterFaction) {
+    public Character(int characterID, String characterName, String characterDesc, int characterFaction) {
         this.characterID = characterID;
         this.characterName = characterName;
         this.characterDesc = characterDesc;
