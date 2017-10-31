@@ -42,7 +42,10 @@ public class BooksAdapter extends ArrayAdapter<Book> {
             bookHolder.txtV_BookName = (TextView) view.findViewById(R.id.txtV_BookName);
             bookHolder.txtV_BookGenre = (TextView) view.findViewById(R.id.txtV_BookGenre);
             bookHolder.bookIcon = (MaterialLetterIcon) view.findViewById(R.id.materialLetterIcon);
-        } else {
+
+            view.setTag(bookHolder);
+        }
+        else {
             bookHolder = (BookHolder) view.getTag();
         }
 
