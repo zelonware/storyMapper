@@ -8,7 +8,18 @@
     <string name="btn_SignIn">Entrar</string>
     <string name="btn_SignUp">Registrarme</string>
 
+    <!-- Books Activity -->
     <string name="title_Books">Proyectos</string>
     <string name="title_Characters">Personajes</string>
+
+    <!-- Characters Activity -->
+
+    <!-- Character Activity -->
+    <string name="txtV_CharacterName">Nombre:</string>
+    <string name="txtV_CharacterDescription">Descripción:</string>
+    <string name="txtV_CharacterRelationships">Relaciones:</string>
+    <string name="txtV_CharacterFaction">Facción:</string>
+    <string name="txtV_CharactersHome">Hogar:</string>
+    <string name="btn_CharacterRelationShips">Ver relaciones</string>
 
 </resources>

@@ -9,6 +9,17 @@
     <string name="btn_SignIn">Sign In</string>
     <string name="btn_SignUp">Sign Up</string>
 
+    <!-- Books Activity -->
     <string name="title_Books">Projects</string>
     <string name="title_Characters">Characters</string>
+
+    <!-- Characters Activity -->
+
+    <!-- Character Activity -->
+    <string name="txtV_CharacterName">Name:</string>
+    <string name="txtV_CharacterDescription">Description:</string>
+    <string name="txtV_CharacterRelationships">Relationships</string>
+    <string name="txtV_CharacterFaction">Faction:</string>
+    <string name="txtV_CharactersHome">Home:</string>
+    <string name="btn_CharacterRelationShips">See relationships</string>
 </resources>

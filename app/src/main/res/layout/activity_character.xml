@@ -1,15 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.geekstorming.storymapper.CharacterActivity">
+    android:fillViewport="true">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerCharacter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context="com.geekstorming.storymapper.CharacterActivity">
 
-</android.support.constraint.ConstraintLayout>
+        <android.support.constraint.Guideline
+            android:id="@+id/gL_Characters"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <TextView
+            android:id="@+id/txV_CharacterName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/txtV_CharacterName"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/gL_Characters"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edT_CharacterName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/gL_Characters"
+            app:layout_constraintTop_toBottomOf="@+id/txV_CharacterName" />
+
+        <TextView
+            android:id="@+id/txtV_CharacterDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/txtV_CharacterDescription"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="@+id/gL_Characters"
+            app:layout_constraintTop_toBottomOf="@+id/edT_CharacterName" />
+
+        <EditText
+            android:id="@+id/edT_CharacterDescription"
+            android:layout_width="0dp"
+            android:layout_height="122dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/gL_Characters"
+            app:layout_constraintTop_toBottomOf="@+id/txtV_CharacterDescription" />
+
+        <TextView
+            android:id="@+id/txV_CharacterFaction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/txtV_CharacterFaction"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="@+id/gL_Characters"
+            app:layout_constraintTop_toBottomOf="@+id/edT_CharacterDescription" />
+
+        <Spinner
+            android:id="@+id/sP_CharacterFaction"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/gL_Characters"
+            app:layout_constraintTop_toBottomOf="@+id/txV_CharacterFaction" />
+
+        <TextView
+            android:id="@+id/txtV_CharacterHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/txtV_CharactersHome"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="@+id/gL_Characters"
+            app:layout_constraintTop_toBottomOf="@+id/sP_CharacterFaction" />
+
+        <Spinner
+            android:id="@+id/sP_CharacterHome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/gL_Characters"
+            app:layout_constraintTop_toBottomOf="@+id/txtV_CharacterHome" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="116dp"
+            android:layout_marginStart="112dp"
+            android:layout_marginTop="16dp"
+            android:id="@+id/btn_SeeRelationships"
+            android:text="@string/btn_CharacterRelationShips"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/gL_Characters"
+            app:layout_constraintTop_toBottomOf="@+id/sP_CharacterHome" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

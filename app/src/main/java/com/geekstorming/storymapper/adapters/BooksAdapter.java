@@ -22,7 +22,7 @@ import com.github.ivbaranov.mli.MaterialLetterIcon;
 public class BooksAdapter extends ArrayAdapter<Book> {
 
     public BooksAdapter(@NonNull Context context) {
-        super(context, R.layout.item_book, BookRepository.getInstance().getBooks());
+        super(context, R.layout.item_books, BookRepository.getInstance().getBooks());
     }
 
     @NonNull
@@ -36,7 +36,7 @@ public class BooksAdapter extends ArrayAdapter<Book> {
             LayoutInflater inflador = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             // Inflate views
-            view = inflador.inflate(R.layout.item_book, null);
+            view = inflador.inflate(R.layout.item_books, null);
             bookHolder = new BookHolder();
 
             // Get views from layout
