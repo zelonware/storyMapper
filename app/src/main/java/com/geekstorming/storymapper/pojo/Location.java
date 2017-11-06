@@ -51,10 +51,6 @@ public class Location {
 
     @Override
     public String toString() {
-        return "Location{" +
-                "locationID=" + locationID +
-                ", characterName='" + locationName + '\'' +
-                ", locationDesc='" + locationDesc + '\'' +
-                '}';
+        return getLocationName();
     }
 }

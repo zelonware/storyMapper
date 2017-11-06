@@ -13,7 +13,7 @@ public class Faction {
     String factionName;
     String factionObjetive;
 
-    Location factionBarrack;
+    int factionBarrack;
 
     // Getters + Setters
 
@@ -41,17 +41,17 @@ public class Faction {
         this.factionObjetive = factionObjetive;
     }
 
-    public Location getFactionBarrack() {
+    public int getFactionBarrack() {
         return factionBarrack;
     }
 
-    public void setFactionBarrack(Location factionBarrack) {
+    public void setFactionBarrack(int factionBarrack) {
         this.factionBarrack = factionBarrack;
     }
 
     // Constructor
 
-    public Faction(int factionID, String factionName, String factionObjetive, Location factionBarrack) {
+    public Faction(int factionID, String factionName, String factionObjetive, int factionBarrack) {
         this.factionID = factionID;
         this.factionName = factionName;
         this.factionObjetive = factionObjetive;
@@ -62,11 +62,6 @@ public class Faction {
 
     @Override
     public String toString() {
-        return "Faction{" +
-                "factionID=" + factionID +
-                ", factionName='" + factionName + '\'' +
-                ", factionObjetive='" + factionObjetive + '\'' +
-                ", factionBarrack=" + factionBarrack +
-                '}';
+        return getFactionName();
     }
 }

@@ -9,6 +9,10 @@ import android.widget.Toast;
 
 import com.geekstorming.storymapper.pojo.Character;
 
+/**
+ * Editing an existing character
+ * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
+ */
 public class EditCharacterActivity extends AppCompatActivity {
 
     private TextInputEditText tID_CharacterName;

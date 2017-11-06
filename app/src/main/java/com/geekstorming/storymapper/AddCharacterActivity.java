@@ -7,10 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.geekstorming.storymapper.pojo.Location;
 import com.geekstorming.storymapper.repos.CharacterRepository;
+import com.geekstorming.storymapper.repos.FactionRepository;
+import com.geekstorming.storymapper.repos.LocationRepository;
 
+/**
+ * Adding new character
+ * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
+ */
 public class AddCharacterActivity extends AppCompatActivity {
 
     private TextInputEditText tID_CharacterName;
@@ -41,7 +49,16 @@ public class AddCharacterActivity extends AppCompatActivity {
 
     private void initializeSpinners()
     {
+        TextView txtV;
 
+        // Getting factions:
+
+            // Adapter needed!
+
+        // Getting locations:
+        for (int i = 0; i < LocationRepository.getInstance().getLocations().size(); i++)
+
+            // Adapter needed!
     }
 
     //endregion
