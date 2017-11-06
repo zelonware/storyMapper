@@ -56,9 +56,8 @@ public class AddCharacterActivity extends AppCompatActivity {
             // Adapter needed!
 
         // Getting locations:
-        for (int i = 0; i < LocationRepository.getInstance().getLocations().size(); i++)
 
-            // Adapter needed!
+        // Adapter needed!
     }
 
     //endregion
