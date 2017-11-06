@@ -35,7 +35,7 @@ public class CharactersActivity extends AppCompatActivity {
         fab_addCharacter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CharactersActivity.this, CharacterActivity.class));
+                startActivity(new Intent(CharactersActivity.this, AddCharacterActivity.class));
             }
         });
 

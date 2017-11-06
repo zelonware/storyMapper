@@ -30,8 +30,8 @@ public class CharacterRepository {
 
     private void initializeCharacters(){
 
-        addCharacter(new Character(1, "Lisbeth Salander", "Descripcion de Salander", 1));
-        addCharacter(new Character(2, "Miriam Wu", "Descripcion de Wu", 1));
+        addCharacter(new Character(1, "Lisbeth Salander", "Descripcion de Salander", 1, 1));
+        addCharacter(new Character(2, "Miriam Wu", "Descripcion de Wu", 1, 2));
     }
 
     private void addCharacter(Character c)

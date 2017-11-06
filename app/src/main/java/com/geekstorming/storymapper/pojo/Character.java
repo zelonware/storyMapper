@@ -14,6 +14,7 @@ public class Character {
     String characterDesc;
 
     int characterFaction;
+    int characterHome;
 
     // Getters + Setters
 
@@ -48,14 +49,22 @@ public class Character {
     public void setCharacterFaction(int characterFaction) {
         this.characterFaction = characterFaction;
     }
+    public int getCharacterHome() {
+        return characterHome;
+    }
+
+    public void setCharacterHome(int characterHome) {
+        this.characterHome = characterHome;
+    }
 
     // Constructor
 
-    public Character(int characterID, String characterName, String characterDesc, int characterFaction) {
+    public Character(int characterID, String characterName, String characterDesc, int characterFaction, int characterHome) {
         this.characterID = characterID;
         this.characterName = characterName;
         this.characterDesc = characterDesc;
         this.characterFaction = characterFaction;
+        this.characterHome = characterHome;
     }
 
     // toString()

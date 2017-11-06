@@ -117,18 +117,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtV_CharacterHome" />
 
-            <Button
-                android:id="@+id/btn_CharacterRelationShips"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="124dp"
-                android:layout_marginStart="125dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/btn_CharacterRelationShips"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spn_CharactersHome" />
-
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v4.widget.NestedScrollView>
@@ -142,6 +130,7 @@
         android:layout_marginEnd="16dp"
         android:elevation="6dp"
         app:pressedTranslationZ="12dp"
-        app:srcCompat="@drawable/ic_action_done" />
+        app:srcCompat="@drawable/ic_action_done"
+        android:onClick="onClick_AddCharacter"/>
 
 </android.support.design.widget.CoordinatorLayout>
