@@ -1,11 +1,14 @@
 package com.geekstorming.storymapper.pojo;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Character entity, acting and moving!
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
-public class Character {
+public class Character implements Parcelable {
 
     // Atts
 
@@ -67,6 +70,15 @@ public class Character {
         this.characterHome = characterHome;
     }
 
+    protected Character(Parcel in)
+    {
+        characterID = in.readInt();
+        characterName = in.readString();
+        characterDesc = in.readString();
+        characterFaction = in.readInt();
+        characterHome = in.readInt();
+    }
+
     // toString()
 
     @Override
@@ -77,5 +89,33 @@ public class Character {
                 ", characterDesc='" + characterDesc + '\'' +
                 ", characterFaction=" + characterFaction +
                 '}';
+    }
+
+    public static final Creator<Character> CREATOR = new Creator<Character>() {
+        @Override
+        public Character createFromParcel(Parcel in) {
+            return new Character(in);
+        }
+
+        @Override
+        public Character[] newArray(int size) {
+            return new Character[size];
+        }
+    };
+
+    // Parcelable methods
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(characterID);
+        dest.writeString(characterName);
+        dest.writeString(characterDesc);
+        dest.writeInt(characterFaction);
+        dest.writeInt(characterHome);
     }
 }

@@ -28,7 +28,7 @@ public class FactionRepository {
 
     // Methods
 
-    private void addFaction(Faction f) {
+    public void addFaction(Faction f) {
         factions.add(f);
     }
 

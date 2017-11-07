@@ -16,8 +16,8 @@
     <!-- Characters Activity -->
 
     <!-- Character Activity -->
-    <string name="txtV_CharacterName">Name</string>
-    <string name="txtV_CharacterDescription">Description</string>
+    <string name="tiD_CharacterName">Name</string>
+    <string name="tiD_CharacterDescription">Description</string>
     <string name="txtV_CharacterRelationships">Relationships</string>
     <string name="txtV_CharacterFaction">Faction:</string>
     <string name="txtV_CharactersHome">Home:</string>

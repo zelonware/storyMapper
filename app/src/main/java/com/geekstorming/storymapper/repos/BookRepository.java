@@ -36,7 +36,7 @@ public class BookRepository {
         addBook(new Book(4, "Crónicas de Argonath", "Fantasía", 50000));
     }
 
-    private void addBook(Book b)
+    public void addBook(Book b)
     {
         books.add(b);
     }

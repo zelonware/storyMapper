@@ -45,7 +45,7 @@
                     android:id="@+id/tID_CharacterName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/txtV_CharacterName" />
+                    android:hint="@string/tiD_CharacterName" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -64,7 +64,7 @@
                     android:id="@+id/tID_CharacterDescription"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:hint="@string/txtV_CharacterDescription"
+                    android:hint="@string/tiD_CharacterDescription"
                     android:inputType="textMultiLine" />
 
             </android.support.design.widget.TextInputLayout>
@@ -128,7 +128,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spn_CharactersHome"
-                android:onClick="onClick_AddCharacter"/>
+                android:onClick="onClick_EditCharacter"/>
 
         </android.support.constraint.ConstraintLayout>
 
@@ -144,6 +144,6 @@
         android:elevation="6dp"
         app:pressedTranslationZ="12dp"
         app:srcCompat="@drawable/ic_action_done"
-        android:onClick="onClick_AddCharacter"/>
+        android:onClick="onClick_EditCharacter"/>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -34,7 +34,7 @@ public class CharacterRepository {
         addCharacter(new Character(2, "Miriam Wu", "Descripcion de Wu", 1, 2));
     }
 
-    private void addCharacter(Character c)
+    public void addCharacter(Character c)
     {
         characters.add(c);
     }

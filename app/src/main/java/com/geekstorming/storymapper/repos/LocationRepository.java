@@ -34,7 +34,7 @@ public class LocationRepository {
         addLocation(new Location(3, "Location 3", "Description 3"));
     }
 
-    private void addLocation(Location l) {
+    public void addLocation(Location l) {
         locations.add(l);
     }
 

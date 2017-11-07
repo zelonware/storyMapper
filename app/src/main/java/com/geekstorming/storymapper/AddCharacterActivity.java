@@ -10,6 +10,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.geekstorming.storymapper.adapters.FactionAdapter;
+import com.geekstorming.storymapper.adapters.LocationAdapter;
+import com.geekstorming.storymapper.pojo.Character;
 import com.geekstorming.storymapper.pojo.Location;
 import com.geekstorming.storymapper.repos.CharacterRepository;
 import com.geekstorming.storymapper.repos.FactionRepository;
@@ -49,15 +52,14 @@ public class AddCharacterActivity extends AppCompatActivity {
 
     private void initializeSpinners()
     {
-        TextView txtV;
-
         // Getting factions:
-
-            // Adapter needed!
+        // Adapter needed!
+        spn_CharacterFaction.setAdapter(new FactionAdapter(this));
 
         // Getting locations:
 
         // Adapter needed!
+        spn_CharacterHome.setAdapter(new LocationAdapter(this));
     }
 
     //endregion
@@ -71,12 +73,12 @@ public class AddCharacterActivity extends AppCompatActivity {
                 spn_CharacterHome.getSelectedItemPosition() != -1)
         {
             // Adding character to repository
-            /*
-            new Character(1, tID_CharacterName.getText().toString(), tID_CharacterDescription.getText().toString(),
-                FactionRepository.getInstance().getFactions().get(spn_CharacterFaction.getSelectedItemPosition())
-                 LocationRepository.getInstance().getLocations().get(spn_CharacterHome.getSelectedItemPosition())
-                 );
-            */
+
+            CharacterRepository.getInstance().addCharacter(new Character(1,  tID_CharacterName.getText().toString(),
+                   tID_CharacterDescription.getText().toString(),
+                    FactionRepository.getInstance().getFactions().get(spn_CharacterFaction.getSelectedItemPosition()).getFactionID(),
+                    LocationRepository.getInstance().getLocations().get(spn_CharacterHome.getSelectedItemPosition()).getLocationID()));
+
             Toast.makeText(this, "Añadiendo personaje...", Toast.LENGTH_SHORT).show();
         }
         else
