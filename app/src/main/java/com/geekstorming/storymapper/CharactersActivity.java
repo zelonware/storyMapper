@@ -55,8 +55,16 @@ public class CharactersActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
+        // Getting adapter
+        characterAdapter = new CharacterAdapter();
 
+        // Setting adapter
+        recyclerV_Characters.setAdapter(characterAdapter);
     }
 }

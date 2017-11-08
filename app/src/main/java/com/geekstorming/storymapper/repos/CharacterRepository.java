@@ -32,6 +32,14 @@ public class CharacterRepository {
 
         addCharacter(new Character(1, "Lisbeth Salander", "Descripcion de Salander", 1, 1));
         addCharacter(new Character(2, "Miriam Wu", "Descripcion de Wu", 1, 2));
+        addCharacter(new Character(3, "Noelia Eklund", "Descripcion de Noelia", 1, 2));
+        addCharacter(new Character(4, "Rayan Norberg", "Descripcion de Rayan", 1, 2));
+        addCharacter(new Character(5, "Flora Nyberg", "Descripcion de Flora", 1, 2));
+        addCharacter(new Character(6, "Joacim Andreasson", "Descripcion de Joacim", 1, 2));
+        addCharacter(new Character(7, "Tina Samuelsson", "Descripcion de Tina", 1, 2));
+        addCharacter(new Character(8, "Beatrice Larsson", "Descripcion de Beatrice", 1, 2));
+        addCharacter(new Character(9, "Amelia Söderberg", "Descripcion de Amelia", 1, 2));
+        addCharacter(new Character(10, "Johanna Mårtensson", "Descripcion de Johanna", 1, 2));
     }
 
     public void addCharacter(Character c)

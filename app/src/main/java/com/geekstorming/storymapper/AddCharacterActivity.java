@@ -42,7 +42,7 @@ public class AddCharacterActivity extends AppCompatActivity {
 
     private void initializeViews()
     {
-        tID_CharacterName = (TextInputEditText) findViewById(R.id.tID_CharacterName);
+        tID_CharacterName = (TextInputEditText) findViewById(R.id.tiD_CharacterName);
         tID_CharacterDescription = (TextInputEditText) findViewById(R.id.tID_CharacterDescription);
         spn_CharacterFaction = (Spinner) findViewById(R.id.spn_CharacterFaction);
         spn_CharacterHome = (Spinner) findViewById(R.id.spn_CharactersHome);
@@ -75,9 +75,12 @@ public class AddCharacterActivity extends AppCompatActivity {
             // Adding character to repository
 
             CharacterRepository.getInstance().addCharacter(new Character(1,  tID_CharacterName.getText().toString(),
-                   tID_CharacterDescription.getText().toString(),
+                   tID_CharacterDescription.getText().toString(), spn_CharacterFaction.getSelectedItemPosition(),
+                    spn_CharacterFaction.getSelectedItemPosition()
+                    /*
                     FactionRepository.getInstance().getFactions().get(spn_CharacterFaction.getSelectedItemPosition()).getFactionID(),
-                    LocationRepository.getInstance().getLocations().get(spn_CharacterHome.getSelectedItemPosition()).getLocationID()));
+                    LocationRepository.getInstance().getLocations().get(spn_CharacterHome.getSelectedItemPosition()).getLocationID())
+                    */));
 
             Toast.makeText(this, "Añadiendo personaje...", Toast.LENGTH_SHORT).show();
         }
