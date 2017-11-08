@@ -39,7 +39,13 @@ public class CharactersActivity extends AppCompatActivity {
         recyclerV_Characters.setLayoutManager(new LinearLayoutManager(this));
 
         // Getting adapter
-        characterAdapter = new CharacterAdapter(savedInstanceState.<Character>getParcelableArrayList("character"));
+        characterAdapter = new CharacterAdapter();
+
+        // Setting adapter
+        recyclerV_Characters.setAdapter(characterAdapter);
+
+        // Setting toolbar
+        setSupportActionBar(toolBar_Characters);
 
         // Lets create new character!
         fab_addCharacter.setOnClickListener(new View.OnClickListener() {
@@ -49,10 +55,8 @@ public class CharactersActivity extends AppCompatActivity {
             }
         });
 
-        // Setting toolbar
-        setSupportActionBar(toolBar_Characters);
-        // Setting adapter
-        recyclerV_Characters.setAdapter(characterAdapter);
+
+
 
     }
 }
