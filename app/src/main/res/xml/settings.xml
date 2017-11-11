@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/pref_category_general">
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="showimage"
+        android:summary="@string/pref_description_nightmode"
+        android:summaryOff="@string/pref_off_nightmode"
+        android:summaryOn="@string/pref_on_nightmode"
+        android:title="@string/pref_title_nighmode"/>
+
+    </PreferenceCategory>
+
+        <Preference
+        android:key="aboutus"
+        android:title="@string/pref_title_aboutme">
+
+        <intent android:targetClass="com.geekstorming.storymapper.AboutActivity"
+            android:targetPackage="com.geekstorming.storymapper"/>
+
+    </Preference>
+
+</PreferenceScreen>

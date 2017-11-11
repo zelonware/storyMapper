@@ -22,4 +22,14 @@
     <string name="txtV_CharacterFaction">Faction:</string>
     <string name="txtV_CharactersHome">Home:</string>
     <string name="btn_CharacterRelationShips">See relationships</string>
+
+    <!-- Settings -->
+    <string name="pref_category_general">Preferences</string>
+
+    <string name="pref_description_nightmode">Dark theme, night night!</string>
+    <string name="pref_title_nighmode">Set night mode</string>
+    <string name="pref_off_nightmode">Night mode off</string>
+    <string name="pref_on_nightmode">Night mode on</string>
+
+    <string name="pref_title_aboutme">About me</string>
 </resources>
