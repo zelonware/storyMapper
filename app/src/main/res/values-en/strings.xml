@@ -24,6 +24,8 @@
     <string name="btn_CharacterRelationShips">See relationships</string>
 
     <!-- Settings -->
+    <string name="action_settings">See preferences</string>
+
     <string name="pref_category_general">Preferences</string>
 
     <string name="pref_description_nightmode">Dark theme, night night!</string>
