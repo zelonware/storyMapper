@@ -3,9 +3,11 @@ package com.geekstorming.storymapper.repos;
 import com.geekstorming.storymapper.pojo.Character;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Character repository, character list
+ *
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
@@ -20,15 +22,14 @@ public class CharacterRepository {
         characterRepository = new CharacterRepository();
     }
 
-    private CharacterRepository()
-    {
+    private CharacterRepository() {
         characters = new ArrayList<>();
         initializeCharacters();
     }
 
     // Methods
 
-    private void initializeCharacters(){
+    private void initializeCharacters() {
 
         addCharacter(new Character(1, "Lisbeth Salander", "Descripcion de Salander", 1, 1));
         addCharacter(new Character(2, "Miriam Wu", "Descripcion de Wu", 1, 2));
@@ -42,18 +43,17 @@ public class CharacterRepository {
         addCharacter(new Character(10, "Johanna Mårtensson", "Descripcion de Johanna", 1, 2));
     }
 
-    public void addCharacter(Character c)
-    {
+    public void addCharacter(Character c) {
         characters.add(c);
     }
 
-    public ArrayList<Character> getCharacters()
-    {
+    public ArrayList<Character> getCharacters() {
+
+        Collections.sort(characters);
         return characters;
     }
 
-    public static CharacterRepository getInstance()
-    {
+    public static CharacterRepository getInstance() {
         return characterRepository;
     }
 }

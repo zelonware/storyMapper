@@ -2,13 +2,14 @@ package com.geekstorming.storymapper.pojo;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
 /**
  * Character entity, acting and moving!
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
-public class Character implements Parcelable {
+public class Character implements Parcelable, Comparable {
 
     // Atts
 
@@ -117,5 +118,10 @@ public class Character implements Parcelable {
         dest.writeString(characterDesc);
         dest.writeInt(characterFaction);
         dest.writeInt(characterHome);
+    }
+
+    @Override
+    public int compareTo(@NonNull Object o) {
+        return characterName.compareTo(((Character)o).getCharacterName());
     }
 }

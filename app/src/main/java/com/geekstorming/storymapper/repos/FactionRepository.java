@@ -3,6 +3,7 @@ package com.geekstorming.storymapper.repos;
 import com.geekstorming.storymapper.pojo.Faction;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Faction repository, faction list
@@ -44,6 +45,8 @@ public class FactionRepository {
     }
 
     public ArrayList<Faction> getFactions() {
+
+        Collections.sort(factions);
         return factions;
     }
 }

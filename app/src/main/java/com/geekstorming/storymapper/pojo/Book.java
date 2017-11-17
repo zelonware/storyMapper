@@ -1,11 +1,13 @@
 package com.geekstorming.storymapper.pojo;
 
+import android.support.annotation.NonNull;
+
 /**
  * Book entity, creative project
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
-public class Book {
+public class Book implements Comparable {
 
     // Atts
 
@@ -67,5 +69,10 @@ public class Book {
                 ", bookGenre='" + bookGenre + '\'' +
                 ", nWords=" + nWords +
                 '}';
+    }
+
+    @Override
+    public int compareTo(@NonNull Object o) {
+        return bookTitle.compareTo(((Book)o).getBookTitle());
     }
 }

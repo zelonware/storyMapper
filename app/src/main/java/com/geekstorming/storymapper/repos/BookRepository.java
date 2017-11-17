@@ -3,6 +3,7 @@ package com.geekstorming.storymapper.repos;
 import com.geekstorming.storymapper.pojo.Book;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Books repository, book list
@@ -41,8 +42,8 @@ public class BookRepository {
         books.add(b);
     }
 
-    public ArrayList<Book> getBooks()
-    {
+    public ArrayList<Book> getBooks() {
+        Collections.sort(books);
         return books;
     }
 

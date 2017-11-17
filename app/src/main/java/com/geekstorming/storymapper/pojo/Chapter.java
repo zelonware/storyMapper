@@ -1,11 +1,13 @@
 package com.geekstorming.storymapper.pojo;
 
+import android.support.annotation.NonNull;
+
 /**
  * Chapter entity
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
-public class Chapter {
+public class Chapter implements Comparable {
 
     // Atts
 
@@ -57,5 +59,10 @@ public class Chapter {
                 ", chapterName='" + chapterName + '\'' +
                 ", storyProgress='" + storyProgress + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(@NonNull Object o) {
+        return chapterName.compareTo(((Chapter)o).getChapterName());
     }
 }

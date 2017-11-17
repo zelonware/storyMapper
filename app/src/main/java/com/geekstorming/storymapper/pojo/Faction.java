@@ -1,11 +1,13 @@
 package com.geekstorming.storymapper.pojo;
 
+import android.support.annotation.NonNull;
+
 /**
  * Faction entity
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
-public class Faction {
+public class Faction implements Comparable {
 
     // Atts
 
@@ -63,5 +65,10 @@ public class Faction {
     @Override
     public String toString() {
         return getFactionName();
+    }
+
+    @Override
+    public int compareTo(@NonNull Object o) {
+        return factionName.compareTo(((Faction)o).getFactionName());
     }
 }

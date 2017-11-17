@@ -1,5 +1,7 @@
 package com.geekstorming.storymapper.pojo;
 
+import android.support.annotation.NonNull;
+
 /**
  * Entidad Scene, para organizar eventos
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos

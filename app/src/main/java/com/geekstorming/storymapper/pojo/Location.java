@@ -1,11 +1,13 @@
 package com.geekstorming.storymapper.pojo;
 
+import android.support.annotation.NonNull;
+
 /**
  * Entidad Location, para refugiar a personajes y acoger facciones
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
-public class Location {
+public class Location implements Comparable {
 
     // Atts
 
@@ -52,5 +54,10 @@ public class Location {
     @Override
     public String toString() {
         return getLocationName();
+    }
+
+    @Override
+    public int compareTo(@NonNull Object o) {
+        return locationName.compareTo(((Location)o).getLocationName());
     }
 }

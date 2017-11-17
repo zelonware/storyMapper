@@ -3,6 +3,7 @@ package com.geekstorming.storymapper.repos;
 import com.geekstorming.storymapper.pojo.Location;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Location repository, location list
@@ -43,6 +44,7 @@ public class LocationRepository {
     }
 
     public ArrayList<Location> getLocations() {
+        Collections.sort(locations);
         return locations;
     }
 }
