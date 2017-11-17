@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context="com.geekstorming.storymapper.AddBookActivity">
+    tools:context=".ui.books.AddBookActivity">
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
@@ -48,7 +48,7 @@
                         android:id="@+id/tID_BookName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Titulo"/>
+                        android:hint="@string/tID_bookTitle"/>
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -67,7 +67,7 @@
                         android:id="@+id/tID_BookDesc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Desc"/>
+                        android:hint="@string/tID_bookDescription"/>
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -78,7 +78,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:text="Genero"
+                    android:text="@string/spn_Genre"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -110,7 +110,7 @@
                         android:id="@+id/tID_nWords"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Numero de palabras"
+                        android:hint="@string/tID_nWords"
                         android:inputType="number"
                         android:maxLength="6"/>
 

@@ -1,6 +1,4 @@
-package com.geekstorming.storymapper.pojo;
-
-import android.support.annotation.NonNull;
+package com.geekstorming.storymapper.data.pojo;
 
 /**
  * Entidad Scene, para organizar eventos

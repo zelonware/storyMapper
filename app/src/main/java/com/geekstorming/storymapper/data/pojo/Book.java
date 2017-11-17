@@ -1,5 +1,7 @@
-package com.geekstorming.storymapper.pojo;
+package com.geekstorming.storymapper.data.pojo;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
 /**
@@ -7,12 +9,13 @@ import android.support.annotation.NonNull;
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
-public class Book implements Comparable {
+public class Book implements Parcelable, Comparable {
 
     // Atts
 
     int bookID;
     String bookTitle;
+    String bookDesc;
     String bookGenre;
     int nWords;
 
@@ -28,6 +31,14 @@ public class Book implements Comparable {
 
     public String getBookTitle() {
         return bookTitle;
+    }
+
+    public String getBookDesc() {
+        return bookDesc;
+    }
+
+    public void setBookDesc(String bookDesc) {
+        this.bookDesc = bookDesc;
     }
 
     public void setBookTitle(String bookTitle) {
@@ -52,12 +63,34 @@ public class Book implements Comparable {
 
     // Constructor
 
-    public Book(int bookID, String bookTitle, String bookGenre, int nWords) {
+    public Book(int bookID, String bookTitle, String bookDesc, String bookGenre, int nWords) {
         this.bookID = bookID;
         this.bookTitle = bookTitle;
+        this.bookDesc = bookDesc;
         this.bookGenre = bookGenre;
         this.nWords = nWords;
     }
+
+    protected Book(Parcel in)
+    {
+        this.bookID = in.readInt();
+        this.bookTitle = in.readString();
+        this.bookDesc = in.readString();
+        this.bookGenre = in.readString();
+        this.nWords = in.readInt();
+    }
+
+    public static final Creator<Book> CREATOR = new Creator<Book>() {
+        @Override
+        public Book createFromParcel(Parcel in) {
+            return new Book(in);
+        }
+
+        @Override
+        public Book[] newArray(int size) {
+            return new Book[size];
+        }
+    };
 
     // toString()
 
@@ -74,5 +107,21 @@ public class Book implements Comparable {
     @Override
     public int compareTo(@NonNull Object o) {
         return bookTitle.compareTo(((Book)o).getBookTitle());
+    }
+
+    // Parcelable methods
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(bookID);
+        dest.writeString(bookTitle);
+        dest.writeString(bookDesc);
+        dest.writeString(bookGenre);
+        dest.writeInt(nWords);
     }
 }

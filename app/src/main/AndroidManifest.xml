@@ -9,22 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity"/>
-        <activity android:name=".BooksActivity" >
+        <activity android:name=".ui.login.LoginActivity"/>
+        <activity android:name=".ui.books.BooksActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".CharactersActivity">
-
+        <activity android:name=".ui.characters.CharactersActivity">
         </activity>
-        <activity android:name=".AddCharacterActivity"/>
-        <activity android:name=".EditCharacterActivity"/>
-        <activity android:name=".AboutActivity"/>
-        <activity android:name=".settings.SettingsActivity"/>
-        <activity android:name=".AddBookActivity">
+        <activity android:name=".ui.characters.AddCharacterActivity"/>
+        <activity android:name=".ui.characters.EditCharacterActivity"/>
+        <activity android:name=".ui.about.AboutActivity"/>
+        <activity android:name=".ui.settings.SettingsActivity"/>
+        <activity android:name=".ui.books.AddBookActivity">
+        </activity>
+        <activity android:name=".ui.books.EditBookActivity">
         </activity>
     </application>
 

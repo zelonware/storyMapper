@@ -1,4 +1,4 @@
-package com.geekstorming.storymapper;
+package com.geekstorming.storymapper.ui.characters;
 
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
@@ -7,31 +7,29 @@ import android.view.View;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.adapters.FactionAdapter;
 import com.geekstorming.storymapper.adapters.LocationAdapter;
-import com.geekstorming.storymapper.pojo.Character;
-import com.geekstorming.storymapper.repos.FactionRepository;
-import com.geekstorming.storymapper.repos.LocationRepository;
+import com.geekstorming.storymapper.data.pojo.Character;
+import com.geekstorming.storymapper.data.repos.CharacterRepository;
 
 /**
- * Editing an existing character
+ * Adding new character
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
-public class EditCharacterActivity extends AppCompatActivity {
+public class AddCharacterActivity extends AppCompatActivity {
 
     private TextInputEditText tID_CharacterName;
     private TextInputEditText tID_CharacterDescription;
     private Spinner spn_CharacterFaction;
     private Spinner spn_CharacterHome;
 
-    Character editableCharacter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_character);
+        setContentView(R.layout.activity_add_character);
 
-        // Load character from Bundle
+        initializeViews();
 
     }
 
@@ -39,7 +37,7 @@ public class EditCharacterActivity extends AppCompatActivity {
 
     private void initializeViews()
     {
-        tID_CharacterName = (TextInputEditText) findViewById(R.id.tID_CharacterName);
+        tID_CharacterName = (TextInputEditText) findViewById(R.id.tiD_CharacterName);
         tID_CharacterDescription = (TextInputEditText) findViewById(R.id.tID_CharacterDescription);
         spn_CharacterFaction = (Spinner) findViewById(R.id.spn_CharacterFaction);
         spn_CharacterHome = (Spinner) findViewById(R.id.spn_CharactersHome);
@@ -61,27 +59,40 @@ public class EditCharacterActivity extends AppCompatActivity {
 
     //endregion
 
-    private void editCharacterToRepository() {
+    //region Adding character to repository
+
+    private void addCharacterToRepository()
+    {
         if (tID_CharacterDescription.length() != 0 && tID_CharacterName.length() != 0 &&
                 spn_CharacterFaction.getSelectedItemPosition() != -1 &&
-                spn_CharacterHome.getSelectedItemPosition() != -1) {
+                spn_CharacterHome.getSelectedItemPosition() != -1)
+        {
+            // Adding character to repository
 
-            editableCharacter.setCharacterDesc(tID_CharacterDescription.getText().toString());
-            editableCharacter.setCharacterName(tID_CharacterName.getText().toString());
-            editableCharacter.setCharacterFaction(FactionRepository.getInstance().getFactions().get(spn_CharacterFaction.getSelectedItemPosition()).getFactionID());
-            editableCharacter.setCharacterHome(LocationRepository.getInstance().getLocations().get(spn_CharacterHome.getSelectedItemPosition()).getLocationID());
+            CharacterRepository.getInstance().addCharacter(new Character(1,  tID_CharacterName.getText().toString(),
+                   tID_CharacterDescription.getText().toString(), spn_CharacterFaction.getSelectedItemPosition(),
+                    spn_CharacterFaction.getSelectedItemPosition()
+                    /*
+                    FactionRepository.getInstance().getFactions().get(spn_CharacterFaction.getSelectedItemPosition()).getFactionID(),
+                    LocationRepository.getInstance().getLocations().get(spn_CharacterHome.getSelectedItemPosition()).getLocationID())
+                    */));
 
-            Toast.makeText(this, "Modificando personaje personaje...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Añadiendo personaje...", Toast.LENGTH_SHORT).show();
         }
-        else {
+        else
+        {
             Toast.makeText(this, "¿Faltan datos de personajes?", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void onClick_EditCharacter(View v) {
-        switch (v.getId()) {
-            case R.id.fab_CharacterCorrect:
-                editCharacterToRepository();
+    //endregion
+
+    public void onClick_AddCharacter(View v)
+    {
+        switch (v.getId())
+        {
+            case R.id.fab_CharacterDone:
+                addCharacterToRepository();
                 break;
             case R.id.btn_CharacterRelationShips:
                 break;

@@ -4,8 +4,8 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.widget.ArrayAdapter;
 
-import com.geekstorming.storymapper.pojo.Location;
-import com.geekstorming.storymapper.repos.LocationRepository;
+import com.geekstorming.storymapper.data.pojo.Location;
+import com.geekstorming.storymapper.data.repos.LocationRepository;
 
 /**
  * Location Adapter

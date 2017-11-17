@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.geekstorming.storymapper.R;
-import com.geekstorming.storymapper.pojo.Character;
-import com.geekstorming.storymapper.repos.CharacterRepository;
+import com.geekstorming.storymapper.data.pojo.Character;
+import com.geekstorming.storymapper.data.repos.CharacterRepository;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
 import java.util.ArrayList;

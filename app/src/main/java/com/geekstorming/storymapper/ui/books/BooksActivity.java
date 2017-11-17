@@ -1,6 +1,5 @@
-package com.geekstorming.storymapper;
+package com.geekstorming.storymapper.ui.books;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,10 +9,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.adapters.BooksAdapter;
-import com.geekstorming.storymapper.settings.SettingsActivity;
+import com.geekstorming.storymapper.data.repos.BookRepository;
+import com.geekstorming.storymapper.ui.settings.SettingsActivity;
 
 /**
  * Books Activity
@@ -33,7 +35,18 @@ public class BooksActivity extends AppCompatActivity {
 
         fab_AddBook = (FloatingActionButton) findViewById(R.id.fab_Books);
         toolBar_Projects = (Toolbar) findViewById(R.id.toolbar_Books);
+
+        // Setting listView
         bookList = (ListView) findViewById(android.R.id.list);
+        bookList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(BooksActivity.this, EditBookActivity.class);
+
+                intent.putExtra("editableBook", BookRepository.getInstance().getBooks().get(position));
+                startActivity(intent);
+            }
+        });
 
         fab_AddBook.setOnClickListener(new View.OnClickListener() {
             @Override

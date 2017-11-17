@@ -1,4 +1,4 @@
-package com.geekstorming.storymapper.pojo;
+package com.geekstorming.storymapper.data.pojo;
 
 import android.support.annotation.NonNull;
 

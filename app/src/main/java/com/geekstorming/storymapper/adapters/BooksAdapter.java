@@ -10,8 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.geekstorming.storymapper.R;
-import com.geekstorming.storymapper.pojo.Book;
-import com.geekstorming.storymapper.repos.BookRepository;
+import com.geekstorming.storymapper.data.pojo.Book;
+import com.geekstorming.storymapper.data.repos.BookRepository;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
 /**

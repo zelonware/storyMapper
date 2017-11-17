@@ -1,4 +1,4 @@
-package com.geekstorming.storymapper.pojo;
+package com.geekstorming.storymapper.data.pojo;
 
 import android.os.Parcel;
 import android.os.Parcelable;

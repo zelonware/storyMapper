@@ -1,9 +1,12 @@
-package com.geekstorming.storymapper;
+package com.geekstorming.storymapper.ui.login;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.geekstorming.storymapper.R;
+import com.geekstorming.storymapper.ui.books.BooksActivity;
 
 /**
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos

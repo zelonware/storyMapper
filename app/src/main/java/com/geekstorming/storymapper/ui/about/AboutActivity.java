@@ -1,8 +1,10 @@
-package com.geekstorming.storymapper;
+package com.geekstorming.storymapper.ui.about;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.geekstorming.storymapper.R;
 
 import mehdi.sakout.aboutpage.AboutPage;
 

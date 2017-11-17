@@ -1,6 +1,6 @@
-package com.geekstorming.storymapper.repos;
+package com.geekstorming.storymapper.data.repos;
 
-import com.geekstorming.storymapper.pojo.Faction;
+import com.geekstorming.storymapper.data.pojo.Faction;
 
 import java.util.ArrayList;
 import java.util.Collections;

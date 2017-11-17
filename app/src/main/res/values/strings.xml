@@ -11,6 +11,11 @@
     <!-- Books Activity -->
     <string name="title_Books">Proyectos</string>
     <string name="title_Characters">Personajes</string>
+    <string name="tID_bookTitle">Titulo</string>
+    <string name="tID_bookDescription">Descripcion</string>
+    <string name="spn_Genre">Genero</string>
+    <string name="tID_nWords">Número de palabras</string>
+    <string name="btn_seeCharacters">Ver personajes</string>
 
     <!-- Characters Activity -->
 

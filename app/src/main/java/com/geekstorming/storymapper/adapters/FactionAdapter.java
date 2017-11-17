@@ -4,8 +4,8 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.widget.ArrayAdapter;
 
-import com.geekstorming.storymapper.pojo.Faction;
-import com.geekstorming.storymapper.repos.FactionRepository;
+import com.geekstorming.storymapper.data.pojo.Faction;
+import com.geekstorming.storymapper.data.repos.FactionRepository;
 
 /**
  * Faction Adapter

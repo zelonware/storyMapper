@@ -1,4 +1,4 @@
-package com.geekstorming.storymapper;
+package com.geekstorming.storymapper.ui.characters;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -9,8 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.adapters.CharacterAdapter;
-import com.geekstorming.storymapper.pojo.Character;
 
 /**
  * Character Activity
