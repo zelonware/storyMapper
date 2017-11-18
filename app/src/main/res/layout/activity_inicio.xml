@@ -1,99 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    android:padding="@dimen/lly_login_padding"
+    android:weightSum="1"
     tools:context=".ui.login.LoginActivity">
 
-    <android.support.constraint.Guideline
-        android:id="@+id/gL_Login"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/txtV_SignIn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:layout_marginBottom="@dimen/txtV_SignIn_marginBottom"
+        android:layout_weight="0.07"
+        android:text="@string/txtV_SignIn"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse" />
 
     <TextView
-        android:id="@+id/txtV_Username"
-        android:layout_width="wrap_content"
+        android:id="@+id/txtV_User"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/txtV_Username"
-        app:layout_constraintLeft_toLeftOf="@+id/gL_Login"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_weight="0.06"
+        android:labelFor="@+id/edT_User"
+        android:text="@string/txtV_User"
+        android:textAppearance="@android:style/TextAppearance.Medium.Inverse" />
 
     <EditText
-        android:id="@+id/edT_Username"
-        android:layout_width="wrap_content"
+        android:id="@+id/edT_User"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintLeft_toLeftOf="@+id/txtV_Username"
-        app:layout_constraintTop_toBottomOf="@+id/txtV_Username" />
+        android:layout_marginBottom="@dimen/edT_User_marginBottom"
+        android:background="@drawable/shapeedittexts"
+        android:inputType="text" />
 
     <TextView
-        android:id="@+id/txtV_Passwd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/txtV_Passwd"
-        app:layout_constraintLeft_toLeftOf="@+id/gL_Login"
-        app:layout_constraintTop_toBottomOf="@+id/edT_Username" />
+        android:id="@+id/txtV_Passw"
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:labelFor="@+id/edT_Passw"
+        android:text="@string/txtV_Password"
+        android:textAppearance="@android:style/TextAppearance.Medium.Inverse" />
 
     <EditText
-        android:id="@+id/edT_Passwd"
-        android:layout_width="wrap_content"
+        android:id="@+id/edT_Passw"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintHorizontal_bias="0.055"
-        app:layout_constraintLeft_toLeftOf="@+id/gL_Login"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtV_Passwd" />
+        android:background="@drawable/shapeedittexts"
+        android:inputType="textPassword" />
 
-    <CheckBox
-        android:id="@+id/chkB_RememberMe"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/lly_SignOptions"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/chkB_RememberMe"
-        app:layout_constraintLeft_toLeftOf="@+id/edT_Passwd"
-        app:layout_constraintTop_toBottomOf="@+id/edT_Passwd" />
+        android:orientation="horizontal"
+        android:padding="@dimen/lly_SignOptions_padding">
+
+        <CheckBox
+            android:id="@+id/chkB_Remember"
+            style="@style/CheckBox_RememberMe"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:text="@string/btn_Remember" />
+
+        <TextView
+            android:id="@+id/txtV_SignUp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/btn_SignUp"
+            android:textAppearance="@android:style/TextAppearance.Small.Inverse" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_SignIn"
-        android:layout_width="wrap_content"
+        style="@style/Widget.Button.Transparent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/btn_SignIn_marginBottom"
+        android:background="@color/colorFacebook"
         android:onClick="onClick_EnterApp"
-        android:text="@string/btn_SignIn"
-        app:layout_constraintLeft_toLeftOf="@+id/gL_Login"
-        app:layout_constraintTop_toBottomOf="@+id/chkB_RememberMe" />
+        android:text="@string/btn_SignIn" />
 
     <Button
-        android:id="@+id/btn_SignUp"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_GoogleLogin"
+        style="@style/Widget.Button.Transparent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="26dp"
-        android:layout_marginTop="0dp"
-        android:text="@string/btn_SignUp"
-        app:layout_constraintLeft_toRightOf="@+id/btn_SignIn"
-        app:layout_constraintTop_toTopOf="@+id/btn_SignIn" />
+        android:background="@color/colorGoogle"
+        android:drawableLeft="@drawable/ic_google"
+        android:drawableStart="@drawable/ic_google"
+        android:text="@string/btn_GoogleSign" />
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/btn_FbLogin"
+        style="@style/Widget.Button.Transparent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorFacebook"
+        android:drawableLeft="@drawable/ic_facebook"
+        android:drawableStart="@drawable/ic_facebook"
+        android:text="@string/btn_FBSign" />
+</LinearLayout>

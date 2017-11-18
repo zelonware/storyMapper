@@ -2,10 +2,13 @@
     <string name="app_name">StoryMapper</string>
 
     <!-- Login Activity -->
-    <string name="txtV_Username">Nombre de usuario:</string>
-    <string name="txtV_Passwd">Contraseña:</string>
-    <string name="chkB_RememberMe">Recordar contraseña</string>
-    <string name="btn_SignIn">Entrar</string>
+    <string name="txtV_SignIn">Acceder</string>
+    <string name="txtV_User">Nombre de usuario / Correo electrónico</string>
+    <string name="txtV_Password">Contraseña</string>
+    <string name="btn_SignIn">Acceder</string>
+    <string name="btn_GoogleSign">Acceder con Google+</string>
+    <string name="btn_FBSign">Acceder con Facebook</string>
+    <string name="btn_Remember"><u>Recuerdame</u></string>
     <string name="btn_SignUp">Registrarme</string>
 
     <!-- Books Activity -->

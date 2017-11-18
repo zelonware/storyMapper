@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     tools:context=".ui.books.EditBookActivity">
 
@@ -48,7 +47,7 @@
                     android:id="@+id/tID_BookName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/tID_bookTitle"/>
+                    android:hint="@string/tID_bookTitle" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -67,7 +66,7 @@
                     android:id="@+id/tID_BookDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/tID_bookDescription"/>
+                    android:hint="@string/tID_bookDescription" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -82,7 +81,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tIL_BookDesc"/>
+                app:layout_constraintTop_toBottomOf="@+id/tIL_BookDesc" />
 
             <Spinner
                 android:id="@+id/spn_Genre"
@@ -112,22 +111,23 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/tID_nWords"
                     android:inputType="number"
-                    android:maxLength="6"/>
+                    android:maxLength="6" />
 
             </android.support.design.widget.TextInputLayout>
 
 
             <Button
                 android:id="@+id/btn_SeeCharacters"
-                android:layout_width="match_parent"
+                android:layout_width="199dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="32dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
+                android:onClick="onClick_editBook"
                 android:text="@string/btn_seeCharacters"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tIL_nWords"/>
+                app:layout_constraintTop_toBottomOf="@+id/tIL_nWords" />
 
         </android.support.constraint.ConstraintLayout>
 
@@ -144,6 +144,6 @@
         android:elevation="6dp"
         android:onClick="onClick_editBook"
         app:pressedTranslationZ="12dp"
-        app:srcCompat="@drawable/ic_action_done"/>
+        app:srcCompat="@drawable/ic_action_done" />
 
 </android.support.design.widget.CoordinatorLayout>

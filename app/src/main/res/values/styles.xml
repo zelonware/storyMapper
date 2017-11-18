@@ -8,4 +8,18 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Widget" parent="@android:style/Widget"/>
+    <style name="Widget.Button" parent="@android:style/Widget"/>
+    <style name="Widget.Button.Transparent" parent="@android:style/Widget">
+        <item name="android:background">@null</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+    <style name="CheckBox_RememberMe" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:checkboxStyle">@android:color/darker_gray</item>
+    </style>
+
 </resources>
