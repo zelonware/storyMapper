@@ -20,7 +20,7 @@
         <activity android:name=".ui.characters.CharactersActivity"/>
         <activity android:name=".ui.characters.AddCharacterActivity" />
         <activity android:name=".ui.characters.EditCharacterActivity" />
-        <activity android:name=".ui.about.AboutActivity" />
+        <activity android:name=".AboutActivity" />
         <activity android:name=".ui.settings.SettingsActivity" />
         <activity android:name=".ui.books.AddBookActivity"/>
         <activity android:name=".ui.books.EditBookActivity"/>
