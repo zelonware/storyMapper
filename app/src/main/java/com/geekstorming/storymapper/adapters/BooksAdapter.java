@@ -40,7 +40,7 @@ public class BooksAdapter extends ArrayAdapter<Book> {
             bookHolder = new BookHolder();
 
             // Get views from layout
-            bookHolder.txtV_BookName = (TextView) view.findViewById(R.id.txtV_BookName);
+            bookHolder.txtV_BookName = (TextView) view.findViewById(R.id.txtV_LocationName);
             bookHolder.txtV_BookGenre = (TextView) view.findViewById(R.id.txtV_BookGenre);
             bookHolder.bookIcon = (MaterialLetterIcon) view.findViewById(R.id.materialLetterIcon);
 

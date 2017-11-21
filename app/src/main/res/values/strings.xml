@@ -8,17 +8,19 @@
     <string name="btn_SignIn">Acceder</string>
     <string name="btn_GoogleSign">Acceder con Google+</string>
     <string name="btn_FBSign">Acceder con Facebook</string>
-    <string name="btn_Remember"><u>Recuerdame</u></string>
+    <string name="btn_Remember"><u>Recuérdame</u></string>
     <string name="btn_SignUp">Registrarme</string>
 
     <!-- Books Activity -->
     <string name="title_Books">Proyectos</string>
     <string name="title_Characters">Personajes</string>
-    <string name="tID_bookTitle">Titulo</string>
-    <string name="tID_bookDescription">Descripcion</string>
-    <string name="spn_Genre">Genero</string>
+    <string name="tID_bookTitle">Título</string>
+    <string name="tID_bookDescription">Descripción</string>
+    <string name="spn_Genre">Género</string>
     <string name="tID_nWords">Número de palabras</string>
     <string name="btn_seeCharacters">Ver personajes</string>
+    <string name="btn_seeFactions">Ver facciones</string>
+    <string name="btn_seeLocations">Ver localizaciones</string>
 
     <!-- Characters Activity -->
 
@@ -29,5 +31,14 @@
     <string name="txtV_CharacterFaction">Facción:</string>
     <string name="txtV_CharactersHome">Hogar:</string>
     <string name="btn_CharacterRelationShips">Ver relaciones</string>
+
+    <!-- Faction Activity -->
+    <string name="tiD_FactionName">Nombre de facción</string>
+    <string name="tiD_FactionObjetive">Objetivo</string>
+    <string name="txtV_FactionBarrack">Sede</string>
+
+    <!-- Location Activity -->
+    <string name="tiD_LocationName">Nombre de localización</string>
+    <string name="tiD_LocationDesc">Descripción</string>
 
 </resources>

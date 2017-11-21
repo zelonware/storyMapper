@@ -30,6 +30,17 @@
     <string name="txtV_CharacterFaction">Faction:</string>
     <string name="txtV_CharactersHome">Home:</string>
     <string name="btn_CharacterRelationShips">See relationships</string>
+    <string name="btn_seeFactions">See factions</string>
+    <string name="btn_seeLocations">See locations</string>
+
+    <!-- Faction Activity -->
+    <string name="tiD_FactionName">Faction name</string>
+    <string name="tiD_FactionObjetive">Objective</string>
+    <string name="txtV_FactionBarrack">Barrack</string>
+
+    <!-- Location Activity -->
+    <string name="tiD_LocationName">Location name</string>
+    <string name="tiD_LocationDesc">Description</string>
 
     <!-- Settings -->
     <string name="action_settings">See preferences</string>

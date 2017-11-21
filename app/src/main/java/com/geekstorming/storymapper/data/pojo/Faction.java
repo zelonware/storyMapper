@@ -1,5 +1,7 @@
 package com.geekstorming.storymapper.data.pojo;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
 /**
@@ -7,7 +9,7 @@ import android.support.annotation.NonNull;
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
-public class Faction implements Comparable {
+public class Faction implements Comparable, Parcelable {
 
     // Atts
 
@@ -60,6 +62,26 @@ public class Faction implements Comparable {
         this.factionBarrack = factionBarrack;
     }
 
+    protected Faction(Parcel in)
+    {
+        this.factionID = in.readInt();
+        this.factionName = in.readString();
+        this.factionObjetive = in.readString();
+        this.factionBarrack = in.readInt();
+    }
+
+    public static final Creator<Faction> CREATOR = new Creator<Faction>() {
+        @Override
+        public Faction createFromParcel(Parcel in) {
+            return new Faction(in);
+        }
+
+        @Override
+        public Faction[] newArray(int size) {
+            return new Faction[size];
+        }
+    };
+
     // toString()
 
     @Override
@@ -70,5 +92,18 @@ public class Faction implements Comparable {
     @Override
     public int compareTo(@NonNull Object o) {
         return factionName.compareTo(((Faction)o).getFactionName());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(factionID);
+        dest.writeString(factionName);
+        dest.writeString(factionObjetive);
+        dest.writeInt(factionBarrack);
     }
 }

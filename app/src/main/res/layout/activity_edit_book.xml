@@ -129,6 +129,32 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tIL_nWords" />
 
+            <Button
+                android:id="@+id/btn_seeLocations"
+                android:layout_width="199dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:onClick="onClick_editBook"
+                android:text="@string/btn_seeLocations"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_SeeCharacters" />
+
+            <Button
+                android:id="@+id/btn_seeFactions"
+                android:layout_width="199dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:onClick="onClick_editBook"
+                android:text="@string/btn_seeFactions"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_seeLocations" />
+
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v4.widget.NestedScrollView>

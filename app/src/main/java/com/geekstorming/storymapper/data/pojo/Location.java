@@ -1,5 +1,7 @@
 package com.geekstorming.storymapper.data.pojo;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
 /**
@@ -7,7 +9,7 @@ import android.support.annotation.NonNull;
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
-public class Location implements Comparable {
+public class Location implements Comparable, Parcelable {
 
     // Atts
 
@@ -49,6 +51,25 @@ public class Location implements Comparable {
         this.locationDesc = locationDesc;
     }
 
+    protected Location(Parcel in)
+    {
+        this.locationID = in.readInt();
+        this.locationName = in.readString();
+        this.locationDesc = in.readString();
+    }
+
+    public static final Creator<Location> CREATOR = new Creator<Location>() {
+        @Override
+        public Location createFromParcel(Parcel in) {
+            return new Location(in);
+        }
+
+        @Override
+        public Location[] newArray(int size) {
+            return new Location[size];
+        }
+    };
+
     // toString()
 
     @Override
@@ -59,5 +80,17 @@ public class Location implements Comparable {
     @Override
     public int compareTo(@NonNull Object o) {
         return locationName.compareTo(((Location)o).getLocationName());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(locationID);
+        dest.writeString(locationName);
+        dest.writeString(locationDesc);
     }
 }

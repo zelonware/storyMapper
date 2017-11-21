@@ -16,14 +16,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.books.BooksActivity"/>
-        <activity android:name=".ui.characters.CharactersActivity"/>
+        <activity android:name=".ui.books.BooksActivity" />
+        <activity android:name=".ui.characters.CharactersActivity" />
         <activity android:name=".ui.characters.AddCharacterActivity" />
         <activity android:name=".ui.characters.EditCharacterActivity" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".ui.settings.SettingsActivity" />
-        <activity android:name=".ui.books.AddBookActivity"/>
-        <activity android:name=".ui.books.EditBookActivity"/>
+        <activity android:name=".ui.books.AddBookActivity" />
+        <activity android:name=".ui.books.EditBookActivity" />
+        <activity android:name=".ui.factions.FactionsActivity" />
+        <activity android:name=".ui.factions.AddFactionActivity" />
+        <activity android:name=".ui.factions.EditFactionActivity" />
+        <activity android:name=".ui.locations.LocationsActivity" />
+        <activity android:name=".ui.locations.EditLocationActivity" />
+        <activity android:name=".ui.locations.AddLocationActivity"></activity>
     </application>
 
 </manifest>

@@ -12,6 +12,8 @@ import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.repos.BookRepository;
 import com.geekstorming.storymapper.ui.characters.CharactersActivity;
+import com.geekstorming.storymapper.ui.factions.FactionsActivity;
+import com.geekstorming.storymapper.ui.locations.LocationsActivity;
 
 public class EditBookActivity extends AppCompatActivity {
 
@@ -50,6 +52,12 @@ public class EditBookActivity extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.btn_SeeCharacters:
                 startActivity(new Intent(EditBookActivity.this, CharactersActivity.class));
+                break;
+            case R.id.btn_seeFactions:
+                startActivity(new Intent(EditBookActivity.this, FactionsActivity.class));
+                break;
+            case R.id.btn_seeLocations:
+                startActivity(new Intent(EditBookActivity.this, LocationsActivity.class));
                 break;
             case R.id.fab_BookEdited:
                 editableBook = new Book(3, tID_BookName.getText().toString(),
