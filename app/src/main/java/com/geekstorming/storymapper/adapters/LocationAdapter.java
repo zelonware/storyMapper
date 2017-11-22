@@ -40,7 +40,7 @@ public class LocationAdapter extends ArrayAdapter<Location> {
             locationHolder = new LocationHolder();
 
             // Get views from layout
-            locationHolder.txtV_LocationName = (TextView) view.findViewById(R.id.txtV_FactionName);
+            locationHolder.txtV_LocationName = (TextView) view.findViewById(R.id.txtV_LocationName);
             locationHolder.locationIcon = (MaterialLetterIcon) view.findViewById(R.id.materialLetterIcon);
 
             view.setTag(locationHolder);
