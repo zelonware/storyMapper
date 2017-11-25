@@ -45,7 +45,7 @@
                     android:id="@+id/tiD_LocationName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/tiD_FactionName" />
+                    android:hint="@string/tiD_LocationName" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
