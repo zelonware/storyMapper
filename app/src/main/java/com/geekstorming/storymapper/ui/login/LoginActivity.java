@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.geekstorming.storymapper.R;
+import com.geekstorming.storymapper.ui.books.BookActivity;
 import com.geekstorming.storymapper.ui.books.BooksActivity;
 
 /**
@@ -25,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
 
         switch (v.getId()) {
             case R.id.btn_SignIn:
-                unIntent = new Intent(LoginActivity.this, BooksActivity.class);
+                unIntent = new Intent(LoginActivity.this, BookActivity.class);
                 break;
         }
 

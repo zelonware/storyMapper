@@ -14,6 +14,8 @@ import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.repos.BookRepository;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
+import java.util.ArrayList;
+
 /**
  * Books Adapter
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
@@ -22,7 +24,7 @@ import com.github.ivbaranov.mli.MaterialLetterIcon;
 public class BooksAdapter extends ArrayAdapter<Book> {
 
     public BooksAdapter(@NonNull Context context) {
-        super(context, R.layout.item_books, BookRepository.getInstance().getBooks());
+        super(context, R.layout.item_books, new ArrayList<Book>());
     }
 
     @NonNull
