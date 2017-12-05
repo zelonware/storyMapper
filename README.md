@@ -1,6 +1,12 @@
 # StoryMapper
+[![GitHub release](https://img.shields.io/github/release/Beelzenef/storyMapper.svg)]()
+[![GitHub last commit](https://img.shields.io/github/last-commit/Beelzenef/storyMapper.svg)]()
+[![GitHub issues](https://img.shields.io/github/issues/Beelzenef/storyMapper.svg)]()
+---
 
-Desarrollando historias
+Desarrollando historias.
+
+Gestiona facciones, personajes, capítulos y más en tus historias. Cualquier formato, cualquier narración. ¡Empieza a crear!
 
 ## Librerías en uso
 
