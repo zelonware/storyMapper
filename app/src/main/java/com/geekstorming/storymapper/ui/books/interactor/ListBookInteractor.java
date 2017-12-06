@@ -12,8 +12,9 @@ import java.util.List;
 public interface ListBookInteractor {
 
     interface OnLoadBooksListener {
-        void onSucess(List<Book> list);
+        void onSuccess(List<Book> list);
     }
 
     void loadBooks();
+    void removeBook(Book b);
 }

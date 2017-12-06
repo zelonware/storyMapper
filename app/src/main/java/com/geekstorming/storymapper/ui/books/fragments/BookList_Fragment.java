@@ -20,7 +20,8 @@ import com.geekstorming.storymapper.ui.books.contracts.ListBookContract;
 import java.util.List;
 
 /**
- * Created by Beelzenef on 27/11/2017.
+ * Book list fragment, listing and selecting books for removal
+ *  @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
 public class BookList_Fragment extends ListFragment implements ListBookContract.View {
@@ -79,7 +80,6 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
                 callback.addNewBook();
             }
         });
-
         presenter.loadBooks();
 
         return rootView;

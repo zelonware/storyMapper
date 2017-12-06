@@ -42,6 +42,10 @@ public class BookRepository {
         books.add(b);
     }
 
+    public void removeBook(Book b) {
+
+    }
+
     public ArrayList<Book> getBooks() {
         Collections.sort(books);
         return books;

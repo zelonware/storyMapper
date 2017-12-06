@@ -7,7 +7,6 @@ import android.view.View;
 
 import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.ui.books.BookActivity;
-import com.geekstorming.storymapper.ui.books.BooksActivity;
 
 /**
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos

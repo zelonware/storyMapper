@@ -8,7 +8,8 @@ import com.geekstorming.storymapper.ui.books.interactor.ListBookInteractorImpl;
 import java.util.List;
 
 /**
- * Created by Beelzenef on 27/11/2017.
+ *  List book presenter, intermediary for interactor and view
+ * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
 public class ListBookPresenter implements ListBookContract.Presenter, ListBookInteractorImpl.OnLoadBooksListener {
@@ -23,7 +24,7 @@ public class ListBookPresenter implements ListBookContract.Presenter, ListBookIn
     }
 
     @Override
-    public void onSucess(List<Book> list) {
+    public void onSuccess(List<Book> list) {
         view.showBooks(list);
     }
 

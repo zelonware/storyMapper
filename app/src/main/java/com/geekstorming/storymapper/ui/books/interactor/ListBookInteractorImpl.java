@@ -1,9 +1,11 @@
 package com.geekstorming.storymapper.ui.books.interactor;
 
+import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.repos.BookRepository;
 
 /**
- * Created by Beelzenef on 27/11/2017.
+ * Interactor implementation for listin books
+ *  @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
 public class ListBookInteractorImpl implements ListBookInteractor {
@@ -17,6 +19,12 @@ public class ListBookInteractorImpl implements ListBookInteractor {
 
     @Override
     public void loadBooks() {
-        listener.onSucess(BookRepository.getInstance().getBooks());
+        listener.onSuccess(BookRepository.getInstance().getBooks());
+    }
+
+    @Override
+    public void removeBook(Book b) {
+        BookRepository.getInstance().removeBook(b);
+        loadBooks();
     }
 }
