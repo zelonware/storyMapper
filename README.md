@@ -2,6 +2,8 @@
 [![GitHub release](https://img.shields.io/github/release/Beelzenef/storyMapper.svg)]()
 [![GitHub last commit](https://img.shields.io/github/last-commit/Beelzenef/storyMapper.svg)]()
 [![GitHub issues](https://img.shields.io/github/issues/Beelzenef/storyMapper.svg)]()
+[![GitHub stars](https://img.shields.io/github/stars/Beelzenef/storyMapper.svg)]()
+
 ---
 
 Desarrollando historias.
