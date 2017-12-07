@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.base.BaseActivity;
+import com.geekstorming.storymapper.ui.books.fragments.AddEditBook_Fragment;
 import com.geekstorming.storymapper.ui.books.fragments.BookList_Fragment;
 import com.geekstorming.storymapper.ui.books.presenter.ListBookPresenter;
 
@@ -18,6 +19,8 @@ import com.geekstorming.storymapper.ui.books.presenter.ListBookPresenter;
 public class BookActivity extends BaseActivity implements BookList_Fragment.ListBookListener {
 
     BookList_Fragment bookList_Frag;
+    AddEditBook_Fragment addEditBook_Frag;
+
     ListBookPresenter bookListPresenter;
 
     @Override
@@ -46,6 +49,18 @@ public class BookActivity extends BaseActivity implements BookList_Fragment.List
     @Override
     public void addNewBook() {
 
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        addEditBook_Frag = (AddEditBook_Fragment) fragmentManager.findFragmentByTag(AddEditBook_Fragment.TAG);
+
+        if (addEditBook_Frag == null)
+        {
+            addEditBook_Frag = AddEditBook_Fragment.newInstance(null);
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(android.R.id.content, addEditBook_Frag, AddEditBook_Fragment.TAG);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
     }
 
     @Override

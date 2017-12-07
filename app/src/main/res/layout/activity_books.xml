@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              tools:context=".ui.books.BooksActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.books.BookActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_Books"
@@ -14,18 +14,18 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:titleTextColor="@android:color/white"/>
+        app:titleTextColor="@android:color/white" />
 
     <android.support.design.widget.CoordinatorLayout
-        android:id="@+id/coord_lista"
+        android:id="@+id/android.R.id.content"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <ListView
-        android:id="@android:id/list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="@dimen/list_top_padding" />
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/list_top_padding" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_Books"
@@ -36,7 +36,7 @@
             android:layout_marginEnd="16dp"
             android:elevation="6dp"
             app:pressedTranslationZ="12dp"
-            app:srcCompat="@drawable/ic_action_add"/>
+            app:srcCompat="@drawable/ic_action_add" />
 
     </android.support.design.widget.CoordinatorLayout>
 </LinearLayout>
