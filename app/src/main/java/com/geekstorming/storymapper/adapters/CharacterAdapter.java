@@ -23,9 +23,12 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.Char
 
     private ArrayList<Character> characters;
 
-    public CharacterAdapter()
+    OnItemClickListener listenerCharacterClicked;
+
+    public CharacterAdapter(OnItemClickListener listenerClick)
     {
         characters = CharacterRepository.getInstance().getCharacters();
+        this.listenerCharacterClicked = listenerClick;
     }
 
     @Override
@@ -40,8 +43,10 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.Char
     @Override
     public void onBindViewHolder(CharacterViewHolder holder, int position) {
         holder.txtV_CharacterName.setText(characters.get(position).getCharacterName());
-        //holder.txtV_CharacterFaction.setText(characters.get(position).getCharacterFaction());
+        holder.txtV_CharacterFaction.setText(Integer.toString(characters.get(position).getCharacterFaction()));
         holder.icon_Character.setLetter(characters.get(position).getCharacterName().substring(0, 1));
+
+        holder.bind(characters.get(position), this.listenerCharacterClicked);
     }
 
     @Override
@@ -52,7 +57,7 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.Char
     public static class CharacterViewHolder extends RecyclerView.ViewHolder {
 
         private TextView txtV_CharacterName;
-        //private TextView txtV_CharacterFaction;
+        private TextView txtV_CharacterFaction;
         private MaterialLetterIcon icon_Character;
 
         public CharacterViewHolder (View itemView)
@@ -60,8 +65,22 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.Char
             super(itemView);
 
             icon_Character = (MaterialLetterIcon) itemView.findViewById(R.id.iconCharacter);
-            //txtV_CharacterFaction = (TextView) itemView.findViewById(R.id.txtV_CharacterFaction);
+            txtV_CharacterFaction = (TextView) itemView.findViewById(R.id.txtV_CharacterFaction);
             txtV_CharacterName = (TextView) itemView.findViewById(R.id.txtV_CharacterName);
         }
+
+        public void bind(final Character c, final OnItemClickListener listener)
+        {
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onCharacterClick(c);
+                }
+            });
+        }
+    }
+
+    public interface OnItemClickListener {
+        void onCharacterClick (Character c);
     }
 }

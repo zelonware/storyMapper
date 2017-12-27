@@ -1,19 +1,22 @@
 package com.geekstorming.storymapper.ui.characters;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.adapters.CharacterAdapter;
+import com.geekstorming.storymapper.data.pojo.Character;
 
 /**
  * Character Activity
+ *
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 public class CharactersActivity extends AppCompatActivity {
@@ -24,13 +27,15 @@ public class CharactersActivity extends AppCompatActivity {
 
     private CharacterAdapter characterAdapter;
 
+    private CharacterAdapter.OnItemClickListener onItemClickListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_characters);
 
         // Getting Views
-        fab_addCharacter = (FloatingActionButton) findViewById( R.id.fab_Characters );
+        fab_addCharacter = (FloatingActionButton) findViewById(R.id.fab_Characters);
         toolBar_Characters = (Toolbar) findViewById(R.id.toolbar_Characters);
 
         // Setting recyclerView
@@ -39,7 +44,7 @@ public class CharactersActivity extends AppCompatActivity {
         recyclerV_Characters.setLayoutManager(new LinearLayoutManager(this));
 
         // Getting adapter
-        characterAdapter = new CharacterAdapter();
+        characterAdapter = new CharacterAdapter(onItemClickListener);
 
         // Setting adapter
         recyclerV_Characters.setAdapter(characterAdapter);
@@ -55,6 +60,14 @@ public class CharactersActivity extends AppCompatActivity {
             }
         });
 
+        // Clicking on an existing character:
+        onItemClickListener = new CharacterAdapter.OnItemClickListener() {
+            @Override
+            public void onCharacterClick(Character c) {
+                Toast.makeText(CharactersActivity.this, "Has pulsado un item", Toast.LENGTH_SHORT).show();
+            }
+        };
+
     }
 
     @Override
@@ -62,7 +75,7 @@ public class CharactersActivity extends AppCompatActivity {
         super.onResume();
 
         // Getting adapter
-        characterAdapter = new CharacterAdapter();
+        characterAdapter = new CharacterAdapter(onItemClickListener);
 
         // Setting adapter
         recyclerV_Characters.setAdapter(characterAdapter);

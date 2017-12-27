@@ -28,7 +28,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Clara Lark"/>
 
-    <!--
+
     <TextView
         android:id="@+id/txtV_CharacterFaction"
         android:layout_width="0dp"
@@ -42,5 +42,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtV_CharacterName"
         tools:text="La Tabula" />
--->
+
 </android.support.constraint.ConstraintLayout>
