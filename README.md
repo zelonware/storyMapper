@@ -15,6 +15,7 @@ Gestiona facciones, personajes, capítulos y más en tus historias. Cualquier fo
 * [com.android.support:appcompat-v7](https://developer.android.com/topic/libraries/support-library/packages.html#v7-appcompat)
 * [com.github.medyo:android-about-page](https://github.com/medyo/android-about-page)
 * [com.github.ivbaranov:materiallettericon](https://github.com/IvBaranov/MaterialLetterIcon)
+* [com.github.BrotherV:Floating-ArcMenu](https://github.com/BrotherV/Floating-ArcMenu)
 
 ## Encuentrame en las redes
 
