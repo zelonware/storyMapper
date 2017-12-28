@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.base.BaseActivity;
+import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.ui.books.fragments.AddEditBook_Fragment;
 import com.geekstorming.storymapper.ui.books.fragments.BookList_Fragment;
 import com.geekstorming.storymapper.ui.books.presenter.ListBookPresenter;
@@ -16,7 +17,7 @@ import com.geekstorming.storymapper.ui.books.presenter.ListBookPresenter;
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
-public class BookActivity extends BaseActivity implements BookList_Fragment.ListBookListener {
+public class BookActivity extends BaseActivity implements BookList_Fragment.ListBookListener, AddEditBook_Fragment.AddNewBookClickListener {
 
     BookList_Fragment bookList_Frag;
     AddEditBook_Fragment addEditBook_Frag;
@@ -63,8 +64,16 @@ public class BookActivity extends BaseActivity implements BookList_Fragment.List
         }
     }
 
+    // Showing selected book on DetailBook_Fragment
     @Override
-    public void editSelectedBook(int item) {
+    public void editSelectedBook(Bundle b) {
 
+    }
+
+    // Once edited or added, returning to the book list
+    @Override
+    public void returnToBookList() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.popBackStack();
     }
 }

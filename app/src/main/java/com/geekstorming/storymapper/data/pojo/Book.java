@@ -19,6 +19,8 @@ public class Book implements Parcelable, Comparable {
     String bookGenre;
     int nWords;
 
+    public static final String TAG = "Book";
+
     // Getters + Setters
 
     public int getBookID() {

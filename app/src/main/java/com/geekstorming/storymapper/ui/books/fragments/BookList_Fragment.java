@@ -45,7 +45,7 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
 
     public interface ListBookListener {
         void addNewBook();
-        void editSelectedBook(int item);
+        void editSelectedBook(Bundle b);
     }
 
     @Override
@@ -105,7 +105,9 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
         listV_listBooks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                callback.editSelectedBook(position);
+                Bundle b = new Bundle();
+                b.putParcelable(Book.TAG, (Book)parent.getItemAtPosition(position));
+                callback.editSelectedBook(b);
             }
         });
 
