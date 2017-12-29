@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.books.EditBookActivity">
+    tools:context=".ui.books.BookActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -29,6 +29,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <android.support.constraint.ConstraintLayout
+            android:id="@+id/android.R.id.content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -115,60 +116,19 @@
 
             </android.support.design.widget.TextInputLayout>
 
-
-            <Button
-                android:id="@+id/btn_SeeCharacters"
-                android:layout_width="199dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="32dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="16dp"
-                android:onClick="onClick_editBook"
-                android:text="@string/btn_seeCharacters"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tIL_nWords" />
-
-            <Button
-                android:id="@+id/btn_seeLocations"
-                android:layout_width="199dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="32dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
-                android:onClick="onClick_editBook"
-                android:text="@string/btn_seeLocations"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_SeeCharacters" />
-
-            <Button
-                android:id="@+id/btn_seeFactions"
-                android:layout_width="199dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="32dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
-                android:onClick="onClick_editBook"
-                android:text="@string/btn_seeFactions"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_seeLocations" />
-
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v4.widget.NestedScrollView>
 
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_BookEdited"
+        android:id="@+id/fab_BookDone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:elevation="6dp"
-        android:onClick="onClick_editBook"
         app:pressedTranslationZ="12dp"
         app:srcCompat="@drawable/ic_action_done" />
 

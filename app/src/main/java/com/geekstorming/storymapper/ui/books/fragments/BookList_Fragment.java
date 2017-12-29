@@ -44,8 +44,8 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
     }
 
     public interface ListBookListener {
-        void addNewBook();
-        void editSelectedBook(Bundle b);
+        void addNewBook(Bundle b);
+        void viewSelectedBook(Bundle b);
     }
 
     @Override
@@ -70,14 +70,14 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_books, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_book_list, container, false);
 
         FloatingActionButton fab_AddNewBook = (FloatingActionButton) rootView.findViewById(R.id.fab_Books);
 
         fab_AddNewBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callback.addNewBook();
+                callback.addNewBook(null);
             }
         });
         presenter.loadBooks();
@@ -107,7 +107,7 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Bundle b = new Bundle();
                 b.putParcelable(Book.TAG, (Book)parent.getItemAtPosition(position));
-                callback.editSelectedBook(b);
+                callback.viewSelectedBook(b);
             }
         });
 

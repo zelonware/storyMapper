@@ -27,7 +27,8 @@
         <activity android:name=".ui.factions.EditFactionActivity" />
         <activity android:name=".ui.locations.LocationsActivity" />
         <activity android:name=".ui.locations.EditLocationActivity" />
-        <activity android:name=".ui.locations.AddLocationActivity"></activity>
+        <activity android:name=".ui.locations.AddLocationActivity" />
+        <activity android:name=".ui.books.fragments.DetailBook_Fragment"></activity>
     </application>
 
 </manifest>
