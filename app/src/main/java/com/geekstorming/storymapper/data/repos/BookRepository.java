@@ -55,4 +55,18 @@ public class BookRepository {
     {
         return bookRepository;
     }
+
+    public void editBook (Book b)
+    {
+        for (Book currentBook : books)
+        {
+            if (currentBook.getBookID() == b.getBookID())
+            {
+                currentBook.setBookTitle(b.getBookTitle());
+                currentBook.setBookDesc(b.getBookDesc());
+                currentBook.setnWords(b.getnWords());
+                currentBook.setBookGenre(b.getBookGenre());
+            }
+        }
+    }
 }

@@ -33,6 +33,6 @@ public class AddEditBookInteractorImpl implements AddEditBookInteractor {
 
     @Override
     public void updateBook(Book b) {
-
+        BookRepository.getInstance().editBook(b);
     }
 }

@@ -16,6 +16,9 @@ import com.geekstorming.storymapper.base.BasePresenter;
 import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.ui.books.contracts.AddEditBookContract;
 import com.geekstorming.storymapper.ui.books.presenter.AddEditBookPresenter;
+import com.geekstorming.storymapper.utils.ModeAddEdit;
+
+import java.util.Random;
 
 /**
  * Add or edit books fragment, choose adding or editing an existing one
@@ -30,20 +33,26 @@ public class AddEditBook_Fragment extends BaseFragment implements AddEditBookCon
 
     AddNewBookClickListener callback;
 
-    // Widgets for creating new books:
-    TextInputEditText tID_bookName;
-    TextInputEditText tId_bookDesc;
-    TextInputEditText tID_nWords;
-    Spinner spn_bookGenre;
-    FloatingActionButton fab_AddEditBook;
+    // Widgets for creating/editing new books:
+    private TextInputEditText tID_bookName;
+    private TextInputEditText tId_bookDesc;
+    private TextInputEditText tID_nWords;
+    private Spinner spn_bookGenre;
+    private FloatingActionButton fab_AddEditBook;
+
+    static ModeAddEdit mode;
+
+    private static Book editableBook;
 
     public static AddEditBook_Fragment newInstance(Bundle args) {
         AddEditBook_Fragment addEditBook_fragment = new AddEditBook_Fragment();
+        mode = new ModeAddEdit(ModeAddEdit.ADD_MODE);
 
         if (args != null) {
             // Loading existing book for edits
             addEditBook_fragment.setArguments(args);
-            // ...
+            mode.setMode(ModeAddEdit.EDIT_MODE);
+            editableBook = (Book) args.getParcelable(Book.TAG);
         }
 
         return addEditBook_fragment;
@@ -71,15 +80,41 @@ public class AddEditBook_Fragment extends BaseFragment implements AddEditBookCon
         fab_AddEditBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.addNewBook(new Book(0,
-                        tID_bookName.getText().toString(), tId_bookDesc.getText().toString(),
-                        "Sin genero", Integer.parseInt(tID_nWords.getText().toString())));
-
-                callback.returnToBookList();
+                addOrEditBook();
             }
         });
 
         return viewRoot;
+    }
+
+    private void addOrEditBook()
+    {
+        if (mode.getMode() == ModeAddEdit.EDIT_MODE)
+        {
+            presenter.updateBook(new Book(editableBook.getBookID(),
+                    tID_bookName.getText().toString(), tId_bookDesc.getText().toString(),
+                    "Sin genero", Integer.parseInt(tID_nWords.getText().toString())));
+        }
+        if (mode.getMode() == ModeAddEdit.ADD_MODE)
+        {
+            presenter.addNewBook(new Book(5,
+                    tID_bookName.getText().toString(), tId_bookDesc.getText().toString(),
+                    "Sin genero", Integer.parseInt(tID_nWords.getText().toString())));
+        }
+
+        callback.returnToBookList();
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        if (mode.getMode() == ModeAddEdit.EDIT_MODE)
+        {
+            tID_bookName.setText(editableBook.getBookTitle());
+            tId_bookDesc.setText(editableBook.getBookDesc());
+            tID_nWords.setText(Integer.toString(editableBook.getnWords()));
+        }
     }
 
     @Override

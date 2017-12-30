@@ -92,6 +92,7 @@ public class BookActivity extends BaseActivity implements BookList_Fragment.List
     public void returnToBookList() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.popBackStack();
+        fragmentManager.popBackStack();
     }
 
     @Override
