@@ -41,4 +41,10 @@
     <string name="tiD_LocationName">Nombre de localización</string>
     <string name="tiD_LocationDesc">Descripción</string>
 
+    <!-- showDialog, delete item -->
+    <string name="action_delete_book">Eliminar</string>
+
+    <string name="btn_dialog_confirm">Confirmar</string>
+    <string name="btn_dialog_cancel">Cancel</string>
+
 </resources>

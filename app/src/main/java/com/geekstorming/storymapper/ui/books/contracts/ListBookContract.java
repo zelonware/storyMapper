@@ -18,5 +18,6 @@ public interface ListBookContract {
 
     interface Presenter extends BasePresenter {
         void loadBooks();
+        void removeBook(Book b);
     }
 }

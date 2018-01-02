@@ -32,4 +32,9 @@ public class ListBookPresenter implements ListBookContract.Presenter, ListBookIn
     public void loadBooks() {
         interactor.loadBooks();
     }
+
+    @Override
+    public void removeBook(Book b) {
+        interactor.removeBook(b);
+    }
 }

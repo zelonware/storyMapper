@@ -53,4 +53,10 @@
     <string name="pref_on_nightmode">Night mode on</string>
 
     <string name="pref_title_aboutme">About me</string>
+
+    <!-- showDialog, delete item -->
+    <string name="action_delete_book">Delete</string>
+
+    <string name="btn_dialog_confirm">Accept</string>
+    <string name="btn_dialog_cancel">Cancels</string>
 </resources>

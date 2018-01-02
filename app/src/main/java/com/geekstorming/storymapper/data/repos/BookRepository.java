@@ -4,6 +4,7 @@ import com.geekstorming.storymapper.data.pojo.Book;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 
 /**
  * Books repository, book list
@@ -43,7 +44,14 @@ public class BookRepository {
     }
 
     public void removeBook(Book b) {
+        Iterator<Book> iterator = books.iterator();
 
+        while (iterator.hasNext()) {
+            if (iterator.next().getBookID() == b.getBookID()) {
+                iterator.remove();
+                break;
+            }
+        }
     }
 
     public ArrayList<Book> getBooks() {

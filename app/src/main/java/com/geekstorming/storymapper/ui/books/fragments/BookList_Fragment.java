@@ -5,7 +5,9 @@ import android.support.v4.app.ListFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -16,6 +18,7 @@ import com.geekstorming.storymapper.adapters.BooksAdapter;
 import com.geekstorming.storymapper.base.BasePresenter;
 import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.ui.books.contracts.ListBookContract;
+import com.geekstorming.storymapper.utils.CommonDialog;
 
 import java.util.List;
 
@@ -111,5 +114,34 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
             }
         });
 
+        registerForContextMenu(getListView());
+
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getActivity().getMenuInflater().inflate(R.menu.contextmenu_delete_book, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
+
+        switch (item.getItemId())
+        {
+            case R.id.action_delete_book:
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(Book.TAG, adapter.getItem(info.position));
+                bundle.putString(CommonDialog.MSG, "¿Quieres eliminar el libro \'" +
+                        adapter.getItem(info.position).getBookTitle() + "\' ?");
+                bundle.putString(CommonDialog.TITLE, "Eliminar libro");
+
+                CommonDialog.showDeleteBookDialog(bundle, getActivity(), presenter).show();
+                break;
+        }
+
+        return super.onContextItemSelected(item);
     }
 }
