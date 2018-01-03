@@ -45,6 +45,6 @@
     <string name="action_delete_book">Eliminar</string>
 
     <string name="btn_dialog_confirm">Confirmar</string>
-    <string name="btn_dialog_cancel">Cancel</string>
+    <string name="btn_dialog_cancel">Cancelar</string>
 
 </resources>
