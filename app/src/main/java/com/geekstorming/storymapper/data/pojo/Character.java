@@ -6,12 +6,15 @@ import android.support.annotation.NonNull;
 
 /**
  * Character entity, acting and moving!
+ *
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
 public class Character implements Parcelable, Comparable {
 
     // Atts
+
+    public static final String TAG = "Character";
 
     int characterID;
     String characterName;
@@ -53,6 +56,7 @@ public class Character implements Parcelable, Comparable {
     public void setCharacterFaction(int characterFaction) {
         this.characterFaction = characterFaction;
     }
+
     public int getCharacterHome() {
         return characterHome;
     }
@@ -71,8 +75,7 @@ public class Character implements Parcelable, Comparable {
         this.characterHome = characterHome;
     }
 
-    protected Character(Parcel in)
-    {
+    protected Character(Parcel in) {
         characterID = in.readInt();
         characterName = in.readString();
         characterDesc = in.readString();
@@ -122,6 +125,6 @@ public class Character implements Parcelable, Comparable {
 
     @Override
     public int compareTo(@NonNull Object o) {
-        return characterName.compareTo(((Character)o).getCharacterName());
+        return characterName.compareTo(((Character) o).getCharacterName());
     }
 }

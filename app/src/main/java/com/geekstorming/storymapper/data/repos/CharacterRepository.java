@@ -4,6 +4,7 @@ import com.geekstorming.storymapper.data.pojo.Character;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 
 /**
  * Character repository, character list
@@ -55,5 +56,30 @@ public class CharacterRepository {
 
     public static CharacterRepository getInstance() {
         return characterRepository;
+    }
+
+    public void removeCharacter(Character c) {
+
+        Iterator<Character> iterator = characters.iterator();
+
+        while (iterator.hasNext()) {
+            if (iterator.next().getCharacterID() == c.getCharacterID()) {
+                iterator.remove();
+                break;
+            }
+        }
+
+    }
+
+    public void editCharacter(Character c) {
+        for (Character character : characters) {
+            if (character.getCharacterID() == c.getCharacterID()) {
+                character.setCharacterName(c.getCharacterName());
+                character.setCharacterDesc(c.getCharacterDesc());
+                character.setCharacterFaction(c.getCharacterFaction());
+                character.setCharacterHome(c.getCharacterHome());
+                break;
+            }
+        }
     }
 }

@@ -64,7 +64,10 @@ public class CharactersActivity extends AppCompatActivity {
         onItemClickListener = new CharacterAdapter.OnItemClickListener() {
             @Override
             public void onCharacterClick(Character c) {
-                Toast.makeText(CharactersActivity.this, "Has pulsado un item", Toast.LENGTH_SHORT).show();
+               Bundle b = new Bundle();
+               b.putParcelable(Character.TAG, c);
+               startActivity(new Intent(CharactersActivity.this, EditCharacterActivity.class)
+                       .putExtra("Bundle", b));
             }
         };
 

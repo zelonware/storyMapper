@@ -1,8 +1,8 @@
 package com.geekstorming.storymapper.ui.characters;
 
+import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -11,10 +11,11 @@ import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.adapters.FactionAdapter;
 import com.geekstorming.storymapper.adapters.LocationAdapter;
 import com.geekstorming.storymapper.data.pojo.Character;
-import com.geekstorming.storymapper.data.repos.CharacterRepository;
+import com.geekstorming.storymapper.ui.characters.presenter.AddEditCharacterPresenter;
 
 /**
  * Adding new character
+ *
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 public class AddCharacterActivity extends AppCompatActivity {
@@ -24,29 +25,29 @@ public class AddCharacterActivity extends AppCompatActivity {
     private Spinner spn_CharacterFaction;
     private Spinner spn_CharacterHome;
 
+    AddEditCharacterPresenter presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_character);
 
         initializeViews();
-
+        presenter = new AddEditCharacterPresenter();
     }
 
     //region Activity setup
 
-    private void initializeViews()
-    {
+    private void initializeViews() {
         tID_CharacterName = (TextInputEditText) findViewById(R.id.tiD_CharacterName);
         tID_CharacterDescription = (TextInputEditText) findViewById(R.id.tID_CharacterDescription);
-        spn_CharacterFaction = (Spinner) findViewById(R.id.spn_CharacterFaction);
-        spn_CharacterHome = (Spinner) findViewById(R.id.spn_CharactersHome);
+        //spn_CharacterFaction = (Spinner) findViewById(R.id.spn_CharacterFaction);
+        //spn_CharacterHome = (Spinner) findViewById(R.id.spn_CharactersHome);
 
-        initializeSpinners();
+        //initializeSpinners();
     }
 
-    private void initializeSpinners()
-    {
+    private void initializeSpinners() {
         // Getting factions:
         // Adapter needed!
         spn_CharacterFaction.setAdapter(new FactionAdapter(this));
@@ -61,38 +62,21 @@ public class AddCharacterActivity extends AppCompatActivity {
 
     //region Adding character to repository
 
-    private void addCharacterToRepository()
-    {
-        if (tID_CharacterDescription.length() != 0 && tID_CharacterName.length() != 0 &&
-                spn_CharacterFaction.getSelectedItemPosition() != -1 &&
-                spn_CharacterHome.getSelectedItemPosition() != -1)
-        {
-            // Adding character to repository
+    private void addCharacterToRepository() {
+        // Adding character to repository
+        presenter.addCharacter(new Character(1, tID_CharacterName.getText().toString(),
+                tID_CharacterDescription.getText().toString(), 1, 1));
 
-            CharacterRepository.getInstance().addCharacter(new Character(1,  tID_CharacterName.getText().toString(),
-                   tID_CharacterDescription.getText().toString(), spn_CharacterFaction.getSelectedItemPosition(),
-                    spn_CharacterFaction.getSelectedItemPosition()
-                    /*
-                    FactionRepository.getInstance().getFactions().get(spn_CharacterFaction.getSelectedItemPosition()).getFactionID(),
-                    LocationRepository.getInstance().getLocations().get(spn_CharacterHome.getSelectedItemPosition()).getLocationID())
-                    */));
-
-            Toast.makeText(this, "Añadiendo personaje...", Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
-            Toast.makeText(this, "¿Faltan datos de personajes?", Toast.LENGTH_SHORT).show();
-        }
+        Toast.makeText(this, "Añadiendo personaje...", Toast.LENGTH_SHORT).show();
     }
 
     //endregion
 
-    public void onClick_AddCharacter(View v)
-    {
-        switch (v.getId())
-        {
+    public void onClick_AddCharacter(View v) {
+        switch (v.getId()) {
             case R.id.fab_CharacterDone:
                 addCharacterToRepository();
+                finish();
                 break;
             case R.id.btn_CharacterRelationShips:
                 break;
