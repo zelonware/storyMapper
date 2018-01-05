@@ -10,15 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.login.LoginActivity">
-
-        </activity>
-        <activity android:name=".ui.books.BookActivity" />
-        <activity android:name=".ui.characters.CharactersActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ui.books.BookActivity" />
+        <activity android:name=".ui.characters.CharactersActivity">
+
         </activity>
         <activity android:name=".ui.characters.AddCharacterActivity" />
         <activity android:name=".ui.characters.EditCharacterActivity" />
