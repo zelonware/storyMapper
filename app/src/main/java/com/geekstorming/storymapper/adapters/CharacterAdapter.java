@@ -2,6 +2,7 @@ package com.geekstorming.storymapper.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
-public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder> {
+public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>  {
 
     private ArrayList<Character> characters;
 
@@ -54,7 +55,7 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.Char
         return characters.size();
     }
 
-    public static class CharacterViewHolder extends RecyclerView.ViewHolder {
+    public static class CharacterViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
 
         private TextView txtV_CharacterName;
         private TextView txtV_CharacterFaction;
@@ -67,6 +68,8 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.Char
             icon_Character = (MaterialLetterIcon) itemView.findViewById(R.id.iconCharacter);
             txtV_CharacterFaction = (TextView) itemView.findViewById(R.id.txtV_CharacterFaction);
             txtV_CharacterName = (TextView) itemView.findViewById(R.id.txtV_CharacterName);
+
+            // WIP Context menu on RecyclerV
         }
 
         public void bind(final Character c, final OnItemClickListener listener)
@@ -77,6 +80,11 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.Char
                     listener.onCharacterClick(c);
                 }
             });
+        }
+
+        @Override
+        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+            // WIP Context menu on RecyclerV
         }
     }
 
