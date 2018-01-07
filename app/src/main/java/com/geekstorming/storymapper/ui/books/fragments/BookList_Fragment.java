@@ -77,6 +77,7 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
         super.onCreate(savedInstanceState);
         this.adapter = new BooksAdapter(getActivity());
         setRetainInstance(true);
+        setHasOptionsMenu(true);
     }
 
     @Override

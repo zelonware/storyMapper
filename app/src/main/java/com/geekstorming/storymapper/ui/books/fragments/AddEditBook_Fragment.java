@@ -18,8 +18,6 @@ import com.geekstorming.storymapper.ui.books.contracts.AddEditBookContract;
 import com.geekstorming.storymapper.ui.books.presenter.AddEditBookPresenter;
 import com.geekstorming.storymapper.utils.ModeAddEdit;
 
-import java.util.Random;
-
 /**
  * Add or edit books fragment, choose adding or editing an existing one
  *
@@ -67,7 +65,7 @@ public class AddEditBook_Fragment extends BaseFragment implements AddEditBookCon
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View viewRoot = inflater.inflate(R.layout.fragment_add_book, container, false);
+        View viewRoot = inflater.inflate(R.layout.fragment_book_add, container, false);
 
         this.presenter = new AddEditBookPresenter(this);
 

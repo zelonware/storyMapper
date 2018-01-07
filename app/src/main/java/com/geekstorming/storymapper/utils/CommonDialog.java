@@ -13,7 +13,7 @@ import com.geekstorming.storymapper.ui.books.fragments.BookList_Fragment;
 import com.geekstorming.storymapper.ui.books.presenter.ListBookPresenter;
 
 /**
- * Created by napst on 02/01/2018.
+ * Common dialog for multiple purposes
  */
 
 public class CommonDialog {

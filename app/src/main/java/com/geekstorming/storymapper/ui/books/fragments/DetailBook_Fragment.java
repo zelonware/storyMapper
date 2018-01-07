@@ -1,30 +1,40 @@
 package com.geekstorming.storymapper.ui.books.fragments;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.base.BaseFragment;
 import com.geekstorming.storymapper.data.pojo.Book;
+import com.geekstorming.storymapper.ui.characters.CharactersActivity;
+
+/**
+ * Once a book is selected, all data related is shown.
+ *
+ * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
+ */
 
 public class DetailBook_Fragment extends BaseFragment {
 
     public static final String TAG = "detailBook";
 
-    EditText edT_bookTitle;
-    EditText edT_bookDesc;
-    EditText edT_bookGenre;
-    EditText edT_bookNWords;
+    private EditText edT_bookTitle;
+    private EditText edT_bookDesc;
+    private EditText edT_bookGenre;
+    private EditText edT_bookNWords;
 
-    FloatingActionButton fab_editSelectedBook;
+    private FloatingActionButton fab_editSelectedBook;
+    private Button btn_seeCharacters;
 
-    DetailBookClickListener callback;
+    private DetailBookClickListener callback;
 
     private static Book viewBook;
 
@@ -43,7 +53,7 @@ public class DetailBook_Fragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View viewRoot = inflater.inflate(R.layout.fragment_detail_book, container, false);
+        View viewRoot = inflater.inflate(R.layout.fragment_book_detail, container, false);
 
         edT_bookTitle = (EditText) viewRoot.findViewById(R.id.tID_BookName);
         edT_bookDesc = (EditText) viewRoot.findViewById(R.id.tID_BookDesc);
@@ -55,6 +65,14 @@ public class DetailBook_Fragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 callback.editSelectedBook(getArguments());
+            }
+        });
+
+        btn_seeCharacters = (Button) viewRoot.findViewById(R.id.btn_SeeCharacters);
+        btn_seeCharacters.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), CharactersActivity.class));
             }
         });
 
