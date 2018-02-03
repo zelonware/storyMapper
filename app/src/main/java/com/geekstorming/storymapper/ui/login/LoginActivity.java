@@ -16,7 +16,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicio);
+        setContentView(R.layout.activity_login);
     }
 
     public void onClick_EnterApp (View v) {
@@ -26,6 +26,8 @@ public class LoginActivity extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.btn_SignIn:
                 unIntent = new Intent(LoginActivity.this, BookActivity.class);
+                break;
+            case R.id.btn_GoogleLogin:
                 break;
         }
 

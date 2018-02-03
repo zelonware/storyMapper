@@ -2,7 +2,7 @@
     <string name="app_name">StoryMapper</string>
 
     <!-- Login Activity -->
-    <string name="txtV_SignIn">Acceder</string>
+    <string name="txtV_SignIn">Acceder a StoryMapper</string>
     <string name="txtV_User">Nombre de usuario / Correo electrónico</string>
     <string name="txtV_Password">Contraseña</string>
     <string name="btn_SignIn">Acceder</string>
