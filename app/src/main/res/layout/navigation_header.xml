@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/navheader_height"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/navheader_leftpadding"
+    android:background="@drawable/background_md">
+
+    <!-- Imagen de perfil -->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="@dimen/profile_width_size"
+        android:layout_height="@dimen/profile_heigth_size"
+        android:scaleType="centerCrop"
+        android:src="@drawable/user"
+        app:civ_border_color="#FF000000"/>
+
+    <!-- Nombre de usuario  -->
+    <TextView
+        android:id="@+id/txtV_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ElenaG"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"/>
+
+    <!-- Correo electrónico -->
+    <TextView
+        android:id="@+id/txtV_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="elena.guzbla@gmail.com"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"/>
+
+</LinearLayout>

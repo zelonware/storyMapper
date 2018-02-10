@@ -43,7 +43,7 @@
     <string name="tiD_LocationDesc">Description</string>
 
     <!-- Settings -->
-    <string name="action_settings">See preferences</string>
+    <string name="action_settings">Preferences</string>
 
     <string name="pref_category_general">Preferences</string>
 
@@ -59,4 +59,12 @@
 
     <string name="btn_dialog_confirm">Accept</string>
     <string name="btn_dialog_cancel">Cancels</string>
+
+    <!-- NavigationDrawer -->
+    <string name="action_home">Home</string>
+    <string name="action_books">Books</string>
+    <string name="navigation_subheader">More</string>
+    <string name="action_help">Help</string>
+    <string name="action_about">About</string>
+
 </resources>

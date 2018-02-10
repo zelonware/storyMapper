@@ -38,6 +38,7 @@ dependencies {
     compile 'com.github.ivbaranov:materiallettericon:0.2.2'
     compile 'com.github.medyo:android-about-page:1.2.1'
     compile 'com.android.support:recyclerview-v7:25.4.0'
+    compile 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'com.android.support:design:25.4.0'
     testCompile 'junit:junit:4.12'
 }

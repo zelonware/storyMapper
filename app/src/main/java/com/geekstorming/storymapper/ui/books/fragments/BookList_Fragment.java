@@ -85,8 +85,8 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
         View rootView = inflater.inflate(R.layout.fragment_book_list, container, false);
 
         FloatingActionButton fab_AddNewBook = (FloatingActionButton) rootView.findViewById(R.id.fab_Books);
-        toolbar_books = (Toolbar) rootView.findViewById(R.id.toolbar_Books);
-        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar_books);
+        //toolbar_books = (Toolbar) rootView.findViewById(R.id.toolbar);
+        //((AppCompatActivity)getActivity()).setSupportActionBar(toolbar_books);
 
         fab_AddNewBook.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -156,6 +156,7 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
         return super.onContextItemSelected(item);
     }
 
+    /*
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_activity_projects, menu);
@@ -174,4 +175,5 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
 
         return super.onOptionsItemSelected(item);
     }
+    */
 }

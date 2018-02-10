@@ -17,5 +17,15 @@
     <dimen name="imgDashboardHeigth">0dp</dimen>
     <dimen name="spaceDashboard">20dp</dimen>
 
+    <!-- Valores para NavigationDrawer -->
+    <dimen name="profile_width_size">96dp</dimen>
+    <dimen name="profile_heigth_size">96dp</dimen>
+    <dimen name="navheader_height">192dp</dimen>
+    <dimen name="elevation_toolbar">4dp</dimen>
+    <dimen name="drawerlayout_width">270dp</dimen>
+    <dimen name="navheader_leftpadding">16dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 
 </resources>

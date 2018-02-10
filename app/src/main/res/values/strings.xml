@@ -47,4 +47,11 @@
     <string name="btn_dialog_confirm">Confirmar</string>
     <string name="btn_dialog_cancel">Cancelar</string>
 
+    <!-- NavigationDrawer -->
+    <string name="action_home">Inicio</string>
+    <string name="action_books">Proyectos</string>
+    <string name="navigation_subheader">Más</string>
+    <string name="action_help">Ayuda</string>
+    <string name="action_about">Sobre mí</string>
+
 </resources>
