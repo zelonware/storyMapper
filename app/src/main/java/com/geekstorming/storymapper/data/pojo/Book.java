@@ -2,18 +2,27 @@ package com.geekstorming.storymapper.data.pojo;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
+
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Keep;
+import org.greenrobot.greendao.annotation.NotNull;
+import org.greenrobot.greendao.annotation.Generated;
 
 /**
  * Book entity, creative project
+ *
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
-public class Book implements Parcelable, Comparable {
+@Entity
+public class Book implements Parcelable {
 
     // Atts
 
-    int bookID;
+    @Id(autoincrement = true)
+    Long bookID;
+    @NotNull
     String bookTitle;
     String bookDesc;
     String bookGenre;
@@ -23,11 +32,11 @@ public class Book implements Parcelable, Comparable {
 
     // Getters + Setters
 
-    public int getBookID() {
+    public Long getBookID() {
         return bookID;
     }
 
-    public void setBookID(int bookID) {
+    public void setBookID(Long bookID) {
         this.bookID = bookID;
     }
 
@@ -35,23 +44,23 @@ public class Book implements Parcelable, Comparable {
         return bookTitle;
     }
 
+    public void setBookTitle(@NotNull String bookTitle) {
+        this.bookTitle = bookTitle;
+    }
+
     public String getBookDesc() {
         return bookDesc;
     }
 
-    public void setBookDesc(String bookDesc) {
+    public void setBookDesc(@NotNull String bookDesc) {
         this.bookDesc = bookDesc;
-    }
-
-    public void setBookTitle(String bookTitle) {
-        this.bookTitle = bookTitle;
     }
 
     public String getBookGenre() {
         return bookGenre;
     }
 
-    public void setBookGenre(String bookGenre) {
+    public void setBookGenre(@NotNull String bookGenre) {
         this.bookGenre = bookGenre;
     }
 
@@ -59,13 +68,14 @@ public class Book implements Parcelable, Comparable {
         return nWords;
     }
 
-    public void setnWords(int nWords) {
+    public void setnWords(@NotNull int nWords) {
         this.nWords = nWords;
     }
 
     // Constructor
 
-    public Book(int bookID, String bookTitle, String bookDesc, String bookGenre, int nWords) {
+    @Keep
+    public Book(Long bookID, @NotNull String bookTitle, @NotNull String bookDesc, @NotNull String bookGenre, @NotNull int nWords) {
         this.bookID = bookID;
         this.bookTitle = bookTitle;
         this.bookDesc = bookDesc;
@@ -73,13 +83,16 @@ public class Book implements Parcelable, Comparable {
         this.nWords = nWords;
     }
 
-    protected Book(Parcel in)
-    {
-        this.bookID = in.readInt();
+    protected Book(Parcel in) {
+        this.bookID = in.readLong();
         this.bookTitle = in.readString();
         this.bookDesc = in.readString();
         this.bookGenre = in.readString();
         this.nWords = in.readInt();
+    }
+
+    @Generated(hash = 1839243756)
+    public Book() {
     }
 
     public static final Creator<Book> CREATOR = new Creator<Book>() {
@@ -106,11 +119,6 @@ public class Book implements Parcelable, Comparable {
                 '}';
     }
 
-    @Override
-    public int compareTo(@NonNull Object o) {
-        return bookTitle.compareTo(((Book)o).getBookTitle());
-    }
-
     // Parcelable methods
 
     @Override
@@ -120,10 +128,18 @@ public class Book implements Parcelable, Comparable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(bookID);
+        dest.writeLong(bookID);
         dest.writeString(bookTitle);
         dest.writeString(bookDesc);
         dest.writeString(bookGenre);
         dest.writeInt(nWords);
+    }
+
+    public int getNWords() {
+        return this.nWords;
+    }
+
+    public void setNWords(int nWords) {
+        this.nWords = nWords;
     }
 }

@@ -1,10 +1,10 @@
 package com.geekstorming.storymapper.data.repos;
 
+import com.geekstorming.storymapper.data.dao.BookDAO;
 import com.geekstorming.storymapper.data.pojo.Book;
+import com.geekstorming.storymapper.utils.App;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 
 /**
  * Books repository, book list
@@ -17,6 +17,8 @@ public class BookRepository {
     private ArrayList<Book> books;
     private static BookRepository bookRepository;
 
+    private BookDAO bookDAO;
+
     // Constructor
     static {
         bookRepository = new BookRepository();
@@ -25,38 +27,23 @@ public class BookRepository {
     private BookRepository()
     {
         books = new ArrayList<>();
-        initializeBooks();
+        bookDAO = App.getInstances().getDaoSession().getBookDAO();
     }
 
     // Methods
 
-    private void initializeBooks(){
-
-        addBook(new Book(1, "Ocaso: Imperio", "Como mola mi libro", "Ciencia ficcion", 30000));
-        addBook(new Book(2, "Llegaron del cielo", "Terror y ciencia ficcion","Ciencia ficcion", 20000));
-        addBook(new Book(3, "La espiral", "Una locura de fantasía urbana","Fantasía urbana", 23000));
-        addBook(new Book(4, "Crónicas de Argonath", "Un libro de fantasia","Fantasía", 50000));
-    }
-
     public void addBook(Book b)
     {
-        books.add(b);
+        bookDAO.insert(b);
     }
 
     public void removeBook(Book b) {
-        Iterator<Book> iterator = books.iterator();
-
-        while (iterator.hasNext()) {
-            if (iterator.next().getBookID() == b.getBookID()) {
-                iterator.remove();
-                break;
-            }
-        }
+        bookDAO.delete(b);
     }
 
     public ArrayList<Book> getBooks() {
-        Collections.sort(books);
-        return books;
+       books = (ArrayList<Book>) bookDAO.loadAll();
+       return books;
     }
 
     public static BookRepository getInstance()
@@ -66,15 +53,6 @@ public class BookRepository {
 
     public void editBook (Book b)
     {
-        for (Book currentBook : books)
-        {
-            if (currentBook.getBookID() == b.getBookID())
-            {
-                currentBook.setBookTitle(b.getBookTitle());
-                currentBook.setBookDesc(b.getBookDesc());
-                currentBook.setnWords(b.getnWords());
-                currentBook.setBookGenre(b.getBookGenre());
-            }
-        }
+        bookDAO.update(b);
     }
 }
