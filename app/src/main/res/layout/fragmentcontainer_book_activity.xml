@@ -13,7 +13,8 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:titleTextColor="@android:color/white" />
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:titleTextColor="@android:color/white"/>
 
     <include layout="@layout/app_bar_main"/>
 

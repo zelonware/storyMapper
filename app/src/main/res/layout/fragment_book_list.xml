@@ -1,34 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/android.R.id.content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.books.BookActivity">
 
-    <android.support.design.widget.CoordinatorLayout
-        android:id="@+id/android.R.id.content"
+    <ListView
+        android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/list_top_padding"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-        <ListView
-            android:id="@android:id/list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="@dimen/list_top_padding"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_Books"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        app:srcCompat="@drawable/ic_action_add" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_Books"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="16dp"
-            android:elevation="6dp"
-            app:pressedTranslationZ="12dp"
-            app:srcCompat="@drawable/ic_action_add" />
-
-    </android.support.design.widget.CoordinatorLayout>
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
