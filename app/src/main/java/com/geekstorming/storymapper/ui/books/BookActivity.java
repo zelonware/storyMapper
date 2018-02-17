@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.geekstorming.storymapper.AboutActivity;
 import com.geekstorming.storymapper.R;
+import com.geekstorming.storymapper.base.App;
 import com.geekstorming.storymapper.base.BaseActivity;
 import com.geekstorming.storymapper.ui.books.fragments.AddEditBook_Fragment;
 import com.geekstorming.storymapper.ui.books.fragments.BookList_Fragment;
@@ -42,6 +43,8 @@ public class BookActivity extends BaseActivity implements BookList_Fragment.List
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        App app = new App();
 
         setContentView(R.layout.activity_base);
 

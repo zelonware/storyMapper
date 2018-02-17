@@ -12,7 +12,7 @@ import java.util.List;
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
-public class ListBookPresenter implements ListBookContract.Presenter, ListBookInteractorImpl.OnLoadBooksListener {
+public class ListBookPresenter implements ListBookContract.Presenter, ListBookInteractorImpl.OnLoadFinishedListener {
 
     ListBookContract.View view;
     ListBookInteractorImpl interactor;
@@ -25,7 +25,18 @@ public class ListBookPresenter implements ListBookContract.Presenter, ListBookIn
 
     @Override
     public void onSuccess(List<Book> list) {
+        view.dismissProgressDialog();
         view.showBooks(list);
+    }
+
+    @Override
+    public void onDatabaseError(Error error) {
+        view.onDatabaseError(error);
+    }
+
+    @Override
+    public void onDatabaseError(Exception exception) {
+        view.onDatabaseError(exception);
     }
 
     @Override

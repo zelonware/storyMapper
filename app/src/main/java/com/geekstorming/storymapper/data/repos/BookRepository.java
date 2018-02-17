@@ -1,5 +1,6 @@
 package com.geekstorming.storymapper.data.repos;
 
+import com.geekstorming.storymapper.data.dao.BookDAOImpl;
 import com.geekstorming.storymapper.data.pojo.Book;
 
 import java.util.ArrayList;
@@ -17,6 +18,10 @@ public class BookRepository {
     private ArrayList<Book> books;
     private static BookRepository bookRepository;
 
+    private BookDAOImpl bookDAO;
+
+    private boolean loadedData;
+
     // Constructor
     static {
         bookRepository = new BookRepository();
@@ -24,8 +29,8 @@ public class BookRepository {
 
     private BookRepository()
     {
-        books = new ArrayList<>();
-        initializeBooks();
+       this.bookDAO = new BookDAOImpl();
+       this.loadedData = false;
     }
 
     // Methods
@@ -40,7 +45,7 @@ public class BookRepository {
 
     public void addBook(Book b)
     {
-        books.add(b);
+        bookDAO.add(b);
     }
 
     public void removeBook(Book b) {
@@ -55,7 +60,7 @@ public class BookRepository {
     }
 
     public ArrayList<Book> getBooks() {
-        Collections.sort(books);
+        ArrayList<Book> books = bookDAO.loadAll();
         return books;
     }
 

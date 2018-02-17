@@ -1,30 +1,27 @@
 package com.geekstorming.storymapper.ui.books.fragments;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.app.ProgressDialog;
 import android.support.v4.app.ListFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.adapters.BooksAdapter;
 import com.geekstorming.storymapper.base.BasePresenter;
 import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.ui.books.contracts.ListBookContract;
-import com.geekstorming.storymapper.ui.settings.SettingsActivity;
-import com.geekstorming.storymapper.utils.CommonDialog;
+import com.geekstorming.storymapper.utils.CommonUIUtils;
 
 import java.util.List;
 
@@ -38,6 +35,8 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
     public static final String TAG = "listBook";
     ListBookContract.Presenter presenter;
     private ListBookListener callback;
+
+    private ProgressDialog progressDialog;
 
     BooksAdapter adapter;
 
@@ -65,9 +64,14 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
     }
 
     @Override
-    public void showBooks(List<Book> bookList) {
-        adapter.clear();
-        adapter.addAll(bookList);
+    public void showBooks(final List<Book> bookList) {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                adapter.clear();
+                adapter.addAll(bookList);
+            }
+        });
     }
 
     // Overriding ListFragment code
@@ -145,11 +149,11 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
             case R.id.action_delete_book:
                 Bundle bundle = new Bundle();
                 bundle.putParcelable(Book.TAG, adapter.getItem(info.position));
-                bundle.putString(CommonDialog.MSG, "¿Quieres eliminar el libro \'" +
+                bundle.putString(CommonUIUtils.MSG, "¿Quieres eliminar el libro \'" +
                         adapter.getItem(info.position).getBookTitle() + "\' ?");
-                bundle.putString(CommonDialog.TITLE, "Eliminar libro");
+                bundle.putString(CommonUIUtils.TITLE, "Eliminar libro");
 
-                CommonDialog.showDeleteBookDialog(bundle, getActivity(), presenter).show();
+                CommonUIUtils.showDeleteBookDialog(bundle, getActivity(), presenter).show();
                 break;
         }
 
@@ -176,4 +180,29 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
         return super.onOptionsItemSelected(item);
     }
     */
+
+    @Override
+    public void onDatabaseError(Error error) {
+        Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onDatabaseError(Exception exception) {
+        Toast.makeText(getContext(), exception.getMessage(), Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showProgressDialog(String message) {
+        progressDialog = CommonUIUtils.makeProgressDialog(getContext(), message);
+        progressDialog.show();
+    }
+
+    @Override
+    public void dismissProgressDialog() {
+        if (progressDialog != null) {
+            progressDialog.dismiss();
+            progressDialog = null;
+        }
+    }
+
 }

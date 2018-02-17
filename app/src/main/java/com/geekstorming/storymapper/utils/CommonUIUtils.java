@@ -2,6 +2,7 @@ package com.geekstorming.storymapper.utils;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -13,10 +14,10 @@ import com.geekstorming.storymapper.ui.books.fragments.BookList_Fragment;
 import com.geekstorming.storymapper.ui.books.presenter.ListBookPresenter;
 
 /**
- * Common dialog for multiple purposes
+ * Common UI utils for multiple purposes
  */
 
-public class CommonDialog {
+public class CommonUIUtils {
 
     public static final String MSG = "msg";
     public static final String TITLE = "title";
@@ -42,5 +43,12 @@ public class CommonDialog {
                 });
 
         return builder.create();
+    }
+
+    public static ProgressDialog makeProgressDialog(Context context, String message) {
+        ProgressDialog progressDialog = new ProgressDialog(context);
+        progressDialog.setMessage(message);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        return progressDialog;
     }
 }

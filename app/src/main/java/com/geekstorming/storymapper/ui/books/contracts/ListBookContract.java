@@ -14,6 +14,11 @@ public interface ListBookContract {
 
     interface View extends BaseView {
         void showBooks(List<Book> bookList);
+
+        void onDatabaseError(Error error);
+        void onDatabaseError(Exception exception);
+        void showProgressDialog(String message);
+        void dismissProgressDialog();
     }
 
     interface Presenter extends BasePresenter {
