@@ -49,14 +49,7 @@ public class BookRepository {
     }
 
     public void removeBook(Book b) {
-        Iterator<Book> iterator = books.iterator();
-
-        while (iterator.hasNext()) {
-            if (iterator.next().getBookID() == b.getBookID()) {
-                iterator.remove();
-                break;
-            }
-        }
+        bookDAO.delete(b);
     }
 
     public ArrayList<Book> getBooks() {
@@ -71,15 +64,6 @@ public class BookRepository {
 
     public void editBook (Book b)
     {
-        for (Book currentBook : books)
-        {
-            if (currentBook.getBookID() == b.getBookID())
-            {
-                currentBook.setBookTitle(b.getBookTitle());
-                currentBook.setBookDesc(b.getBookDesc());
-                currentBook.setnWords(b.getnWords());
-                currentBook.setBookGenre(b.getBookGenre());
-            }
-        }
+        bookDAO.update(b);
     }
 }

@@ -20,6 +20,16 @@
     <string name="spn_Genre">Genre</string>
     <string name="tID_nWords">Number of words</string>
     <string name="btn_seeCharacters">See characters</string>
+    
+    <string-array name="bookGenres">
+        <item>Horror</item>
+        <item>Fantasy</item>
+        <item>Noire</item>
+        <item>Steampunk</item>
+        <item>Science fiction</item>
+        <item>Cyberpunk</item>
+        <item>Romance</item>
+    </string-array>
 
     <!-- Characters Activity -->
 

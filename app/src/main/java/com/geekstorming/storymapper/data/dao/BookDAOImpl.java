@@ -3,6 +3,7 @@ package com.geekstorming.storymapper.data.dao;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
 import com.geekstorming.storymapper.base.daos.BookDAO;
 import com.geekstorming.storymapper.data.db.DBOpenHelper;
@@ -65,12 +66,27 @@ public class BookDAOImpl implements BookDAO {
 
     @Override
     public long delete(Book book) {
-        return 0;
+        SQLiteDatabase sqLiteDatabase = DBOpenHelper.getInstance().openDB();
+        ContentValues datosColumnas = createBookCV(book);
+        long id = sqLiteDatabase.delete(StoriesContract.BookItem.TABLE,
+                StoriesContract.BookItem.TITLE + " = ?",
+                new String[] {book.getBookTitle()});
+
+        DBOpenHelper.getInstance().closeDB();;
+        return id;
+
     }
 
     @Override
     public long update(Book book) {
-        return 0;
+        SQLiteDatabase sqLiteDatabase = DBOpenHelper.getInstance().openDB();
+        ContentValues datosColumnas = createBookCV(book);
+        long id = sqLiteDatabase.update(StoriesContract.BookItem.TABLE, datosColumnas,
+                StoriesContract.BookItem.TITLE + " = ?",
+                new String[] {book.getBookTitle()});
+
+        DBOpenHelper.getInstance().closeDB();;
+        return id;
     }
 
     private ContentValues createBookCV (Book b) {

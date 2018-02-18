@@ -91,13 +91,13 @@ public class AddEditBook_Fragment extends BaseFragment implements AddEditBookCon
         {
             presenter.updateBook(new Book(editableBook.getBookID(),
                     tID_bookName.getText().toString(), tId_bookDesc.getText().toString(),
-                    "Sin genero", Integer.parseInt(tID_nWords.getText().toString())));
+                    spn_bookGenre.getSelectedItem().toString(), Integer.parseInt(tID_nWords.getText().toString())));
         }
         if (mode.getMode() == ModeAddEdit.ADD_MODE)
         {
             presenter.addNewBook(new Book(5,
                     tID_bookName.getText().toString(), tId_bookDesc.getText().toString(),
-                    "Sin genero", Integer.parseInt(tID_nWords.getText().toString())));
+                    spn_bookGenre.getSelectedItem().toString(), Integer.parseInt(tID_nWords.getText().toString())));
         }
 
         callback.returnToBookList();

@@ -22,6 +22,16 @@
     <string name="btn_seeFactions">Ver facciones</string>
     <string name="btn_seeLocations">Ver localizaciones</string>
 
+    <string-array name="bookGenres">
+        <item>Terror</item>
+        <item>Fantasía</item>
+        <item>Noire</item>
+        <item>Steampunk</item>
+        <item>Ciencia ficción</item>
+        <item>Cyberpunk</item>
+        <item>Romántica</item>
+    </string-array>
+
     <!-- Characters Activity -->
 
     <!-- Character Activity -->
