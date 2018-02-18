@@ -50,6 +50,9 @@
     <!-- NavigationDrawer -->
     <string name="action_home">Inicio</string>
     <string name="action_books">Proyectos</string>
+    <string name="action_factions">Facciones</string>
+    <string name="action_locations">Localizaciones</string>
+    <string name="action_advice">Consejos</string>
     <string name="navigation_subheader">Más</string>
     <string name="action_help">Ayuda</string>
     <string name="action_about">Sobre mí</string>

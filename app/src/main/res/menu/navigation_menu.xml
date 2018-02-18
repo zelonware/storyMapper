@@ -10,7 +10,14 @@
             android:id="@+id/action_books"
             android:icon="@drawable/ic_books"
             android:title="@string/action_books"/>
-
+        <item
+            android:id="@+id/action_locations"
+            android:icon="@drawable/ic_locations"
+            android:title="@string/action_locations"/>
+        <item
+            android:id="@+id/action_factions"
+            android:icon="@drawable/ic_factions"
+            android:title="@string/action_factions"/>
     </group>
 
     <item
@@ -18,7 +25,9 @@
         android:title="@string/navigation_subheader">
 
         <menu>
-
+            <item
+                android:id="@+id/action_advice"
+                android:title="@string/action_advice"/>
             <item
                 android:id="@+id/action_help"
                 android:title="@string/about_contact_us"/>

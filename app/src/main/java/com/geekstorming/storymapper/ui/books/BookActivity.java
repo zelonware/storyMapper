@@ -25,6 +25,7 @@ import com.geekstorming.storymapper.ui.settings.SettingsActivity;
 
 /**
  * Books Activity, book fragment manager
+ *
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
@@ -53,8 +54,7 @@ public class BookActivity extends BaseActivity implements BookList_Fragment.List
 
         bookList_Frag = (BookList_Fragment) fragmentManager.findFragmentByTag(BookList_Fragment.TAG);
 
-        if (bookList_Frag == null)
-        {
+        if (bookList_Frag == null) {
             bookList_Frag = BookList_Fragment.newInstance(null);
             fragmentTransaction.add(R.id.flContent, bookList_Frag, BookList_Fragment.TAG);
             fragmentTransaction.commit();
@@ -67,25 +67,21 @@ public class BookActivity extends BaseActivity implements BookList_Fragment.List
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Mostrando botón de home
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_home);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        // Encontrando drawer, se abre como START
         drawL_base = (DrawerLayout) findViewById(R.id.drawL_base);
 
         navigationView = (NavigationView) findViewById(R.id.navigationView);
         setupNavigationView();
     }
 
-    private void toAddEditBook(Bundle b)
-    {
+    private void toAddEditBook(Bundle b) {
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         addEditBook_Frag = (AddEditBook_Fragment) fragmentManager.findFragmentByTag(AddEditBook_Fragment.TAG);
 
-        if (addEditBook_Frag == null)
-        {
+        if (addEditBook_Frag == null) {
             addEditBook_Frag = AddEditBook_Fragment.newInstance(b);
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.flContent, addEditBook_Frag, AddEditBook_Fragment.TAG);
@@ -106,8 +102,7 @@ public class BookActivity extends BaseActivity implements BookList_Fragment.List
 
         detailBook_Frag = (DetailBook_Fragment) fragmentManager.findFragmentByTag(DetailBook_Fragment.TAG);
 
-        if (detailBook_Frag == null)
-        {
+        if (detailBook_Frag == null) {
             detailBook_Frag = DetailBook_Fragment.newInstance(b);
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.flContent, detailBook_Frag, DetailBook_Fragment.TAG);
@@ -130,7 +125,6 @@ public class BookActivity extends BaseActivity implements BookList_Fragment.List
     }
 
     private void setupNavigationView() {
-        Toast.makeText(this, "holi", Toast.LENGTH_SHORT).show();
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -138,24 +132,32 @@ public class BookActivity extends BaseActivity implements BookList_Fragment.List
 
                 switch (item.getItemId()) {
                     case R.id.action_books:
-                        lanzarBooks();
+                        closeDrawerAndChangeTitle(item);
+                        showBooks();
                         break;
                     case R.id.action_help:
                         //lanzarHelp();
                         break;
                     case R.id.action_settings:
-                        lanzarSettings();
+                        closeDrawerAndChangeTitle(item);
+                        showSettings();
                         break;
                     case R.id.action_about:
-                        lanzarAbout();
+                        closeDrawerAndChangeTitle(item);
+                        showAbout();
+                        break;
+                    case R.id.action_factions:
+                        showFactions();
+                        break;
+                    case R.id.action_locations:
+                        showLocations();
+                        break;
+                    case R.id.action_advice:
+                        getAdvice();
                         break;
                 }
-                // Mantenemos opción seleccionada y cambiamos title de toolbar
                 item.setChecked(true);
-                getSupportActionBar().setTitle(item.getTitle());
 
-                // Cualquier opción seleccionada provoca el cierre del Drawer
-                drawL_base.closeDrawer(GravityCompat.START);
                 return true;
             }
         });
@@ -166,7 +168,6 @@ public class BookActivity extends BaseActivity implements BookList_Fragment.List
 
         switch (item.getItemId()) {
             case android.R.id.home:
-                //Toast.makeText(this, "Se ha pulsado HOME", Toast.LENGTH_SHORT).show();
                 drawL_base.openDrawer(GravityCompat.START);
         }
 
@@ -175,22 +176,38 @@ public class BookActivity extends BaseActivity implements BookList_Fragment.List
 
     @Override
     public void onBackPressed() {
-        // Si drawL_base es visible, cerramos. Si no, ejecutamos el código suppah
         if (drawL_base.isDrawerOpen(GravityCompat.START))
             drawL_base.closeDrawer(GravityCompat.START);
         else
             super.onBackPressed();
     }
 
-    private void lanzarSettings() {
+    private void closeDrawerAndChangeTitle(MenuItem item) {
+        getSupportActionBar().setTitle(item.getTitle());
+        drawL_base.closeDrawer(GravityCompat.START);
+    }
+
+    private void showSettings() {
         startActivity(new Intent(BookActivity.this, SettingsActivity.class));
     }
 
-    private void lanzarBooks() {
+    private void showBooks() {
         startActivity(new Intent(BookActivity.this, BookActivity.class));
     }
 
-    private void lanzarAbout() {
+    private void showAbout() {
         startActivity(new Intent(BookActivity.this, AboutActivity.class));
+    }
+
+    private void showLocations() {
+        Toast.makeText(this, "Por implementar", Toast.LENGTH_SHORT).show();
+    }
+
+    private void showFactions() {
+        Toast.makeText(this, "Por implementar", Toast.LENGTH_SHORT).show();
+    }
+
+    private void getAdvice() {
+        Toast.makeText(this, "keep trying, KEEP TRYING!", Toast.LENGTH_SHORT).show();
     }
 }
