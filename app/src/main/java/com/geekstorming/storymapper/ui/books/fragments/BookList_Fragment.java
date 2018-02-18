@@ -40,8 +40,6 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
 
     BooksAdapter adapter;
 
-    Toolbar toolbar_books;
-
     public static BookList_Fragment newInstance(Bundle args) {
 
         BookList_Fragment fragment = new BookList_Fragment();
@@ -89,8 +87,6 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
         View rootView = inflater.inflate(R.layout.fragment_book_list, container, false);
 
         FloatingActionButton fab_AddNewBook = (FloatingActionButton) rootView.findViewById(R.id.fab_Books);
-        //toolbar_books = (Toolbar) rootView.findViewById(R.id.toolbar);
-        //((AppCompatActivity)getActivity()).setSupportActionBar(toolbar_books);
 
         fab_AddNewBook.setOnClickListener(new View.OnClickListener() {
             @Override

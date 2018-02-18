@@ -88,6 +88,10 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.Char
         }
     }
 
+    public Character getItem(int position) {
+        return characters.get(position);
+    }
+
     public interface OnItemClickListener {
         void onCharacterClick (Character c);
     }

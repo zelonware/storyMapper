@@ -37,17 +37,11 @@ public class BookActivity extends BaseActivity implements BookList_Fragment.List
 
     ListBookPresenter bookListPresenter;
 
-    private DrawerLayout drawL_base;
-    private NavigationView navigationView;
-    private Toolbar toolbar;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         App app = new App();
-
-        setContentView(R.layout.activity_base);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -64,16 +58,6 @@ public class BookActivity extends BaseActivity implements BookList_Fragment.List
 
         bookList_Frag.setPresenter(bookListPresenter);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_home);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        drawL_base = (DrawerLayout) findViewById(R.id.drawL_base);
-
-        navigationView = (NavigationView) findViewById(R.id.navigationView);
-        setupNavigationView();
     }
 
     private void toAddEditBook(Bundle b) {
@@ -122,92 +106,5 @@ public class BookActivity extends BaseActivity implements BookList_Fragment.List
     @Override
     public void editSelectedBook(Bundle b) {
         toAddEditBook(b);
-    }
-
-    private void setupNavigationView() {
-
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                switch (item.getItemId()) {
-                    case R.id.action_books:
-                        closeDrawerAndChangeTitle(item);
-                        showBooks();
-                        break;
-                    case R.id.action_help:
-                        //lanzarHelp();
-                        break;
-                    case R.id.action_settings:
-                        closeDrawerAndChangeTitle(item);
-                        showSettings();
-                        break;
-                    case R.id.action_about:
-                        closeDrawerAndChangeTitle(item);
-                        showAbout();
-                        break;
-                    case R.id.action_factions:
-                        showFactions();
-                        break;
-                    case R.id.action_locations:
-                        showLocations();
-                        break;
-                    case R.id.action_advice:
-                        getAdvice();
-                        break;
-                }
-                item.setChecked(true);
-
-                return true;
-            }
-        });
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                drawL_base.openDrawer(GravityCompat.START);
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (drawL_base.isDrawerOpen(GravityCompat.START))
-            drawL_base.closeDrawer(GravityCompat.START);
-        else
-            super.onBackPressed();
-    }
-
-    private void closeDrawerAndChangeTitle(MenuItem item) {
-        getSupportActionBar().setTitle(item.getTitle());
-        drawL_base.closeDrawer(GravityCompat.START);
-    }
-
-    private void showSettings() {
-        startActivity(new Intent(BookActivity.this, SettingsActivity.class));
-    }
-
-    private void showBooks() {
-        startActivity(new Intent(BookActivity.this, BookActivity.class));
-    }
-
-    private void showAbout() {
-        startActivity(new Intent(BookActivity.this, AboutActivity.class));
-    }
-
-    private void showLocations() {
-        Toast.makeText(this, "Por implementar", Toast.LENGTH_SHORT).show();
-    }
-
-    private void showFactions() {
-        Toast.makeText(this, "Por implementar", Toast.LENGTH_SHORT).show();
-    }
-
-    private void getAdvice() {
-        Toast.makeText(this, "keep trying, KEEP TRYING!", Toast.LENGTH_SHORT).show();
     }
 }

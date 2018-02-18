@@ -21,8 +21,7 @@
         <activity android:name=".ui.characters.CharactersActivity">
 
         </activity>
-        <activity android:name=".ui.characters.AddCharacterActivity" />
-        <activity android:name=".ui.characters.EditCharacterActivity" />
+        <activity android:name=".ui.characters.fragments.AddEditCharacter_Fragment" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".ui.settings.SettingsActivity" />
         <activity android:name=".ui.factions.FactionsActivity" />
