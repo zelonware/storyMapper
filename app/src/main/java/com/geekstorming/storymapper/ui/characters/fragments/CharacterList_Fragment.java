@@ -38,6 +38,8 @@ public class CharacterList_Fragment extends BaseFragment implements ListCharacte
 
     private ListCharacterContract.Presenter presenter;
 
+    ListCharacterListener callback;
+
     public static final String TAG = "characterList";
 
     public static CharacterList_Fragment newInstance(Bundle args) {
@@ -63,7 +65,7 @@ public class CharacterList_Fragment extends BaseFragment implements ListCharacte
         fab_addCharacter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(CharactersActivity.this, AddEditCharacter_Fragment.class));
+               callback.addNewCharacter(null);
             }
         });
 
@@ -73,7 +75,7 @@ public class CharacterList_Fragment extends BaseFragment implements ListCharacte
             public void onCharacterClick(Character c) {
                 Bundle b = new Bundle();
                 b.putParcelable(Character.TAG, c);
-                //
+                callback.viewSelectedCharacter(b);
             }
         };
 
@@ -119,7 +121,7 @@ public class CharacterList_Fragment extends BaseFragment implements ListCharacte
         {
             case R.id.action_delete_book:
                 Bundle bundle = new Bundle();
-                bundle.putParcelable(Book.TAG,  characterAdapter.getItem(info.position));
+                bundle.putParcelable(Character.TAG,  characterAdapter.getItem(info.position));
                 bundle.putString(CommonUIUtils.MSG, "¿Quieres eliminar el personaje \'" +
                         characterAdapter.getItem(info.position).getCharacterName() + "\' ?");
                 bundle.putString(CommonUIUtils.TITLE, "Eliminar personaje");
@@ -159,5 +161,10 @@ public class CharacterList_Fragment extends BaseFragment implements ListCharacte
     @Override
     public void dismissProgressDialog() {
 
+    }
+
+    public interface ListCharacterListener {
+        void addNewCharacter(Bundle b);
+        void viewSelectedCharacter(Bundle b);
     }
 }

@@ -1,5 +1,6 @@
 package com.geekstorming.storymapper.ui.characters.fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -37,6 +38,8 @@ public class AddEditCharacter_Fragment extends BaseFragment {
     static ModeAddEdit mode;
 
     private static Character editableCharacter;
+
+    AddNewCharacterClickListener callback;
 
     public static AddEditCharacter_Fragment newInstance(Bundle args) {
         AddEditCharacter_Fragment addEditCharacter_fragment = new AddEditCharacter_Fragment();
@@ -102,12 +105,31 @@ public class AddEditCharacter_Fragment extends BaseFragment {
 
     private void addOrEditCharacter() {
         if (mode.getMode() == ModeAddEdit.ADD_MODE) {
-            presenter.addCharacter(new Character(1, tID_CharacterName.getText().toString(),
+            presenter.addCharacter(new Character(0, tID_CharacterName.getText().toString(),
                     tID_CharacterDescription.getText().toString(), 1, 1));
         }
         if (mode.getMode() == ModeAddEdit.EDIT_MODE) {
-            presenter.editCharacter(new Character(1, tID_CharacterName.getText().toString(),
+            presenter.editCharacter(new Character(0, tID_CharacterName.getText().toString(),
                     tID_CharacterDescription.getText().toString(), 1, 1));
         }
+
+        callback.returnToList();
+    }
+
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        try {
+            callback = (AddNewCharacterClickListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(getActivity().getLocalClassName() + " must be implemented");
+        }
+    }
+
+    public interface AddNewCharacterClickListener
+    {
+        void returnToList();
     }
 }

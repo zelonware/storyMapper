@@ -54,7 +54,6 @@ public class AddEditBook_Fragment extends BaseFragment implements AddEditBookCon
         }
 
         return addEditBook_fragment;
-
     }
 
     @Override

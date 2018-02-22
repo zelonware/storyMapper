@@ -19,15 +19,18 @@ import com.geekstorming.storymapper.ui.books.fragments.BookList_Fragment;
 import com.geekstorming.storymapper.ui.books.presenter.ListBookPresenter;
 import com.geekstorming.storymapper.ui.characters.fragments.AddEditCharacter_Fragment;
 import com.geekstorming.storymapper.ui.characters.fragments.CharacterList_Fragment;
+import com.geekstorming.storymapper.ui.characters.fragments.ViewCharacter_Fragment;
 
 /**
  * Character Activity, fragment container
  *
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
-public class CharactersActivity extends BaseActivity {
+public class CharactersActivity extends BaseActivity implements AddEditCharacter_Fragment.AddNewCharacterClickListener, CharacterList_Fragment.ListCharacterListener {
 
     CharacterList_Fragment characterList_Frag;
+    AddEditCharacter_Fragment addEditCharacter_Frag;
+    ViewCharacter_Fragment viewCharacter_Frag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +47,46 @@ public class CharactersActivity extends BaseActivity {
             fragmentTransaction.add(R.id.flContent, characterList_Frag, CharacterList_Fragment.TAG);
             fragmentTransaction.commit();
         }
+    }
 
-        //characterList_Frag = new ListBookPresenter(characterList_Frag);
+    @Override
+    public void returnToList() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.popBackStack();
+        fragmentManager.popBackStack();
+    }
 
-        //characterList_Frag.setPresenter(bookListPresenter);
+    @Override
+    public void addNewCharacter(Bundle b) {
+        toAddEditCharacter(b);
+    }
 
+    @Override
+    public void viewSelectedCharacter(Bundle b) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        viewCharacter_Frag = (ViewCharacter_Fragment) fragmentManager.findFragmentByTag(ViewCharacter_Fragment.TAG);
+
+        if (viewCharacter_Frag == null) {
+            viewCharacter_Frag = ViewCharacter_Fragment.newInstance(b);
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.flContent, viewCharacter_Frag, ViewCharacter_Fragment.TAG);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
+    }
+
+    private void toAddEditCharacter(Bundle b) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        addEditCharacter_Frag = (AddEditCharacter_Fragment) fragmentManager.findFragmentByTag(AddEditCharacter_Fragment.TAG);
+
+        if (addEditCharacter_Frag == null) {
+            addEditCharacter_Frag = AddEditCharacter_Fragment.newInstance(b);
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.flContent, addEditCharacter_Frag, AddEditCharacter_Fragment.TAG);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
     }
 }

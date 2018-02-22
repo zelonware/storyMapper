@@ -72,6 +72,8 @@ public class DetailBook_Fragment extends BaseFragment {
         btn_seeCharacters.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle b = new Bundle();
+                b.putParcelable(Book.TAG, viewBook);
                 startActivity(new Intent(getActivity(), CharactersActivity.class));
             }
         });
