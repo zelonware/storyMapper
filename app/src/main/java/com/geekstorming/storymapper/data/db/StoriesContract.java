@@ -11,7 +11,7 @@ public class StoriesContract {
     private StoriesContract() {
     }
 
-    public static final int DATABASE_VERSION = 4;
+    public static final int DATABASE_VERSION = 8;
     public static final String DATABASE_NAME = "stories.db";
 
     public static class BookItem implements BaseColumns {
@@ -56,7 +56,7 @@ public class StoriesContract {
 
         public static final String DEFAULT_SORT = NAME;
 
-        public static final String SQL_CREATE_TABLE = String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT," +
+        public static final String SQL_CREATE_TABLE = String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "%s TEXT NOT NULL," +
                 "%s TEXT NOT NULL," +
                 "%s INTEGER, " +
@@ -69,5 +69,28 @@ public class StoriesContract {
                 FACTION);
 
         public static final String SQL_DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", TABLE);
+    }
+
+    public static class AdviceItem implements BaseColumns {
+
+        public static final String TABLE = "advices";
+        public static final String ADVICE = "advice";
+
+        public static final String[] ALLCOLUMNS = { BaseColumns._ID, ADVICE };
+
+        public static final String SQL_CREATE_TABLE = String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "%s TEXT NOT NULL)",
+                TABLE,
+                BaseColumns._ID,
+                ADVICE);
+
+        public static final String SQL_DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", TABLE);
+
+        public static final String SQL_INSERT_TOTABLE = String.format("INSERT INTO %s (%s) VALUES ('%s'), ('%s'), ('%s')",
+            TABLE, ADVICE,
+                "Empieza con algo sencillo",
+                "La organización es clave",
+                "No tengas miedo a experimentar"
+        );
     }
 }

@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.geekstorming.storymapper.AboutActivity;
 import com.geekstorming.storymapper.R;
+import com.geekstorming.storymapper.base.daos.AdviceDAO;
+import com.geekstorming.storymapper.data.dao.AdviceDAOImpl;
 import com.geekstorming.storymapper.ui.books.BookActivity;
 import com.geekstorming.storymapper.ui.receivers.AdviceReceiver;
 import com.geekstorming.storymapper.ui.settings.SettingsActivity;
@@ -30,10 +32,14 @@ public class BaseActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private Toolbar toolbar;
 
+    AdviceDAOImpl dao;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
+
+        dao = new AdviceDAOImpl();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -137,7 +143,7 @@ public class BaseActivity extends AppCompatActivity {
 
         Intent adviceMsg = new Intent("com.geekstorming.storymapper.writingadvice");
         Bundle b = new Bundle();
-        b.putString(AdviceReceiver.ADVICETAG, "keep trying, write everyday");
+        b.putString(AdviceReceiver.ADVICETAG, dao.getAdvice());
         adviceMsg.putExtras(b);
         sendBroadcast(adviceMsg);
     }

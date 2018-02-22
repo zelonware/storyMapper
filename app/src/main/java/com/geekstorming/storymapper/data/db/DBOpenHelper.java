@@ -4,6 +4,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
+import android.util.Log;
 
 import com.geekstorming.storymapper.base.App;
 
@@ -49,6 +50,9 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         try {
             db.beginTransaction();
 
+            db.execSQL(StoriesContract.AdviceItem.SQL_CREATE_TABLE);
+            db.execSQL(StoriesContract.AdviceItem.SQL_INSERT_TOTABLE);
+            Log.v("CONSEJOS", StoriesContract.AdviceItem.SQL_INSERT_TOTABLE);
             db.execSQL(StoriesContract.BookItem.SQL_CREATE_TABLE);
             db.execSQL(StoriesContract.CharacterItem.SQL_CREATE_TABLE);
 
@@ -65,8 +69,13 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         try {
             db.beginTransaction();
 
+            db.execSQL(StoriesContract.AdviceItem.SQL_DROP_TABLE);
+            db.execSQL(StoriesContract.AdviceItem.SQL_CREATE_TABLE);
+            db.execSQL(StoriesContract.AdviceItem.SQL_INSERT_TOTABLE);
             db.execSQL(StoriesContract.BookItem.SQL_DROP_TABLE);
+            db.execSQL(StoriesContract.BookItem.SQL_CREATE_TABLE);
             db.execSQL(StoriesContract.CharacterItem.SQL_DROP_TABLE);
+            db.execSQL(StoriesContract.CharacterItem.SQL_CREATE_TABLE);
 
             db.setTransactionSuccessful();
         } catch (SQLiteException e) {
