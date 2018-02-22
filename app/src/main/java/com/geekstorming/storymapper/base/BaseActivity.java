@@ -15,10 +15,12 @@ import android.widget.Toast;
 import com.geekstorming.storymapper.AboutActivity;
 import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.ui.books.BookActivity;
+import com.geekstorming.storymapper.ui.receivers.AdviceReceiver;
 import com.geekstorming.storymapper.ui.settings.SettingsActivity;
 
 /**
  * Base for Activities
+ * Management for NavigationDrawer
  *  @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
@@ -129,6 +131,14 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     private void getAdvice() {
-        Toast.makeText(this, "keep trying, KEEP TRYING!", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "keep trying, KEEP TRYING!", Toast.LENGTH_SHORT).show();
+
+        // Notification for writing advice
+
+        Intent adviceMsg = new Intent("com.geekstorming.storymapper.writingadvice");
+        Bundle b = new Bundle();
+        b.putString(AdviceReceiver.ADVICETAG, "keep trying, write everyday");
+        adviceMsg.putExtras(b);
+        sendBroadcast(adviceMsg);
     }
 }

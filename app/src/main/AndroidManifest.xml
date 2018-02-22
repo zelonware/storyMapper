@@ -21,7 +21,6 @@
         <activity android:name=".ui.characters.CharactersActivity">
 
         </activity>
-        <activity android:name=".ui.characters.fragments.AddEditCharacter_Fragment" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".ui.settings.SettingsActivity" />
         <activity android:name=".ui.factions.FactionsActivity" />
@@ -30,6 +29,12 @@
         <activity android:name=".ui.locations.LocationsActivity" />
         <activity android:name=".ui.locations.EditLocationActivity" />
         <activity android:name=".ui.locations.AddLocationActivity" />
+
+        <receiver android:name=".ui.receivers.AdviceReceiver">
+            <intent-filter>
+                <action android:name="com.geekstorming.storymapper.writingadvice"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
