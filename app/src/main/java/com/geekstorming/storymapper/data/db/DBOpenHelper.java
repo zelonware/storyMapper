@@ -52,7 +52,6 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
             db.execSQL(StoriesContract.AdviceItem.SQL_CREATE_TABLE);
             db.execSQL(StoriesContract.AdviceItem.SQL_INSERT_TOTABLE);
-            Log.v("CONSEJOS", StoriesContract.AdviceItem.SQL_INSERT_TOTABLE);
             db.execSQL(StoriesContract.BookItem.SQL_CREATE_TABLE);
             db.execSQL(StoriesContract.CharacterItem.SQL_CREATE_TABLE);
 

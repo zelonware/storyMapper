@@ -22,6 +22,7 @@ public class Character implements Parcelable, Comparable {
 
     int characterFaction;
     int characterHome;
+    int characterBook;
 
     // Getters + Setters
 
@@ -65,7 +66,24 @@ public class Character implements Parcelable, Comparable {
         this.characterHome = characterHome;
     }
 
+    public int getCharacterBook() {
+        return characterBook;
+    }
+
+    public void setCharacterBook(int characterBook) {
+        this.characterBook = characterBook;
+    }
+
     // Constructor
+
+    public Character(int characterID, String characterName, String characterDesc, int characterFaction, int characterHome, int characterBook) {
+        this.characterID = characterID;
+        this.characterName = characterName;
+        this.characterDesc = characterDesc;
+        this.characterFaction = characterFaction;
+        this.characterHome = characterHome;
+        this.characterBook = characterBook;
+    }
 
     public Character(int characterID, String characterName, String characterDesc, int characterFaction, int characterHome) {
         this.characterID = characterID;
@@ -81,6 +99,7 @@ public class Character implements Parcelable, Comparable {
         characterDesc = in.readString();
         characterFaction = in.readInt();
         characterHome = in.readInt();
+        characterBook = in.readInt();
     }
 
     // toString()
@@ -121,6 +140,7 @@ public class Character implements Parcelable, Comparable {
         dest.writeString(characterDesc);
         dest.writeInt(characterFaction);
         dest.writeInt(characterHome);
+        dest.writeInt(characterBook);
     }
 
     @Override

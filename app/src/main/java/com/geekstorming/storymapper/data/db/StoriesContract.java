@@ -49,9 +49,10 @@ public class StoriesContract {
         public static final String DESCRIPTION = "description";
         public static final String HOME = "home";
         public static final String FACTION = "faction";
+        public static final String BOOKID = "book";
 
         public static final String[] ALL_COLUMNS = {
-                BaseColumns._ID, NAME, DESCRIPTION, HOME, FACTION
+                BaseColumns._ID, NAME, DESCRIPTION, HOME, FACTION, BOOKID
         };
 
         public static final String DEFAULT_SORT = NAME;
@@ -60,13 +61,17 @@ public class StoriesContract {
                 "%s TEXT NOT NULL," +
                 "%s TEXT NOT NULL," +
                 "%s INTEGER, " +
-                "%s INTEGER)",
+                "%s INTEGER, " +
+                "%s INTEGER NOT NULL, " +
+                " FOREIGN KEY (%s) REFERENCES %s (%s) ON UPDATE CASCADE ON DELETE RESTRICT)",
                 TABLE,
                 BaseColumns._ID,
                 NAME,
                 DESCRIPTION,
                 HOME,
-                FACTION);
+                FACTION,
+                BOOKID,
+                BOOKID, BookItem.TABLE, BookItem._ID);
 
         public static final String SQL_DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", TABLE);
     }

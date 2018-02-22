@@ -83,7 +83,7 @@ public class BookDAOImpl implements BookDAO {
         ContentValues datosColumnas = createBookCV(book);
         long id = sqLiteDatabase.update(StoriesContract.BookItem.TABLE, datosColumnas,
                 StoriesContract.BookItem.TITLE + " = ?",
-                new String[] {book.getBookTitle()});
+                new String[] {Integer.toString(book.getBookID())});
 
         DBOpenHelper.getInstance().closeDB();;
         return id;
