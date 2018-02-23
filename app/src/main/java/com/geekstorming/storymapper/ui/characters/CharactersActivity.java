@@ -14,6 +14,7 @@ import android.view.View;
 import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.adapters.CharacterAdapter;
 import com.geekstorming.storymapper.base.BaseActivity;
+import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.pojo.Character;
 import com.geekstorming.storymapper.ui.books.fragments.BookList_Fragment;
 import com.geekstorming.storymapper.ui.books.presenter.ListBookPresenter;
@@ -32,10 +33,13 @@ public class CharactersActivity extends BaseActivity implements AddEditCharacter
     AddEditCharacter_Fragment addEditCharacter_Frag;
     ViewCharacter_Fragment viewCharacter_Frag;
 
+    Book viewBook;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_base);
+
+        viewBook = getIntent().getExtras().getParcelable(Book.TAG);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -43,7 +47,7 @@ public class CharactersActivity extends BaseActivity implements AddEditCharacter
         characterList_Frag = (CharacterList_Fragment) fragmentManager.findFragmentByTag(CharacterList_Fragment.TAG);
 
         if (characterList_Frag == null) {
-            characterList_Frag = CharacterList_Fragment.newInstance(null);
+            characterList_Frag = CharacterList_Fragment.newInstance(getIntent().getExtras());
             fragmentTransaction.add(R.id.flContent, characterList_Frag, CharacterList_Fragment.TAG);
             fragmentTransaction.commit();
         }

@@ -2,6 +2,7 @@ package com.geekstorming.storymapper.ui.characters.contracts;
 
 import com.geekstorming.storymapper.base.BasePresenter;
 import com.geekstorming.storymapper.base.BaseView;
+import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.pojo.Character;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public interface ListCharacterContract {
     }
 
     interface Presenter extends BasePresenter {
-        void loadCharacters();
+        void loadCharacters(Book b);
         void removeCharacter(Character character);
     }
 }

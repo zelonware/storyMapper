@@ -1,5 +1,6 @@
 package com.geekstorming.storymapper.ui.characters.interactor;
 
+import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.pojo.Character;
 
 /**
@@ -8,6 +9,6 @@ import com.geekstorming.storymapper.data.pojo.Character;
 
 public interface ListCharacterInteractor {
 
-    void loadCharacters();
+    void loadCharacters(Book book);
     void removeCharacter(Character character);
 }

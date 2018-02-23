@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.geekstorming.storymapper.R;
+import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.pojo.Character;
 import com.geekstorming.storymapper.data.repos.CharacterRepository;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
@@ -26,9 +27,9 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.Char
 
     OnItemClickListener listenerCharacterClicked;
 
-    public CharacterAdapter(OnItemClickListener listenerClick)
+    public CharacterAdapter(OnItemClickListener listenerClick, Book b)
     {
-        characters = CharacterRepository.getInstance().getCharacters();
+        characters = CharacterRepository.getInstance().getCharacters(b);
         this.listenerCharacterClicked = listenerClick;
     }
 

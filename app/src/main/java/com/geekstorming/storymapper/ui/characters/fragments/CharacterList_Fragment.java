@@ -40,6 +40,8 @@ public class CharacterList_Fragment extends BaseFragment implements ListCharacte
 
     ListCharacterListener callback;
 
+    private static Book selectedBook;
+
     public static final String TAG = "characterList";
 
     public static CharacterList_Fragment newInstance(Bundle args) {
@@ -47,6 +49,7 @@ public class CharacterList_Fragment extends BaseFragment implements ListCharacte
 
         if (args != null) {
             characterList_fragment.setArguments(args);
+            selectedBook = args.getParcelable(Book.TAG);
         }
 
         return characterList_fragment;
@@ -90,18 +93,18 @@ public class CharacterList_Fragment extends BaseFragment implements ListCharacte
         recyclerV_Characters.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         // Getting adapter
-        characterAdapter = new CharacterAdapter(onItemClickListener);
+        characterAdapter = new CharacterAdapter(onItemClickListener, selectedBook);
 
         // Setting adapter
         recyclerV_Characters.setAdapter(characterAdapter);
 
-        presenter.loadCharacters();
+        presenter.loadCharacters(selectedBook);
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.characterAdapter = new CharacterAdapter(onItemClickListener);
+        this.characterAdapter = new CharacterAdapter(onItemClickListener, selectedBook);
         setRetainInstance(true);
         setHasOptionsMenu(true);
     }

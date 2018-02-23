@@ -1,6 +1,7 @@
 package com.geekstorming.storymapper.ui.characters.presenter;
 
 import com.geekstorming.storymapper.base.BaseView;
+import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.pojo.Character;
 import com.geekstorming.storymapper.ui.characters.contracts.ListCharacterContract;
 import com.geekstorming.storymapper.ui.characters.interactor.ListCharacterInteractorImpl;
@@ -22,8 +23,8 @@ public class CharaterListPresenter implements ListCharacterContract.Presenter, L
     }
 
     @Override
-    public void loadCharacters() {
-        interactor.loadCharacters();
+    public void loadCharacters(Book b) {
+        interactor.loadCharacters(b);
     }
 
     @Override

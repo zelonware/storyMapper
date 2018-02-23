@@ -3,6 +3,7 @@ package com.geekstorming.storymapper.ui.characters.interactor;
 import android.os.AsyncTask;
 
 import com.geekstorming.storymapper.data.db.InteractorCallback;
+import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.pojo.Character;
 import com.geekstorming.storymapper.data.repos.CharacterRepository;
 import com.geekstorming.storymapper.ui.books.interactor.ListBookInteractorImpl;
@@ -14,6 +15,8 @@ import java.util.List;
  */
 
 public class ListCharacterInteractorImpl implements ListCharacterInteractor, InteractorCallback {
+
+    private Book viewBook;
 
     ListCharacterInteractorImpl.OnLoadFinishedListener listener;
 
@@ -34,15 +37,16 @@ public class ListCharacterInteractorImpl implements ListCharacterInteractor, Int
 
     @Override
     public void onSuccess() {
-        loadCharacters();
+        loadCharacters(viewBook);
     }
 
     @Override
-    public void loadCharacters() {
+    public void loadCharacters(final Book book) {
         new AsyncTask() {
             @Override
             protected Object doInBackground(Object[] objects) {
-                listener.onSuccess(CharacterRepository.getInstance().getCharacters());
+                viewBook = book;
+                listener.onSuccess(CharacterRepository.getInstance().getCharacters(viewBook));
                 return null;
             }
         }.execute();
@@ -51,7 +55,7 @@ public class ListCharacterInteractorImpl implements ListCharacterInteractor, Int
     @Override
     public void removeCharacter(Character character) {
         CharacterRepository.getInstance().removeCharacter(character);
-        loadCharacters();
+        loadCharacters(viewBook);
     }
 
     public interface OnLoadFinishedListener {

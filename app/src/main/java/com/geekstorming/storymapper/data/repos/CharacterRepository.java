@@ -1,5 +1,8 @@
 package com.geekstorming.storymapper.data.repos;
 
+import com.geekstorming.storymapper.base.daos.CharacterDAO;
+import com.geekstorming.storymapper.data.dao.CharacterDAOImpl;
+import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.pojo.Character;
 
 import java.util.ArrayList;
@@ -18,6 +21,8 @@ public class CharacterRepository {
     private ArrayList<Character> characters;
     private static CharacterRepository characterRepository;
 
+    CharacterDAOImpl dao;
+
     // Constructor
     static {
         characterRepository = new CharacterRepository();
@@ -25,7 +30,7 @@ public class CharacterRepository {
 
     private CharacterRepository() {
         characters = new ArrayList<>();
-        initializeCharacters();
+        dao = new CharacterDAOImpl();
     }
 
     // Methods
@@ -45,13 +50,12 @@ public class CharacterRepository {
     }
 
     public void addCharacter(Character c) {
-        characters.add(c);
+        dao.add(c);
     }
 
-    public ArrayList<Character> getCharacters() {
-
-        Collections.sort(characters);
-        return characters;
+    public ArrayList<Character> getCharacters(Book book) {
+       characters = dao.loadAll(book);
+       return characters;
     }
 
     public static CharacterRepository getInstance() {
@@ -59,27 +63,10 @@ public class CharacterRepository {
     }
 
     public void removeCharacter(Character c) {
-
-        Iterator<Character> iterator = characters.iterator();
-
-        while (iterator.hasNext()) {
-            if (iterator.next().getCharacterID() == c.getCharacterID()) {
-                iterator.remove();
-                break;
-            }
-        }
-
+        dao.delete(c);
     }
 
     public void editCharacter(Character c) {
-        for (Character character : characters) {
-            if (character.getCharacterID() == c.getCharacterID()) {
-                character.setCharacterName(c.getCharacterName());
-                character.setCharacterDesc(c.getCharacterDesc());
-                character.setCharacterFaction(c.getCharacterFaction());
-                character.setCharacterHome(c.getCharacterHome());
-                break;
-            }
-        }
+        dao.update(c);
     }
 }
