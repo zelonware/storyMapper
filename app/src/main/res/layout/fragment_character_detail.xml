@@ -29,7 +29,8 @@
                     android:id="@+id/tiD_CharacterName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/tiD_CharacterName"/>
+                    android:hint="@string/tiD_CharacterName"
+                    android:enabled="false"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -49,7 +50,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:hint="@string/tiD_CharacterDescription"
-                    android:inputType="textMultiLine"/>
+                    android:inputType="textMultiLine"
+                    android:enabled="false"/>
 
             </android.support.design.widget.TextInputLayout>
 

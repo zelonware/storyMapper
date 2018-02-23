@@ -14,8 +14,10 @@ import android.widget.TextView;
 
 import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.base.BaseFragment;
+import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.pojo.Character;
 import com.geekstorming.storymapper.ui.characters.presenter.AddEditCharacterPresenter;
+import com.geekstorming.storymapper.utils.ModeAddEdit;
 
 /**
  * Created by napst on 22/02/2018.
@@ -62,7 +64,7 @@ public class ViewCharacter_Fragment extends BaseFragment {
             public void onClick(View v) {
                 Bundle b = new Bundle();
                 b.putParcelable(Character.TAG, editableCharacter);
-                callback.editCharacter(b);
+                callback.editCharacter(b, ModeAddEdit.EDIT_MODE);
             }
         });
 
@@ -92,7 +94,7 @@ public class ViewCharacter_Fragment extends BaseFragment {
 
     public interface ViewCharacterClickListener
     {
-        void editCharacter(Bundle b);
+        void editCharacter(Bundle b, int mode);
     }
 
 }

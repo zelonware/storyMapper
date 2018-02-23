@@ -1,5 +1,7 @@
 package com.geekstorming.storymapper.ui.characters.fragments;
 
+import android.app.Activity;
+import android.app.ListFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -20,6 +22,7 @@ import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.pojo.Character;
 import com.geekstorming.storymapper.ui.characters.contracts.ListCharacterContract;
 import com.geekstorming.storymapper.utils.CommonUIUtils;
+import com.geekstorming.storymapper.utils.ModeAddEdit;
 
 import java.util.List;
 
@@ -59,7 +62,7 @@ public class CharacterList_Fragment extends BaseFragment implements ListCharacte
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_book_list, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_character_list, container, false);
 
         fab_addCharacter = (FloatingActionButton) rootView.findViewById(R.id.fab_Characters);
         recyclerV_Characters = (RecyclerView) rootView.findViewById(R.id.recyclerCharacters);
@@ -68,7 +71,9 @@ public class CharacterList_Fragment extends BaseFragment implements ListCharacte
         fab_addCharacter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               callback.addNewCharacter(null);
+                Bundle b = new Bundle();
+                b.putParcelable(Book.TAG, selectedBook);
+               callback.addNewCharacter(b, ModeAddEdit.ADD_MODE);
             }
         });
 
@@ -83,6 +88,17 @@ public class CharacterList_Fragment extends BaseFragment implements ListCharacte
         };
 
         return rootView;
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        try {
+            callback = (ListCharacterListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(getActivity().getLocalClassName() + " must be implemented");
+        }
     }
 
     @Override
@@ -167,7 +183,7 @@ public class CharacterList_Fragment extends BaseFragment implements ListCharacte
     }
 
     public interface ListCharacterListener {
-        void addNewCharacter(Bundle b);
+        void addNewCharacter(Bundle b, int mode);
         void viewSelectedCharacter(Bundle b);
     }
 }

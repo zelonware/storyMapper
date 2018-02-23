@@ -13,6 +13,7 @@ import android.widget.Spinner;
 
 import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.base.BaseFragment;
+import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.pojo.Character;
 import com.geekstorming.storymapper.ui.characters.presenter.AddEditCharacterPresenter;
 import com.geekstorming.storymapper.utils.ModeAddEdit;
@@ -38,17 +39,24 @@ public class AddEditCharacter_Fragment extends BaseFragment {
     static ModeAddEdit mode;
 
     private static Character editableCharacter;
+    private static Book selectedBook;
 
     AddNewCharacterClickListener callback;
 
-    public static AddEditCharacter_Fragment newInstance(Bundle args) {
+    public static AddEditCharacter_Fragment newInstance(Bundle args, int selectedMode) {
         AddEditCharacter_Fragment addEditCharacter_fragment = new AddEditCharacter_Fragment();
         mode = new ModeAddEdit(ModeAddEdit.ADD_MODE);
 
         if (args != null) {
-            addEditCharacter_fragment.setArguments(args);
-            mode.setMode(ModeAddEdit.EDIT_MODE);
-            editableCharacter = (Character) args.getParcelable(Character.TAG);
+            if (selectedMode == ModeAddEdit.EDIT_MODE) {
+                addEditCharacter_fragment.setArguments(args);
+                editableCharacter = (Character) args.getParcelable(Character.TAG);
+            }
+            else {
+                selectedBook = (Book) args.getParcelable(Book.TAG);
+            }
+
+            mode.setMode(selectedMode);
         }
 
         return addEditCharacter_fragment;
@@ -106,11 +114,14 @@ public class AddEditCharacter_Fragment extends BaseFragment {
     private void addOrEditCharacter() {
         if (mode.getMode() == ModeAddEdit.ADD_MODE) {
             presenter.addCharacter(new Character(0, tID_CharacterName.getText().toString(),
-                    tID_CharacterDescription.getText().toString(), 1, 1));
+                    tID_CharacterDescription.getText().toString(), 1, 1, selectedBook.getBookID()));
         }
         if (mode.getMode() == ModeAddEdit.EDIT_MODE) {
             presenter.editCharacter(new Character(0, tID_CharacterName.getText().toString(),
-                    tID_CharacterDescription.getText().toString(), 1, 1));
+                    tID_CharacterDescription.getText().toString(),
+                    editableCharacter.getCharacterFaction(),
+                    editableCharacter.getCharacterHome(),
+                    editableCharacter.getCharacterBook()));
         }
 
         callback.returnToList();

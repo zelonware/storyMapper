@@ -74,7 +74,9 @@ public class DetailBook_Fragment extends BaseFragment {
             public void onClick(View view) {
                 Bundle b = new Bundle();
                 b.putParcelable(Book.TAG, viewBook);
-                startActivity(new Intent(getActivity(), CharactersActivity.class));
+                Intent seeChars = new Intent(getActivity(), CharactersActivity.class);
+                seeChars.putExtras(b);
+                startActivity(seeChars);
             }
         });
 
