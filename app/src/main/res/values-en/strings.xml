@@ -12,6 +12,15 @@
     <string name="btn_Remember"><u>Remember me</u></string>
     <string name="btn_SignUp">Register</string>
 
+    <string name="txtV_SignUp">Register in StoryMapper</string>
+    <string name="txtV_InfoSignUp">Create stories right in!</string>
+    <string name="txtV_UserSignUp">User:</string>
+    <string name="txtV_UserNameSignUp">Name:</string>
+    <string name="txtV_EmailSignUp">Email:</string>
+    <string name="txtV_PasswordSignUp">Password:</string>
+
+    <string name="errorWrongUserPassword">Wrong data</string>
+
     <!-- Books Activity -->
     <string name="title_Books">Projects</string>
     <string name="title_Characters">Characters</string>
@@ -79,5 +88,16 @@
     <string name="navigation_subheader">More</string>
     <string name="action_help">Help</string>
     <string name="action_about">About</string>
+
+    <!-- Errors on register -->
+    <string name="userEmptyError">User is empty</string>
+    <string name="emailAlreadyExits">This email already exists</string>
+    <string name="passwordError">This password is not valid</string>
+    <string name="emailEmptyError">Email is empty</string>
+    <string name="passwordEmptyError">Password is empty</string>
+    <string name="userError">This user is not valid</string>
+    <string name="userAlreadyExits">This user already exists</string>
+    <string name="emailError">This email is not valid</string>
+    <string name="usernameEmptyError">Your name cannot be empty</string>
 
 </resources>

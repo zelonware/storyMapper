@@ -9,7 +9,7 @@
     <!-- Modificando margenes y paddings -->
     <dimen name="lly_login_padding">20dp</dimen>
     <dimen name="txtV_SignIn_marginBottom">20dp</dimen>
-    <dimen name="edT_User_marginBottom">30dp</dimen>
+    <dimen name="edT_User_marginBottom">20dp</dimen>
     <dimen name="btn_SignIn_marginBottom">64dp</dimen>
     <dimen name="lly_SignOptions_padding">8dp</dimen>
     <dimen name="btn_GoogleSign_margin">8dp</dimen>

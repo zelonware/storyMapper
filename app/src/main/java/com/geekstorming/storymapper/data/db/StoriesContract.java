@@ -11,7 +11,7 @@ public class StoriesContract {
     private StoriesContract() {
     }
 
-    public static final int DATABASE_VERSION = 9;
+    public static final int DATABASE_VERSION = 11;
     public static final String DATABASE_NAME = "stories.db";
 
     public static class BookItem implements BaseColumns {
@@ -97,5 +97,36 @@ public class StoriesContract {
                 "La organización es clave",
                 "No tengas miedo a experimentar"
         );
+    }
+
+    public static class UserItem implements BaseColumns {
+        public static final String TABLE = "users";
+        public static final String USER = "user";
+        public static final String USERNAME = "username";
+        public static final String EMAIL = "email";
+        public static final String PASSWORD = "password";
+
+        public static final String[] ALLCOLUMNS = { BaseColumns._ID, USER, USERNAME, EMAIL, PASSWORD };
+        public static final String[] SEARCHCOLUMNS = { USER, PASSWORD };
+
+        public static final String DEFAULT_SORT = USER;
+
+        public static final String SQL_CREATE_TABLE = String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "%s TEXT NOT NULL, " +
+                "%s TEXT NOT NULL, " +
+                "%s TEXT NOT NULL, " +
+                "%s TEXT NOT NULL) ",
+                TABLE, BaseColumns._ID,
+                USER,
+                USERNAME,
+                EMAIL,
+                PASSWORD);
+
+        public static final String SQL_DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", TABLE);
+
+        public static final String SQL_INSERT_TOTABLE = String.format("INSERT INTO %s (%s, %s, %s, %s) VALUES ('%s', '%s', '%s', '%s')",
+                TABLE,
+                USER, USERNAME, EMAIL, PASSWORD,
+                "Beelzenef", "Elena G", "elena.guzbla@gmail.com", "elenagb");
     }
 }

@@ -50,6 +50,8 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         try {
             db.beginTransaction();
 
+            db.execSQL(StoriesContract.UserItem.SQL_CREATE_TABLE);
+            db.execSQL(StoriesContract.UserItem.SQL_INSERT_TOTABLE);
             db.execSQL(StoriesContract.AdviceItem.SQL_CREATE_TABLE);
             db.execSQL(StoriesContract.AdviceItem.SQL_INSERT_TOTABLE);
             db.execSQL(StoriesContract.BookItem.SQL_CREATE_TABLE);
@@ -68,6 +70,9 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         try {
             db.beginTransaction();
 
+            db.execSQL(StoriesContract.UserItem.SQL_DROP_TABLE);
+            db.execSQL(StoriesContract.UserItem.SQL_CREATE_TABLE);
+            db.execSQL(StoriesContract.UserItem.SQL_INSERT_TOTABLE);
             db.execSQL(StoriesContract.AdviceItem.SQL_DROP_TABLE);
             db.execSQL(StoriesContract.AdviceItem.SQL_CREATE_TABLE);
             db.execSQL(StoriesContract.AdviceItem.SQL_INSERT_TOTABLE);

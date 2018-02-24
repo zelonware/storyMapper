@@ -3,13 +3,22 @@
 
     <!-- Login Activity -->
     <string name="txtV_SignIn">Acceder a StoryMapper</string>
-    <string name="txtV_User">Nombre de usuario / Correo electrónico</string>
+    <string name="txtV_User">Nombre de usuario</string>
     <string name="txtV_Password">Contraseña</string>
     <string name="btn_SignIn">Acceder</string>
     <string name="btn_GoogleSign">Acceder con Google+</string>
     <string name="btn_FBSign">Acceder con Facebook</string>
     <string name="btn_Remember"><u>Recuérdame</u></string>
     <string name="btn_SignUp">Registrarme</string>
+
+    <string name="txtV_SignUp">Regístrate en StoryMapper</string>
+    <string name="txtV_InfoSignUp">¡Comienza a crear historias!</string>
+    <string name="txtV_UserSignUp">Usuario:</string>
+    <string name="txtV_UserNameSignUp">Nombre:</string>
+    <string name="txtV_EmailSignUp">Correo electrónico:</string>
+    <string name="txtV_PasswordSignUp">Contraseña:</string>
+
+    <string name="errorWrongUserPassword">Datos incorrectos</string>
 
     <!-- Books Activity -->
     <string name="title_Books">Proyectos</string>
@@ -66,5 +75,16 @@
     <string name="navigation_subheader">Más</string>
     <string name="action_help">Ayuda</string>
     <string name="action_about">Sobre mí</string>
+
+    <!-- Errors on register -->
+    <string name="userEmptyError">El usuario esta vacio</string>
+    <string name="emailAlreadyExits">Un usuario con este correo ya existe</string>
+    <string name="passwordError">Contraseña no valida</string>
+    <string name="emailEmptyError">Email esta vacio</string>
+    <string name="passwordEmptyError">Contraseña esta vacia</string>
+    <string name="userError">Usuario no valido</string>
+    <string name="userAlreadyExits">Un usuario con este nombre ya existe</string>
+    <string name="emailError">Correo no valido</string>
+    <string name="usernameEmptyError">Necesitas un nombre</string>
 
 </resources>
