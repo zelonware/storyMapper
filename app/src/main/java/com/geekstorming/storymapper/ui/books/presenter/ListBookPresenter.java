@@ -1,6 +1,7 @@
 package com.geekstorming.storymapper.ui.books.presenter;
 
 import com.geekstorming.storymapper.data.pojo.Book;
+import com.geekstorming.storymapper.data.pojo.User;
 import com.geekstorming.storymapper.ui.books.contracts.ListBookContract;
 import com.geekstorming.storymapper.ui.books.interactor.ListBookInteractor;
 import com.geekstorming.storymapper.ui.books.interactor.ListBookInteractorImpl;
@@ -40,8 +41,8 @@ public class ListBookPresenter implements ListBookContract.Presenter, ListBookIn
     }
 
     @Override
-    public void loadBooks() {
-        interactor.loadBooks();
+    public void loadBooks(User loggedUser) {
+        interactor.loadBooks(loggedUser);
     }
 
     @Override

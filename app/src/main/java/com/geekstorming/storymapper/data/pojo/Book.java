@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 
 /**
  * Book entity, creative project
+ *
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
@@ -18,6 +19,7 @@ public class Book implements Parcelable, Comparable {
     String bookDesc;
     String bookGenre;
     int nWords;
+    int user;
 
     public static final String TAG = "Book";
 
@@ -63,23 +65,28 @@ public class Book implements Parcelable, Comparable {
         this.nWords = nWords;
     }
 
+    public int getUser() {return user; }
+
+    public void setUser(int user) { this.user = user; }
+
     // Constructor
 
-    public Book(int bookID, String bookTitle, String bookDesc, String bookGenre, int nWords) {
+    public Book(int bookID, String bookTitle, String bookDesc, String bookGenre, int nWords, int user) {
         this.bookID = bookID;
         this.bookTitle = bookTitle;
         this.bookDesc = bookDesc;
         this.bookGenre = bookGenre;
         this.nWords = nWords;
+        this.user = user;
     }
 
-    protected Book(Parcel in)
-    {
+    protected Book(Parcel in) {
         this.bookID = in.readInt();
         this.bookTitle = in.readString();
         this.bookDesc = in.readString();
         this.bookGenre = in.readString();
         this.nWords = in.readInt();
+        this.user = in.readInt();
     }
 
     public static final Creator<Book> CREATOR = new Creator<Book>() {
@@ -108,7 +115,7 @@ public class Book implements Parcelable, Comparable {
 
     @Override
     public int compareTo(@NonNull Object o) {
-        return bookTitle.compareTo(((Book)o).getBookTitle());
+        return bookTitle.compareTo(((Book) o).getBookTitle());
     }
 
     // Parcelable methods
@@ -125,5 +132,6 @@ public class Book implements Parcelable, Comparable {
         dest.writeString(bookDesc);
         dest.writeString(bookGenre);
         dest.writeInt(nWords);
+        dest.writeInt(user);
     }
 }

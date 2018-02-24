@@ -2,7 +2,6 @@ package com.geekstorming.storymapper.data.pojo;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
 
 /**
  * Created by Beelzenef on 24/02/2018.
@@ -10,10 +9,21 @@ import android.support.annotation.NonNull;
 
 public class User implements Parcelable {
 
+    public static final String TAG = "user";
+
+    private int id;
     private String username;
     private String user;
     private String email;
     private String password;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;
@@ -47,20 +57,27 @@ public class User implements Parcelable {
         this.password = password;
     }
 
-    public User() { }
-
     public User(String username, String user, String email, String password) {
-        this.username = username;
         this.user = user;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(int id, String user, String username, String email, String password) {
+        this.id = id;
+        this.user = user;
+        this.username = username;
         this.email = email;
         this.password = password;
     }
 
     protected User(Parcel in) {
-       this.username = in.readString();
-       this.user = in.readString();
-       this.email = in.readString();
-       this.password = in.readString();
+        this.id = in.readInt();
+        this.user = in.readString();
+        this.username = in.readString();
+        this.email = in.readString();
+        this.password = in.readString();
     }
 
     @Override
@@ -93,8 +110,9 @@ public class User implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(username);
+        dest.writeInt(id);
         dest.writeString(user);
+        dest.writeString(username);
         dest.writeString(email);
         dest.writeString(password);
     }

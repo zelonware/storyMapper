@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.geekstorming.storymapper.R;
+import com.geekstorming.storymapper.data.pojo.User;
 import com.geekstorming.storymapper.ui.books.BookActivity;
 import com.geekstorming.storymapper.ui.user.contracts.LoginContract;
 import com.geekstorming.storymapper.ui.user.presenter.LoginPresenter;
@@ -48,7 +49,11 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     @Override
     public void enterUser() {
-        startActivity(new Intent(LoginActivity.this, BookActivity.class));
+        Bundle b = new Bundle();
+        b.putString(User.TAG, edT_User.getText().toString());
+        Intent toLogin = new Intent(LoginActivity.this, BookActivity.class);
+        toLogin.putExtras(b);
+        startActivity(toLogin);
     }
 
     @Override

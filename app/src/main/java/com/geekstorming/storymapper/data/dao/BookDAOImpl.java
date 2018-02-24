@@ -3,12 +3,12 @@ package com.geekstorming.storymapper.data.dao;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 
 import com.geekstorming.storymapper.base.daos.BookDAO;
 import com.geekstorming.storymapper.data.db.DBOpenHelper;
 import com.geekstorming.storymapper.data.db.StoriesContract;
 import com.geekstorming.storymapper.data.pojo.Book;
+import com.geekstorming.storymapper.data.pojo.User;
 
 import java.util.ArrayList;
 
@@ -19,19 +19,21 @@ import java.util.ArrayList;
 public class BookDAOImpl implements BookDAO {
 
     @Override
-    public ArrayList<Book> loadAll() {
+    public ArrayList<Book> loadAll(User loggedUser) {
         ArrayList<Book> bookList = new ArrayList<>();
 
         SQLiteDatabase sqLiteDatabase = DBOpenHelper.getInstance().openDB();
         Cursor cursor = sqLiteDatabase.query(StoriesContract.BookItem.TABLE,
                 StoriesContract.BookItem.ALL_COLUMNS,
-                null, null, null,null,
+                StoriesContract.BookItem.USER + " = ?",
+                new String[]{Integer.toString(loggedUser.getId())},
+                null, null,
                 StoriesContract.BookItem.DEFAULT_SORT, null);
 
         if (cursor.moveToFirst()) {
 
             do {
-                Book tmp = new Book(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4));
+                Book tmp = new Book(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getInt(5));
                 bookList.add(tmp);
                 try {
                     Thread.sleep(350);
@@ -70,9 +72,9 @@ public class BookDAOImpl implements BookDAO {
         ContentValues datosColumnas = createBookCV(book);
         long id = sqLiteDatabase.delete(StoriesContract.BookItem.TABLE,
                 StoriesContract.BookItem.TITLE + " = ?",
-                new String[] {book.getBookTitle()});
+                new String[]{book.getBookTitle()});
 
-        DBOpenHelper.getInstance().closeDB();;
+        DBOpenHelper.getInstance().closeDB();
         return id;
 
     }
@@ -83,19 +85,21 @@ public class BookDAOImpl implements BookDAO {
         ContentValues datosColumnas = createBookCV(book);
         long id = sqLiteDatabase.update(StoriesContract.BookItem.TABLE, datosColumnas,
                 StoriesContract.BookItem.TITLE + " = ?",
-                new String[] {Integer.toString(book.getBookID())});
+                new String[]{Integer.toString(book.getBookID())});
 
-        DBOpenHelper.getInstance().closeDB();;
+        DBOpenHelper.getInstance().closeDB();
+        ;
         return id;
     }
 
-    private ContentValues createBookCV (Book b) {
+    private ContentValues createBookCV(Book b) {
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(StoriesContract.BookItem.TITLE, b.getBookTitle());
         contentValues.put(StoriesContract.BookItem.DESCRIPTION, b.getBookDesc());
         contentValues.put(StoriesContract.BookItem.GENRE, b.getBookGenre());
         contentValues.put(StoriesContract.BookItem.NWORDS, b.getnWords());
+        contentValues.put(StoriesContract.BookItem.USER, b.getUser());
 
         return contentValues;
     }

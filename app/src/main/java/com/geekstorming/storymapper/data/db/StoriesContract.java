@@ -11,7 +11,7 @@ public class StoriesContract {
     private StoriesContract() {
     }
 
-    public static final int DATABASE_VERSION = 11;
+    public static final int DATABASE_VERSION = 20;
     public static final String DATABASE_NAME = "stories.db";
 
     public static class BookItem implements BaseColumns {
@@ -19,10 +19,11 @@ public class StoriesContract {
         public static final String TITLE = "title";
         public static final String DESCRIPTION = "description";
         public static final String GENRE = "genre";
-        public static final String NWORDS = "nwors";
+        public static final String NWORDS = "nwords";
+        public static final String USER = "user";
 
         public static final String[] ALL_COLUMNS = {
-                BaseColumns._ID, TITLE, DESCRIPTION, GENRE, NWORDS
+                BaseColumns._ID, TITLE, DESCRIPTION, GENRE, NWORDS, USER
         };
 
         public static final String DEFAULT_SORT = TITLE;
@@ -31,13 +32,15 @@ public class StoriesContract {
                 "%s TEXT NOT NULL," +
                 "%s TEXT NOT NULL," +
                 "%s TEXT," +
+                "%s INTEGER, " +
                 "%s INTEGER)",
                 TABLE,
                 BaseColumns._ID,
                 TITLE,
                 DESCRIPTION,
                 GENRE,
-                NWORDS);
+                NWORDS,
+                USER);
 
         public static final String SQL_DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", TABLE);
     }
@@ -124,9 +127,10 @@ public class StoriesContract {
 
         public static final String SQL_DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", TABLE);
 
-        public static final String SQL_INSERT_TOTABLE = String.format("INSERT INTO %s (%s, %s, %s, %s) VALUES ('%s', '%s', '%s', '%s')",
+        public static final String SQL_INSERT_TOTABLE = String.format("INSERT INTO %s (%s, %s, %s, %s) VALUES ('%s', '%s', '%s', '%s'), ('%s', '%s', '%s', '%s')",
                 TABLE,
                 USER, USERNAME, EMAIL, PASSWORD,
-                "Beelzenef", "Elena G", "elena.guzbla@gmail.com", "elenagb");
+                "Beelzenef", "Elena G", "elena.guzbla@gmail.com", "elenagb",
+                "moronlu", "Lourdes", "moronlu@gmail.com", "moronlu");
     }
 }

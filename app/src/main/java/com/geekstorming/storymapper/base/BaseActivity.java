@@ -10,12 +10,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.geekstorming.storymapper.AboutActivity;
 import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.base.daos.AdviceDAO;
 import com.geekstorming.storymapper.data.dao.AdviceDAOImpl;
+import com.geekstorming.storymapper.data.pojo.User;
 import com.geekstorming.storymapper.ui.books.BookActivity;
 import com.geekstorming.storymapper.ui.receivers.AdviceReceiver;
 import com.geekstorming.storymapper.ui.settings.SettingsActivity;
@@ -31,6 +33,8 @@ public class BaseActivity extends AppCompatActivity {
     private DrawerLayout drawL_base;
     private NavigationView navigationView;
     private Toolbar toolbar;
+    private TextView txtV_username;
+    private TextView txtV_email;
 
     AdviceDAOImpl dao;
 
@@ -146,5 +150,12 @@ public class BaseActivity extends AppCompatActivity {
         b.putString(AdviceReceiver.ADVICETAG, dao.getAdvice());
         adviceMsg.putExtras(b);
         sendBroadcast(adviceMsg);
+    }
+
+    public void setDataToNavigationDrawer(User user) {
+        txtV_email = (TextView) findViewById(R.id.txtV_email);
+        txtV_username = (TextView) findViewById(R.id.txtV_username);
+        txtV_username.setText(user.getUser());
+        txtV_email.setText(user.getEmail());
     }
 }

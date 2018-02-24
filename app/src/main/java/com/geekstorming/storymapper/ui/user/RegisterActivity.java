@@ -39,8 +39,8 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
         btn_SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.validateCredentials(new User(edT_Username.getText().toString(),
-                        edT_User.getText().toString(),
+                presenter.validateCredentials(new User(edT_User.getText().toString(),
+                        edT_Username.getText().toString(),
                         edT_Email.getText().toString(),
                         edT_Pasword.getText().toString()));
             }

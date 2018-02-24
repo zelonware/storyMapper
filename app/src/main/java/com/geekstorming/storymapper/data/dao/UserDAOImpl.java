@@ -95,12 +95,38 @@ public class UserDAOImpl implements UserDAO {
         return emailExists;
     }
 
+    public User getUser(String user) {
+
+        User userToSearch = null;
+
+        SQLiteDatabase sqLiteDatabase = DBOpenHelper.getInstance().openDB();
+
+        Cursor c = sqLiteDatabase.query(StoriesContract.UserItem.TABLE,
+                StoriesContract.UserItem.ALLCOLUMNS,
+                StoriesContract.UserItem.USER + " = ?",
+                new String[] { user }, null, null, StoriesContract.UserItem.DEFAULT_SORT);
+
+        if (c.moveToFirst()) {
+            do {
+                userToSearch = new User(c.getInt(0),
+                        c.getString(1),
+                        c.getString(2),
+                        c.getString(3),
+                        c.getString(4));
+            } while (c.moveToNext());
+        }
+
+        DBOpenHelper.getInstance().closeDB();
+
+        return userToSearch;
+    }
+
     private ContentValues createUserCV(User user) {
 
         ContentValues cV = new ContentValues();
 
-        cV.put(StoriesContract.UserItem.USERNAME, user.getUsername());
         cV.put(StoriesContract.UserItem.USER, user.getUser());
+        cV.put(StoriesContract.UserItem.USERNAME, user.getUsername());
         cV.put(StoriesContract.UserItem.EMAIL, user.getEmail());
         cV.put(StoriesContract.UserItem.PASSWORD, user.getPassword());
 

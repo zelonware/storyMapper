@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 
 import com.geekstorming.storymapper.data.db.InteractorCallback;
 import com.geekstorming.storymapper.data.pojo.Book;
+import com.geekstorming.storymapper.data.pojo.User;
 import com.geekstorming.storymapper.data.repos.BookRepository;
 
 import java.util.List;
@@ -17,17 +18,20 @@ public class ListBookInteractorImpl implements ListBookInteractor, InteractorCal
 
     OnLoadFinishedListener listener;
 
+    private User user;
+
     public ListBookInteractorImpl (OnLoadFinishedListener listener)
     {
         this.listener = listener;
     }
 
     @Override
-    public void loadBooks() {
+    public void loadBooks(final User loggedUser) {
         new AsyncTask() {
             @Override
             protected Object doInBackground(Object[] objects) {
-                listener.onSuccess(BookRepository.getInstance().getBooks());
+                user = loggedUser;
+                listener.onSuccess(BookRepository.getInstance().getBooks(loggedUser));
                 return null;
             }
         }.execute();
@@ -36,7 +40,7 @@ public class ListBookInteractorImpl implements ListBookInteractor, InteractorCal
     @Override
     public void removeBook(Book b) {
         BookRepository.getInstance().removeBook(b);
-        loadBooks();
+        loadBooks(user);
     }
 
     @Override
@@ -51,7 +55,7 @@ public class ListBookInteractorImpl implements ListBookInteractor, InteractorCal
 
     @Override
     public void onSuccess() {
-        loadBooks();
+        loadBooks(user);
     }
 
     public interface OnLoadFinishedListener {

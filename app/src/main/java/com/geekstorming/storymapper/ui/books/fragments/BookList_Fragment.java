@@ -20,6 +20,7 @@ import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.adapters.BooksAdapter;
 import com.geekstorming.storymapper.base.BasePresenter;
 import com.geekstorming.storymapper.data.pojo.Book;
+import com.geekstorming.storymapper.data.pojo.User;
 import com.geekstorming.storymapper.ui.books.contracts.ListBookContract;
 import com.geekstorming.storymapper.utils.CommonUIUtils;
 
@@ -40,12 +41,15 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
 
     BooksAdapter adapter;
 
+    private static User loggedUser;
+
     public static BookList_Fragment newInstance(Bundle args) {
 
         BookList_Fragment fragment = new BookList_Fragment();
 
         if (args != null) {
             fragment.setArguments(args);
+            loggedUser = (User) args.getParcelable(User.TAG);
         }
 
         return fragment;
@@ -91,10 +95,10 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
         fab_AddNewBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callback.addNewBook(null);
+                callback.addNewBook(new Bundle());
             }
         });
-        presenter.loadBooks();
+        presenter.loadBooks(loggedUser);
 
         return rootView;
     }

@@ -36,6 +36,10 @@ public class UserRepository {
         return userDAO.checkUser(user, password);
     }
 
+    public User getUser(String user) {
+        return userDAO.getUser(user);
+    }
+
     public void addUser (User user) {
         userDAO.registerUser(user);
     }

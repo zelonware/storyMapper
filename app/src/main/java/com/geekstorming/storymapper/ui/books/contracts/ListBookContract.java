@@ -3,6 +3,7 @@ package com.geekstorming.storymapper.ui.books.contracts;
 import com.geekstorming.storymapper.base.BasePresenter;
 import com.geekstorming.storymapper.base.BaseView;
 import com.geekstorming.storymapper.data.pojo.Book;
+import com.geekstorming.storymapper.data.pojo.User;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ public interface ListBookContract {
     }
 
     interface Presenter extends BasePresenter {
-        void loadBooks();
+        void loadBooks(User loggedUser);
         void removeBook(Book b);
     }
 }

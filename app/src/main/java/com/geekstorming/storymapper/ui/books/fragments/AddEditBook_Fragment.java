@@ -14,6 +14,7 @@ import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.base.BaseFragment;
 import com.geekstorming.storymapper.base.BasePresenter;
 import com.geekstorming.storymapper.data.pojo.Book;
+import com.geekstorming.storymapper.data.pojo.User;
 import com.geekstorming.storymapper.ui.books.contracts.AddEditBookContract;
 import com.geekstorming.storymapper.ui.books.presenter.AddEditBookPresenter;
 import com.geekstorming.storymapper.utils.ModeAddEdit;
@@ -41,17 +42,24 @@ public class AddEditBook_Fragment extends BaseFragment implements AddEditBookCon
     static ModeAddEdit mode;
 
     private static Book editableBook;
+    private static User user;
 
-    public static AddEditBook_Fragment newInstance(Bundle args) {
+    public static AddEditBook_Fragment newInstance(Bundle args, int selectedMode) {
         AddEditBook_Fragment addEditBook_fragment = new AddEditBook_Fragment();
         mode = new ModeAddEdit(ModeAddEdit.ADD_MODE);
 
         if (args != null) {
             // Loading existing book for edits
-            addEditBook_fragment.setArguments(args);
-            mode.setMode(ModeAddEdit.EDIT_MODE);
-            editableBook = (Book) args.getParcelable(Book.TAG);
+            if (selectedMode == ModeAddEdit.EDIT_MODE) {
+                addEditBook_fragment.setArguments(args);
+                editableBook = (Book) args.getParcelable(Book.TAG);
+            }
+            else {
+                user = (User) args.getParcelable(User.TAG);
+            }
         }
+
+        mode.setMode(selectedMode);
 
         return addEditBook_fragment;
     }
@@ -90,13 +98,13 @@ public class AddEditBook_Fragment extends BaseFragment implements AddEditBookCon
         {
             presenter.updateBook(new Book(editableBook.getBookID(),
                     tID_bookName.getText().toString(), tId_bookDesc.getText().toString(),
-                    spn_bookGenre.getSelectedItem().toString(), Integer.parseInt(tID_nWords.getText().toString())));
+                    spn_bookGenre.getSelectedItem().toString(), Integer.parseInt(tID_nWords.getText().toString()), editableBook.getUser()));
         }
         if (mode.getMode() == ModeAddEdit.ADD_MODE)
         {
             presenter.addNewBook(new Book(5,
                     tID_bookName.getText().toString(), tId_bookDesc.getText().toString(),
-                    spn_bookGenre.getSelectedItem().toString(), Integer.parseInt(tID_nWords.getText().toString())));
+                    spn_bookGenre.getSelectedItem().toString(), Integer.parseInt(tID_nWords.getText().toString()), user.getId()));
         }
 
         callback.returnToBookList();

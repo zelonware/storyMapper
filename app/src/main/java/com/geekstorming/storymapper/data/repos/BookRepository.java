@@ -2,6 +2,7 @@ package com.geekstorming.storymapper.data.repos;
 
 import com.geekstorming.storymapper.data.dao.BookDAOImpl;
 import com.geekstorming.storymapper.data.pojo.Book;
+import com.geekstorming.storymapper.data.pojo.User;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,14 +36,6 @@ public class BookRepository {
 
     // Methods
 
-    private void initializeBooks(){
-
-        addBook(new Book(1, "Ocaso: Imperio", "Como mola mi libro", "Ciencia ficcion", 30000));
-        addBook(new Book(2, "Llegaron del cielo", "Terror y ciencia ficcion","Ciencia ficcion", 20000));
-        addBook(new Book(3, "La espiral", "Una locura de fantasía urbana","Fantasía urbana", 23000));
-        addBook(new Book(4, "Crónicas de Argonath", "Un libro de fantasia","Fantasía", 50000));
-    }
-
     public void addBook(Book b)
     {
         bookDAO.add(b);
@@ -52,8 +45,8 @@ public class BookRepository {
         bookDAO.delete(b);
     }
 
-    public ArrayList<Book> getBooks() {
-        ArrayList<Book> books = bookDAO.loadAll();
+    public ArrayList<Book> getBooks(User loggedUser) {
+        ArrayList<Book> books = bookDAO.loadAll(loggedUser);
         return books;
     }
 
