@@ -71,8 +71,8 @@ public class BookDAOImpl implements BookDAO {
         SQLiteDatabase sqLiteDatabase = DBOpenHelper.getInstance().openDB();
         ContentValues datosColumnas = createBookCV(book);
         long id = sqLiteDatabase.delete(StoriesContract.BookItem.TABLE,
-                StoriesContract.BookItem.TITLE + " = ?",
-                new String[]{book.getBookTitle()});
+                StoriesContract.BookItem._ID + " = ?",
+                new String[]{Integer.toString(book.getBookID())});
 
         DBOpenHelper.getInstance().closeDB();
         return id;
@@ -84,7 +84,7 @@ public class BookDAOImpl implements BookDAO {
         SQLiteDatabase sqLiteDatabase = DBOpenHelper.getInstance().openDB();
         ContentValues datosColumnas = createBookCV(book);
         long id = sqLiteDatabase.update(StoriesContract.BookItem.TABLE, datosColumnas,
-                StoriesContract.BookItem.TITLE + " = ?",
+                StoriesContract.BookItem._ID + " = ?",
                 new String[]{Integer.toString(book.getBookID())});
 
         DBOpenHelper.getInstance().closeDB();

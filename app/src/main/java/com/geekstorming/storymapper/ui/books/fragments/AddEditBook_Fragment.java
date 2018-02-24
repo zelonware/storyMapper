@@ -102,7 +102,7 @@ public class AddEditBook_Fragment extends BaseFragment implements AddEditBookCon
         }
         if (mode.getMode() == ModeAddEdit.ADD_MODE)
         {
-            presenter.addNewBook(new Book(5,
+            presenter.addNewBook(new Book(0,
                     tID_bookName.getText().toString(), tId_bookDesc.getText().toString(),
                     spn_bookGenre.getSelectedItem().toString(), Integer.parseInt(tID_nWords.getText().toString()), user.getId()));
         }

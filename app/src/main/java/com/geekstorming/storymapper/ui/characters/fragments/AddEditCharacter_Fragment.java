@@ -117,7 +117,8 @@ public class AddEditCharacter_Fragment extends BaseFragment {
                     tID_CharacterDescription.getText().toString(), 1, 1, selectedBook.getBookID()));
         }
         if (mode.getMode() == ModeAddEdit.EDIT_MODE) {
-            presenter.editCharacter(new Character(0, tID_CharacterName.getText().toString(),
+            presenter.editCharacter(new Character(editableCharacter.getCharacterID(),
+                    tID_CharacterName.getText().toString(),
                     tID_CharacterDescription.getText().toString(),
                     editableCharacter.getCharacterFaction(),
                     editableCharacter.getCharacterHome(),
