@@ -1,7 +1,7 @@
 package com.geekstorming.storymapper.ui.user;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -54,22 +54,22 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
 
     @Override
     public void onUserEmptyError() {
-        Toast.makeText(this,getResources().getString(R.string.userEmptyError),Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getResources().getString(R.string.userEmptyError), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onUsernameEmptyError() {
-        Toast.makeText(this,getResources().getString(R.string.usernameEmptyError),Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getResources().getString(R.string.usernameEmptyError), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onPasswordEmptyError() {
-        Toast.makeText(this,getResources().getString(R.string.passwordEmptyError),Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getResources().getString(R.string.passwordEmptyError), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onEmailEmptyError() {
-        Toast.makeText(this,getResources().getString(R.string.emailEmptyError),Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getResources().getString(R.string.emailEmptyError), Toast.LENGTH_SHORT).show();
     }
 
     @Override

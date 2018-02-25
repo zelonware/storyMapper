@@ -16,6 +16,7 @@ import com.geekstorming.storymapper.adapters.CharacterAdapter;
 import com.geekstorming.storymapper.base.BaseActivity;
 import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.pojo.Character;
+import com.geekstorming.storymapper.ui.books.BookActivity;
 import com.geekstorming.storymapper.ui.books.fragments.BookList_Fragment;
 import com.geekstorming.storymapper.ui.books.presenter.ListBookPresenter;
 import com.geekstorming.storymapper.ui.characters.fragments.AddEditCharacter_Fragment;
@@ -105,5 +106,12 @@ public class CharactersActivity extends BaseActivity implements AddEditCharacter
     @Override
     public void editCharacter(Bundle b, int mode) {
         toAddEditCharacter(b, mode);
+    }
+
+    @Override
+    public void showBooks() {
+        Intent intent = new Intent(CharactersActivity.this, BookActivity.class);
+        finish();
+        startActivity(intent);
     }
 }

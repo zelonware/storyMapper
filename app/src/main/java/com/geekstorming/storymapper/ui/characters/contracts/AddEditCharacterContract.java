@@ -15,9 +15,13 @@ public interface AddEditCharacterContract  {
     {
         void editCharacter (Character c);
         void addCharacter (Character c);
+
+        void validateCharacterData (String name, String desc);
     }
 
     interface View extends BaseView {
-
+        void onNameEmtpy();
+        void onDescriptionEmpy();
+        void doAddOrEdit();
     }
 }

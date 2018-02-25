@@ -9,14 +9,15 @@ import com.geekstorming.storymapper.ui.characters.interactor.AddEditCharacterInt
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
-public class AddEditCharacterPresenter implements AddEditCharacterContract.Presenter {
+public class AddEditCharacterPresenter implements AddEditCharacterContract.Presenter, AddEditCharacterInteractorImpl.AddCharacterListener {
 
     AddEditCharacterInteractorImpl interactor;
     AddEditCharacterContract.View view;
 
-    public AddEditCharacterPresenter ()
+    public AddEditCharacterPresenter (AddEditCharacterContract.View view)
     {
-        this.interactor = new AddEditCharacterInteractorImpl();
+        this.view = view;
+        this.interactor = new AddEditCharacterInteractorImpl(this);
     }
 
     @Override
@@ -27,5 +28,25 @@ public class AddEditCharacterPresenter implements AddEditCharacterContract.Prese
     @Override
     public void addCharacter(Character c) {
         interactor.addCharacter(c);
+    }
+
+    @Override
+    public void validateCharacterData(String name, String desc) {
+        interactor.isValidData(name, desc);
+    }
+
+    @Override
+    public void nameIsEmpty() {
+        view.onNameEmtpy();
+    }
+
+    @Override
+    public void descIsEmpty() {
+        view.onDescriptionEmpy();
+    }
+
+    @Override
+    public void onDataValid() {
+        view.doAddOrEdit();
     }
 }

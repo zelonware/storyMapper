@@ -21,6 +21,7 @@ import com.geekstorming.storymapper.data.pojo.User;
 import com.geekstorming.storymapper.ui.books.BookActivity;
 import com.geekstorming.storymapper.ui.receivers.AdviceReceiver;
 import com.geekstorming.storymapper.ui.settings.SettingsActivity;
+import com.geekstorming.storymapper.utils.CommonUIUtils;
 
 /**
  * Base for Activities
@@ -69,7 +70,7 @@ public class BaseActivity extends AppCompatActivity {
                         showBooks();
                         break;
                     case R.id.action_help:
-                        //lanzarHelp();
+                        lanzarHelp();
                         break;
                     case R.id.action_settings:
                         closeDrawerAndChangeTitle(item);
@@ -121,15 +122,15 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     private void showSettings() {
-        startActivity(new Intent(this, SettingsActivity.class));
+        startActivity(new Intent(BaseActivity.this, SettingsActivity.class));
     }
 
-    private void showBooks() {
-        startActivity(new Intent(this, BookActivity.class));
+    public void showBooks() {
+        //startActivity(new Intent(BaseActivity.this, BookActivity.class));
     }
 
     private void showAbout() {
-        startActivity(new Intent(this, AboutActivity.class));
+        startActivity(new Intent(BaseActivity.this, AboutActivity.class));
     }
 
     private void showLocations() {
@@ -150,6 +151,10 @@ public class BaseActivity extends AppCompatActivity {
         b.putString(AdviceReceiver.ADVICETAG, dao.getAdvice());
         adviceMsg.putExtras(b);
         sendBroadcast(adviceMsg);
+    }
+
+    private void lanzarHelp() {
+        CommonUIUtils.showHelpDialog(BaseActivity.this).show();
     }
 
     public void setDataToNavigationDrawer(User user) {

@@ -11,4 +11,6 @@ public interface AddEditCharacterInteractor {
 
     void editCharacter (Character c);
     void addCharacter (Character c);
+
+    void isValidData(String name, String desc);
 }

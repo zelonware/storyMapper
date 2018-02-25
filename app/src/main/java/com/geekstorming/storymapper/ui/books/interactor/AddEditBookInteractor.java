@@ -9,15 +9,15 @@ import com.geekstorming.storymapper.data.pojo.Book;
 
 public interface AddEditBookInteractor {
 
-    void validateBook(String title, String desc, String genre, OnBookAddingListener oBAL);
+    void validateBook(String title, String desc, String words);
     void addingBook(Book b);
     void updateBook(Book b);
 
     interface OnBookAddingListener {
-
         void onTitleEmpty();
         void onDescEmpty();
         void onGenreEmpty();
+        void onNWordsEmpty();
         void onSuccess();
     }
 }

@@ -10,11 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.base.BaseFragment;
+import com.geekstorming.storymapper.base.BasePresenter;
 import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.pojo.Character;
+import com.geekstorming.storymapper.ui.books.presenter.AddEditBookPresenter;
+import com.geekstorming.storymapper.ui.characters.contracts.AddEditCharacterContract;
 import com.geekstorming.storymapper.ui.characters.presenter.AddEditCharacterPresenter;
 import com.geekstorming.storymapper.utils.ModeAddEdit;
 
@@ -23,7 +27,7 @@ import com.geekstorming.storymapper.utils.ModeAddEdit;
  *
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
-public class AddEditCharacter_Fragment extends BaseFragment {
+public class AddEditCharacter_Fragment extends BaseFragment implements AddEditCharacterContract.View {
 
     public static final String TAG = "addeditCharacter";
 
@@ -68,7 +72,7 @@ public class AddEditCharacter_Fragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View viewRoot = inflater.inflate(R.layout.fragment_character_add, container, false);
 
-        presenter = new AddEditCharacterPresenter();
+        presenter = new AddEditCharacterPresenter(this);
 
         tID_CharacterName = (TextInputEditText) viewRoot.findViewById(R.id.tiD_CharacterName);
         tID_CharacterDescription = (TextInputEditText) viewRoot.findViewById(R.id.tID_CharacterDescription);
@@ -93,7 +97,9 @@ public class AddEditCharacter_Fragment extends BaseFragment {
         fab_CharacterDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addOrEditCharacter();
+                //addOrEditCharacter();
+                presenter.validateCharacterData(tID_CharacterName.getText().toString(),
+                        tID_CharacterDescription.getText().toString());
             }
         });
 
@@ -138,6 +144,26 @@ public class AddEditCharacter_Fragment extends BaseFragment {
         } catch (ClassCastException e) {
             throw new ClassCastException(getActivity().getLocalClassName() + " must be implemented");
         }
+    }
+
+    @Override
+    public void setPresenter(BasePresenter presenter) {
+        this.presenter = (AddEditCharacterPresenter) presenter;
+    }
+
+    @Override
+    public void onNameEmtpy() {
+        Toast.makeText(getActivity(), getResources().getString(R.string.characterNameEmpty), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDescriptionEmpy() {
+        Toast.makeText(getActivity(), getResources().getString(R.string.characterDescEmpty), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void doAddOrEdit() {
+        addOrEditCharacter();
     }
 
     public interface AddNewCharacterClickListener

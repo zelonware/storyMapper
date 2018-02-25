@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.base.BaseFragment;
@@ -85,7 +86,8 @@ public class AddEditBook_Fragment extends BaseFragment implements AddEditBookCon
         fab_AddEditBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addOrEditBook();
+                presenter.validateBook(tID_bookName.getText().toString(), tId_bookDesc.getText().toString(),
+                        tID_nWords.getText().toString());
             }
         });
 
@@ -131,6 +133,31 @@ public class AddEditBook_Fragment extends BaseFragment implements AddEditBookCon
         {
             throw new ClassCastException(getActivity().getLocalClassName() + "must be implemented");
         }
+    }
+
+    @Override
+    public void onEmptyTitle() {
+        Toast.makeText(getActivity(), getResources().getString(R.string.bookTitleEmpty), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onEmptyDesc() {
+        Toast.makeText(getActivity(), getResources().getString(R.string.bookDescEmpty), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onEmptyWords() {
+        Toast.makeText(getActivity(), getResources().getString(R.string.bookWordsEmpty), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onEmptyGenero() {
+        Toast.makeText(getActivity(), getResources().getString(R.string.bookGenreEmpty), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void doAddOrEdit() {
+        addOrEditBook();
     }
 
     public interface AddNewBookClickListener

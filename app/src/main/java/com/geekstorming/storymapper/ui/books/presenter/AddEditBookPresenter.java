@@ -17,7 +17,7 @@ public class AddEditBookPresenter implements AddEditBookContract.Presenter, AddE
     public AddEditBookPresenter (AddEditBookContract.View v)
     {
         this.view = v;
-        interactor = new AddEditBookInteractorImpl();
+        interactor = new AddEditBookInteractorImpl(this);
     }
 
     @Override
@@ -31,27 +31,32 @@ public class AddEditBookPresenter implements AddEditBookContract.Presenter, AddE
     }
 
     @Override
-    public void validateBook(Book b) {
-        interactor.validateBook(b.getBookTitle(), b.getBookDesc(), b.getBookGenre(), this);
+    public void validateBook(String title, String desc, String words) {
+        interactor.validateBook(title, desc, words);
     }
 
     @Override
     public void onTitleEmpty() {
-
+        view.onEmptyTitle();
     }
 
     @Override
     public void onDescEmpty() {
-
+        view.onEmptyDesc();
     }
 
     @Override
     public void onGenreEmpty() {
+        view.onEmptyGenero();
+    }
 
+    @Override
+    public void onNWordsEmpty() {
+        view.onEmptyWords();
     }
 
     @Override
     public void onSuccess() {
-
+        view.doAddOrEdit();
     }
 }

@@ -1,5 +1,6 @@
 package com.geekstorming.storymapper.ui.books;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
@@ -104,5 +105,12 @@ public class BookActivity extends BaseActivity implements BookList_Fragment.List
     @Override
     public void editSelectedBook(Bundle b) {
         toAddEditBook(b, ModeAddEdit.EDIT_MODE);
+    }
+
+    @Override
+    public void showBooks() {
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
 }

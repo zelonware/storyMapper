@@ -11,7 +11,7 @@ public class StoriesContract {
     private StoriesContract() {
     }
 
-    public static final int DATABASE_VERSION = 20;
+    public static final int DATABASE_VERSION = 21;
     public static final String DATABASE_NAME = "stories.db";
 
     public static class BookItem implements BaseColumns {
@@ -94,11 +94,14 @@ public class StoriesContract {
 
         public static final String SQL_DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", TABLE);
 
-        public static final String SQL_INSERT_TOTABLE = String.format("INSERT INTO %s (%s) VALUES ('%s'), ('%s'), ('%s')",
+        public static final String SQL_INSERT_TOTABLE = String.format("INSERT INTO %s (%s) VALUES ('%s'), ('%s'), ('%s'), ('%s'), ('%s'), ('%s')",
             TABLE, ADVICE,
                 "Empieza con algo sencillo",
                 "La organización es clave",
-                "No tengas miedo a experimentar"
+                "No tengas miedo a experimentar",
+                "No te obsesiones con la perfección",
+                "Escribe para ti",
+                "Escribe para ser feliz"
         );
     }
 

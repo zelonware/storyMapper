@@ -41,6 +41,11 @@
         <item>Romántica</item>
     </string-array>
 
+    <string name="bookTitleEmpty">El proyecto no tiene título</string>
+    <string name="bookDescEmpty">El proyecto no tiene descripción</string>
+    <string name="bookGenreEmpty">El proyecto no tiene género</string>
+    <string name="bookWordsEmpty">El proyecto no tiene palabras mínimas</string>
+
     <!-- Characters Activity -->
 
     <!-- Character Activity -->
@@ -50,6 +55,9 @@
     <string name="txtV_CharacterFaction">Facción:</string>
     <string name="txtV_CharactersHome">Hogar:</string>
     <string name="btn_CharacterRelationShips">Ver relaciones</string>
+
+    <string name="characterDescEmpty">El personaje no tiene descripción</string>
+    <string name="characterNameEmpty">El personaje no tiene nombre</string>
 
     <!-- Faction Activity -->
     <string name="tiD_FactionName">Nombre de facción</string>
@@ -65,6 +73,7 @@
 
     <string name="btn_dialog_confirm">Confirmar</string>
     <string name="btn_dialog_cancel">Cancelar</string>
+    <string name="btn_dialog_roger">¡Genial!</string>
 
     <!-- NavigationDrawer -->
     <string name="action_home">Inicio</string>

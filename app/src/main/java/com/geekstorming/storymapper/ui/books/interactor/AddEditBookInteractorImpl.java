@@ -12,16 +12,22 @@ import com.geekstorming.storymapper.data.repos.BookRepository;
 
 public class AddEditBookInteractorImpl implements AddEditBookInteractor {
 
+    OnBookAddingListener oBAL;
+
+    public AddEditBookInteractorImpl(OnBookAddingListener listener) {
+        this.oBAL = listener;
+    }
+
     @Override
-    public void validateBook(String title, String desc, String genre, OnBookAddingListener oBAL) {
+    public void validateBook(String title, String desc, String words) {
 
         // Check if the new book (params) is valid
         if (TextUtils.isEmpty(title))
             oBAL.onTitleEmpty();
         else if (TextUtils.isEmpty(desc))
             oBAL.onDescEmpty();
-        else if (TextUtils.isEmpty(genre))
-            oBAL.onGenreEmpty();
+        else if (TextUtils.isEmpty(words))
+            oBAL.onNWordsEmpty();
         else
             oBAL.onSuccess();
     }

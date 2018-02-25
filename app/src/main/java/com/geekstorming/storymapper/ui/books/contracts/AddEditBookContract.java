@@ -13,10 +13,15 @@ public interface AddEditBookContract {
     interface Presenter extends BasePresenter {
         void addNewBook(Book b);
         void updateBook(Book b);
-        void validateBook(Book b);
+
+        void validateBook(String title, String desc, String words);
     }
 
     interface View extends BaseView {
-
+        void onEmptyTitle();
+        void onEmptyDesc();
+        void onEmptyWords();
+        void onEmptyGenero();
+        void doAddOrEdit();
     }
 }

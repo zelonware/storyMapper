@@ -40,6 +40,11 @@
         <item>Romance</item>
     </string-array>
 
+    <string name="bookTitleEmpty">This book has no title</string>
+    <string name="bookDescEmpty">This book has no desc</string>
+    <string name="bookGenreEmpty">This book has no genre</string>
+    <string name="bookWordsEmpty">This book has no minimum words</string>
+
     <!-- Characters Activity -->
 
     <!-- Character Activity -->
@@ -51,6 +56,9 @@
     <string name="btn_CharacterRelationShips">See relationships</string>
     <string name="btn_seeFactions">See factions</string>
     <string name="btn_seeLocations">See locations</string>
+
+    <string name="characterDescEmpty">This character has no description</string>
+    <string name="characterNameEmpty">This character has no name</string>
 
     <!-- Faction Activity -->
     <string name="tiD_FactionName">Faction name</string>
@@ -78,6 +86,7 @@
 
     <string name="btn_dialog_confirm">Accept</string>
     <string name="btn_dialog_cancel">Cancels</string>
+    <string name="btn_dialog_roger">Nice!</string>
 
     <!-- NavigationDrawer -->
     <string name="action_home">Home</string>

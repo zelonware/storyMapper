@@ -77,4 +77,21 @@ public class CommonUIUtils {
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         return progressDialog;
     }
+
+    public static Dialog showHelpDialog (Context context) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+        builder
+                .setMessage("Si tiene dudas, puede contactar con el equipo de desarrollo en elena.guzbla@gmail.com")
+                .setTitle("¿Necesita ayuda?")
+                .setNegativeButton(R.string.btn_dialog_roger, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+
+        return builder.create();
+    }
 }
