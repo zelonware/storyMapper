@@ -2,9 +2,13 @@ package com.geekstorming.storymapper.ui.books;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.base.BaseActivity;
@@ -22,7 +26,7 @@ import com.geekstorming.storymapper.utils.ModeAddEdit;
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
-public class BookActivity extends BaseActivity implements BookList_Fragment.ListBookListener, AddEditBook_Fragment.AddNewBookClickListener, DetailBook_Fragment.DetailBookClickListener {
+public class BookActivity extends BaseActivity implements BookList_Fragment.ListBookListener, AddEditBook_Fragment.AddNewBookClickListener, DetailBook_Fragment.DetailBookClickListener, NavigationView.OnNavigationItemSelectedListener {
 
     BookList_Fragment bookList_Frag;
     AddEditBook_Fragment addEditBook_Frag;
@@ -40,7 +44,7 @@ public class BookActivity extends BaseActivity implements BookList_Fragment.List
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         user = UserRepository.getInstance().getUser(getIntent().getExtras().getString(User.TAG));
-        //setDataToNavigationDrawer(user);
+        setDataToNavigationDrawer(user);
 
         bookList_Frag = (BookList_Fragment) fragmentManager.findFragmentByTag(BookList_Fragment.TAG);
 
@@ -108,9 +112,24 @@ public class BookActivity extends BaseActivity implements BookList_Fragment.List
     }
 
     @Override
+    public void setDataToNavigationDrawer(User user) {
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigationView);
+        navigationView.setNavigationItemSelectedListener(this);
+        TextView txtV_Username = (TextView) navigationView.getHeaderView(0).findViewById(R.id.txtV_username);
+        TextView txtV_Email = (TextView) navigationView.getHeaderView(0).findViewById(R.id.txtV_email);
+        txtV_Username.setText(user.getUsername());
+        txtV_Email.setText(user.getEmail());
+    }
+
+    @Override
     public void showBooks() {
         Intent intent = getIntent();
         finish();
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return false;
     }
 }

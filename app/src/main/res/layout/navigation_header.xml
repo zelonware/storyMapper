@@ -21,7 +21,7 @@
         android:id="@+id/txtV_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ElenaG"
+        android:text="User"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"/>
 
     <!-- Correo electrónico -->
@@ -29,7 +29,7 @@
         android:id="@+id/txtV_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="elena.guzbla@gmail.com"
+        android:text="someone@somemail.somedom"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"/>
 
 </LinearLayout>
