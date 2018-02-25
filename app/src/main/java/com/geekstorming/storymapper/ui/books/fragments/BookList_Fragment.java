@@ -6,7 +6,6 @@ import android.support.v4.app.ListFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -23,6 +22,7 @@ import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.pojo.User;
 import com.geekstorming.storymapper.ui.books.contracts.ListBookContract;
 import com.geekstorming.storymapper.utils.CommonUIUtils;
+import com.rafaelbarbosatec.archivimentview.AchievementView;
 
 import java.util.List;
 
@@ -36,6 +36,7 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
     public static final String TAG = "listBook";
     ListBookContract.Presenter presenter;
     private ListBookListener callback;
+    private AchievementView achV_createBooks;
 
     private ProgressDialog progressDialog;
 
@@ -74,6 +75,10 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
                 adapter.addAll(bookList);
             }
         });
+
+        if (bookList.size() == 0) {
+            achV_createBooks.show();
+        }
     }
 
     // Overriding ListFragment code
@@ -91,6 +96,8 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
         View rootView = inflater.inflate(R.layout.fragment_book_list, container, false);
 
         FloatingActionButton fab_AddNewBook = (FloatingActionButton) rootView.findViewById(R.id.fab_Books);
+
+        achV_createBooks = (AchievementView) rootView.findViewById(R.id.achV_createBooks);
 
         fab_AddNewBook.setOnClickListener(new View.OnClickListener() {
             @Override

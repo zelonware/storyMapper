@@ -41,13 +41,18 @@
     </string-array>
 
     <string name="bookTitleEmpty">This book has no title</string>
-    <string name="bookDescEmpty">This book has no desc</string>
+    <string name="bookDescEmpty">This book has no description</string>
     <string name="bookGenreEmpty">This book has no genre</string>
     <string name="bookWordsEmpty">This book has no minimum words</string>
+
+    <string name="achV_createBooks">Create your projects, will be shown here</string>
+    <string name="achV_createCharacters">Your characters will appear here</string>
 
     <!-- Characters Activity -->
 
     <!-- Character Activity -->
+    <string name="achV_infoCreateCharacters">Who plays in your story?</string>
+
     <string name="tiD_CharacterName">Name</string>
     <string name="tiD_CharacterDescription">Description</string>
     <string name="txtV_CharacterRelationships">Relationships</string>

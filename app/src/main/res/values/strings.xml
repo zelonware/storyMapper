@@ -46,9 +46,14 @@
     <string name="bookGenreEmpty">El proyecto no tiene género</string>
     <string name="bookWordsEmpty">El proyecto no tiene palabras mínimas</string>
 
+    <string name="achV_createBooks">Crea tus proyectos y se listarán</string>
+    <string name="achV_createCharacters">Crea tus personajes y se listarán</string>
+
     <!-- Characters Activity -->
 
     <!-- Character Activity -->
+    <string name="achV_infoCreateCharacters">¿Quién participa en tus historias?</string>
+
     <string name="tiD_CharacterName">Nombre</string>
     <string name="tiD_CharacterDescription">Descripción</string>
     <string name="txtV_CharacterRelationships">Relaciones:</string>

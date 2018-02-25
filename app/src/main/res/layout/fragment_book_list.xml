@@ -8,6 +8,16 @@
     android:orientation="vertical"
     tools:context=".ui.books.BookActivity">
 
+    <com.rafaelbarbosatec.archivimentview.AchievementView
+        android:id="@+id/achV_createBooks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:ac_tittle="@string/txtV_InfoSignUp"
+        app:ac_mensage="@string/achV_createBooks"
+        app:ac_icon="@drawable/ic_books"
+        app:ac_color="@color/colorPrimaryDark"
+        app:ac_text_color="@color/colorAccent"/>
+
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"

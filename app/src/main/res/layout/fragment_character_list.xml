@@ -7,6 +7,16 @@
     tools:context=".ui.characters.CharactersActivity"
     android:orientation="vertical">
 
+    <com.rafaelbarbosatec.archivimentview.AchievementView
+        android:id="@+id/achV_createCharacters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:ac_tittle="@string/achV_infoCreateCharacters"
+        app:ac_mensage="@string/achV_createCharacters"
+        app:ac_icon="@drawable/ic_action_edit"
+        app:ac_color="@color/colorPrimaryDark"
+        app:ac_text_color="@color/colorAccent"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerCharacters"
         android:layout_width="wrap_content"

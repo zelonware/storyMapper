@@ -23,6 +23,7 @@ import com.geekstorming.storymapper.data.pojo.Character;
 import com.geekstorming.storymapper.ui.characters.contracts.ListCharacterContract;
 import com.geekstorming.storymapper.utils.CommonUIUtils;
 import com.geekstorming.storymapper.utils.ModeAddEdit;
+import com.rafaelbarbosatec.archivimentview.AchievementView;
 
 import java.util.List;
 
@@ -34,6 +35,7 @@ public class CharacterList_Fragment extends BaseFragment implements ListCharacte
 
     private FloatingActionButton fab_addCharacter;
     private RecyclerView recyclerV_Characters;
+    private AchievementView achV_createCharacters;
 
     private CharacterAdapter characterAdapter;
 
@@ -66,6 +68,7 @@ public class CharacterList_Fragment extends BaseFragment implements ListCharacte
 
         fab_addCharacter = (FloatingActionButton) rootView.findViewById(R.id.fab_Characters);
         recyclerV_Characters = (RecyclerView) rootView.findViewById(R.id.recyclerCharacters);
+        achV_createCharacters = (AchievementView) rootView.findViewById(R.id.achV_createCharacters);
 
         // Lets create new character!
         fab_addCharacter.setOnClickListener(new View.OnClickListener() {
@@ -159,7 +162,9 @@ public class CharacterList_Fragment extends BaseFragment implements ListCharacte
 
     @Override
     public void showCharacters(List<Character> characterList) {
-
+        if (characterList.size() == 0) {
+            achV_createCharacters.show();
+        }
     }
 
     @Override
