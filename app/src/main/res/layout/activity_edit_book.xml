@@ -107,7 +107,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:onClick="onClick_editBook"
-                android:text="@string/btn_seeCharacters"
+                android:text="@string/btn_manageBooks"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tIL_nWords" />

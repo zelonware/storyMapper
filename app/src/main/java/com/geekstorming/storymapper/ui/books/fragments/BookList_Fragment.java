@@ -20,6 +20,7 @@ import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.adapters.BooksAdapter;
 import com.geekstorming.storymapper.base.BasePresenter;
 import com.geekstorming.storymapper.data.pojo.Book;
+import com.geekstorming.storymapper.data.pojo.BookComponents;
 import com.geekstorming.storymapper.data.pojo.User;
 import com.geekstorming.storymapper.ui.books.contracts.ListBookContract;
 import com.geekstorming.storymapper.utils.CommonUIUtils;
@@ -66,7 +67,7 @@ public class BookList_Fragment extends ListFragment implements ListBookContract.
     }
 
     @Override
-    public void showBooks(final List<Book> bookList) {
+    public void showBooks(final List<BookComponents> bookList) {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {

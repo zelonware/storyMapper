@@ -28,7 +28,7 @@
     <string name="tID_bookDescription">Description</string>
     <string name="spn_Genre">Genre</string>
     <string name="tID_nWords">Number of words</string>
-    <string name="btn_seeCharacters">See characters</string>
+    <string name="btn_manageBooks">Manage project</string>
     
     <string-array name="bookGenres">
         <item>Horror</item>

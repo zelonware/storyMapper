@@ -17,7 +17,7 @@ public class Faction implements Comparable, Parcelable {
     String factionName;
     String factionObjetive;
 
-    int factionBarrack;
+    int IDBook;
 
     // Getters + Setters
 
@@ -45,21 +45,21 @@ public class Faction implements Comparable, Parcelable {
         this.factionObjetive = factionObjetive;
     }
 
-    public int getFactionBarrack() {
-        return factionBarrack;
+    public int getIDBook() {
+        return IDBook;
     }
 
-    public void setFactionBarrack(int factionBarrack) {
-        this.factionBarrack = factionBarrack;
+    public void setIDBook(int IDBook) {
+        this.IDBook = IDBook;
     }
 
     // Constructor
 
-    public Faction(int factionID, String factionName, String factionObjetive, int factionBarrack) {
+    public Faction(int factionID, String factionName, String factionObjetive, int IDBook) {
         this.factionID = factionID;
         this.factionName = factionName;
         this.factionObjetive = factionObjetive;
-        this.factionBarrack = factionBarrack;
+        this.IDBook = IDBook;
     }
 
     protected Faction(Parcel in)
@@ -67,7 +67,7 @@ public class Faction implements Comparable, Parcelable {
         this.factionID = in.readInt();
         this.factionName = in.readString();
         this.factionObjetive = in.readString();
-        this.factionBarrack = in.readInt();
+        this.IDBook = in.readInt();
     }
 
     public static final Creator<Faction> CREATOR = new Creator<Faction>() {
@@ -104,6 +104,6 @@ public class Faction implements Comparable, Parcelable {
         dest.writeInt(factionID);
         dest.writeString(factionName);
         dest.writeString(factionObjetive);
-        dest.writeInt(factionBarrack);
+        dest.writeInt(IDBook);
     }
 }

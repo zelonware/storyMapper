@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 /**
  * Chapter entity
+ *
  * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
  */
 
@@ -14,6 +15,8 @@ public class Chapter implements Comparable {
     int IDChapter;
     String chapterName;
     String storyProgress;
+
+    int IDBook;
 
     // Getters + Setters
 
@@ -41,12 +44,21 @@ public class Chapter implements Comparable {
         this.storyProgress = storyProgress;
     }
 
+    public int getIDBook() {
+        return IDBook;
+    }
+
+    public void setIDBook(int IDBook) {
+        this.IDBook = IDBook;
+    }
+
     // Constructor
 
-    public Chapter(int IDChapter, String nombreCapitulo, String storyProgress) {
+    public Chapter(int IDChapter, String nombreCapitulo, String storyProgress, int bookID) {
         this.IDChapter = IDChapter;
         this.chapterName = nombreCapitulo;
         this.storyProgress = storyProgress;
+        this.IDBook = bookID;
     }
 
     // toString()
@@ -63,6 +75,6 @@ public class Chapter implements Comparable {
 
     @Override
     public int compareTo(@NonNull Object o) {
-        return chapterName.compareTo(((Chapter)o).getChapterName());
+        return chapterName.compareTo(((Chapter) o).getChapterName());
     }
 }

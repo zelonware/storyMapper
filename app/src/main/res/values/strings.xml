@@ -27,7 +27,7 @@
     <string name="tID_bookDescription">Descripción</string>
     <string name="spn_Genre">Género</string>
     <string name="tID_nWords">Número de palabras</string>
-    <string name="btn_seeCharacters">Ver personajes</string>
+    <string name="btn_manageBooks">Gestionar proyecto</string>
     <string name="btn_seeFactions">Ver facciones</string>
     <string name="btn_seeLocations">Ver localizaciones</string>
 

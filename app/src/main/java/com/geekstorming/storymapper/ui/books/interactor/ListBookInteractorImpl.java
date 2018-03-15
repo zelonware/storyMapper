@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 
 import com.geekstorming.storymapper.data.db.InteractorCallback;
 import com.geekstorming.storymapper.data.pojo.Book;
+import com.geekstorming.storymapper.data.pojo.BookComponents;
 import com.geekstorming.storymapper.data.pojo.User;
 import com.geekstorming.storymapper.data.repos.BookRepository;
 
@@ -59,7 +60,7 @@ public class ListBookInteractorImpl implements ListBookInteractor, InteractorCal
     }
 
     public interface OnLoadFinishedListener {
-        void onSuccess(List<Book> list);
+        void onSuccess(List<BookComponents> list);
 
         void onDatabaseError(Error error);
 

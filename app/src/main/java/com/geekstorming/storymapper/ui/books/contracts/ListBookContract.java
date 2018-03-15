@@ -3,6 +3,7 @@ package com.geekstorming.storymapper.ui.books.contracts;
 import com.geekstorming.storymapper.base.BasePresenter;
 import com.geekstorming.storymapper.base.BaseView;
 import com.geekstorming.storymapper.data.pojo.Book;
+import com.geekstorming.storymapper.data.pojo.BookComponents;
 import com.geekstorming.storymapper.data.pojo.User;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 public interface ListBookContract {
 
     interface View extends BaseView {
-        void showBooks(List<Book> bookList);
+        void showBooks(List<BookComponents> bookList);
 
         void onDatabaseError(Error error);
         void onDatabaseError(Exception exception);

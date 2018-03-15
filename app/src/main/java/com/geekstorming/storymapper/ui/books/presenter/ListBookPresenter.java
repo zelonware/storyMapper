@@ -1,6 +1,7 @@
 package com.geekstorming.storymapper.ui.books.presenter;
 
 import com.geekstorming.storymapper.data.pojo.Book;
+import com.geekstorming.storymapper.data.pojo.BookComponents;
 import com.geekstorming.storymapper.data.pojo.User;
 import com.geekstorming.storymapper.ui.books.contracts.ListBookContract;
 import com.geekstorming.storymapper.ui.books.interactor.ListBookInteractor;
@@ -25,7 +26,7 @@ public class ListBookPresenter implements ListBookContract.Presenter, ListBookIn
     }
 
     @Override
-    public void onSuccess(List<Book> list) {
+    public void onSuccess(List<BookComponents> list) {
         view.dismissProgressDialog();
         view.showBooks(list);
     }

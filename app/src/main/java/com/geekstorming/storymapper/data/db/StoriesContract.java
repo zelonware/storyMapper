@@ -11,7 +11,7 @@ public class StoriesContract {
     private StoriesContract() {
     }
 
-    public static final int DATABASE_VERSION = 21;
+    public static final int DATABASE_VERSION = 22;
     public static final String DATABASE_NAME = "stories.db";
 
     public static class BookItem implements BaseColumns {
@@ -135,5 +135,58 @@ public class StoriesContract {
                 USER, USERNAME, EMAIL, PASSWORD,
                 "Beelzenef", "Elena G", "elena.guzbla@gmail.com", "elenagb",
                 "moronlu", "Lourdes", "moronlu@gmail.com", "moronlu");
+    }
+
+    public static class FactionItem implements BaseColumns {
+
+        public static final String TABLE = "factions";
+        public static final String NAME = "name";
+        public static final String OBJECTIVE = "objective";
+        public static final String BOOKID = "bookid";
+
+        public static final String[] ALLCOLUMNS = { BaseColumns._ID, NAME, OBJECTIVE, BOOKID };
+
+        public static final String[] SEARCHCOLUMN = { NAME };
+        public static final String DEFAULT_SORT = NAME;
+
+        public static final String SQL_CREATE_TABLE = String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "%s TEXT NOT NULL, " +
+                        "%s TEXT NOT NULL, " +
+                        "%s INTEGER NOT NULL, " +
+                        " FOREIGN KEY (%s) REFERENCES %s (%s) ON UPDATE CASCADE ON DELETE RESTRICT)",
+                TABLE, BaseColumns._ID,
+                NAME,
+                OBJECTIVE,
+                BOOKID,
+                BOOKID, BookItem.TABLE, BookItem._ID);
+
+        public static final String SQL_DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", TABLE);
+    }
+
+    public static class ChapterItem implements BaseColumns {
+
+        public static final String TABLE = "chapter";
+        public static final String NAME = "name";
+        public static final String PROGRESS = "progress";
+        public static final String BOOKID = "bookid";
+
+        public static final String[] ALLCOLUMNS = { BaseColumns._ID, NAME, PROGRESS, BOOKID};
+
+        public static final String[] SEARCHCOLUMN = { NAME };
+        public static final String DEFAULT_SORT = NAME;
+
+        public static final String SQL_CREATE_TABLE = String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "%s TEXT NOT NULL, " +
+                        "%s TEXT NOT NULL, " +
+                        "%s INTEGER NOT NULL, " +
+                        " FOREIGN KEY (%s) REFERENCES %s (%s) ON UPDATE CASCADE ON DELETE RESTRICT)",
+                TABLE, BaseColumns._ID,
+                NAME,
+                PROGRESS,
+                BOOKID,
+                BOOKID, BookItem.TABLE, BookItem._ID);
+
+        public static final String SQL_DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", TABLE);
+
     }
 }
