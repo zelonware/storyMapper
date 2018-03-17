@@ -75,10 +75,7 @@ public class ViewCharacter_Fragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        tID_CharacterName.setText(editableCharacter.getCharacterName());
-        tID_CharacterDescription.setText(editableCharacter.getCharacterDesc());
-        spn_CharacterFaction.setText(Integer.toString(editableCharacter.getCharacterFaction()));
-        spn_CharacterHome.setText(Integer.toString(editableCharacter.getCharacterHome()));
+
     }
 
     @Override

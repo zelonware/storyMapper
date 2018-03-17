@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.books.BookActivity" />
-        <activity android:name=".ui.characters.CharactersActivity"></activity>
+        <activity android:name=".ui.characters.CharactersActivity" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".ui.settings.SettingsActivity" />
         <activity android:name=".ui.factions.FactionsActivity" />
@@ -34,7 +34,10 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".ui.user.RegisterActivity"></activity>
+        <activity android:name=".ui.user.RegisterActivity" />
+        <activity android:name=".ui.BookManagerActivity" />
+        <activity android:name=".ui.characters.DetailCharactersActivity" />
+        <activity android:name=".ui.characters.AddEditCharacterActitivy"></activity>
     </application>
 
 </manifest>

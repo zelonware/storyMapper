@@ -2,28 +2,18 @@ package com.geekstorming.storymapper.ui.characters;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import com.geekstorming.storymapper.R;
-import com.geekstorming.storymapper.adapters.CharacterAdapter;
 import com.geekstorming.storymapper.base.BaseActivity;
 import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.pojo.Character;
 import com.geekstorming.storymapper.ui.books.BookActivity;
-import com.geekstorming.storymapper.ui.books.fragments.BookList_Fragment;
-import com.geekstorming.storymapper.ui.books.presenter.ListBookPresenter;
 import com.geekstorming.storymapper.ui.characters.fragments.AddEditCharacter_Fragment;
 import com.geekstorming.storymapper.ui.characters.fragments.CharacterList_Fragment;
 import com.geekstorming.storymapper.ui.characters.fragments.ViewCharacter_Fragment;
 import com.geekstorming.storymapper.ui.characters.presenter.CharaterListPresenter;
-import com.geekstorming.storymapper.utils.ModeAddEdit;
 
 /**
  * Character Activity, fragment container
@@ -32,33 +22,25 @@ import com.geekstorming.storymapper.utils.ModeAddEdit;
  */
 public class CharactersActivity extends BaseActivity implements AddEditCharacter_Fragment.AddNewCharacterClickListener, CharacterList_Fragment.ListCharacterListener, ViewCharacter_Fragment.ViewCharacterClickListener {
 
-    CharacterList_Fragment characterList_Frag;
     AddEditCharacter_Fragment addEditCharacter_Frag;
     ViewCharacter_Fragment viewCharacter_Frag;
 
-    Book viewBook;
-
-    CharaterListPresenter presenter;
+    Character selectedCharacter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        viewBook = getIntent().getExtras().getParcelable(Book.TAG);
-
         FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        characterList_Frag = (CharacterList_Fragment) fragmentManager.findFragmentByTag(CharacterList_Fragment.TAG);
+        viewCharacter_Frag = (ViewCharacter_Fragment) fragmentManager.findFragmentByTag(ViewCharacter_Fragment.TAG);
 
-        if (characterList_Frag == null) {
-            characterList_Frag = CharacterList_Fragment.newInstance(getIntent().getExtras());
-            fragmentTransaction.add(R.id.flContent, characterList_Frag, CharacterList_Fragment.TAG);
+        if (viewCharacter_Frag == null) {
+            viewCharacter_Frag = ViewCharacter_Fragment.newInstance(getIntent().getExtras());
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.flContent, viewCharacter_Frag, ViewCharacter_Fragment.TAG);
             fragmentTransaction.commit();
         }
-
-        presenter = new CharaterListPresenter(characterList_Frag);
-        characterList_Frag.setPresenter(presenter);
     }
 
     @Override
@@ -94,7 +76,7 @@ public class CharactersActivity extends BaseActivity implements AddEditCharacter
         addEditCharacter_Frag = (AddEditCharacter_Fragment) fragmentManager.findFragmentByTag(AddEditCharacter_Fragment.TAG);
 
         if (addEditCharacter_Frag == null) {
-            b.putParcelable(Book.TAG, viewBook);
+            b.putParcelable(Book.TAG, selectedCharacter);
             addEditCharacter_Frag = AddEditCharacter_Fragment.newInstance(b, mode);
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.flContent, addEditCharacter_Frag, AddEditCharacter_Fragment.TAG);
