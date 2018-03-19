@@ -1,7 +1,6 @@
 package com.geekstorming.storymapper.ui.characters.fragments;
 
 import android.app.Activity;
-import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -21,7 +20,6 @@ import com.geekstorming.storymapper.base.BaseFragment;
 import com.geekstorming.storymapper.base.BasePresenter;
 import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.pojo.Character;
-import com.geekstorming.storymapper.ui.characters.DetailCharactersActivity;
 import com.geekstorming.storymapper.ui.characters.contracts.ListCharacterContract;
 import com.geekstorming.storymapper.utils.CommonUIUtils;
 import com.geekstorming.storymapper.utils.ModeAddEdit;
@@ -75,7 +73,7 @@ public class CharacterList_Fragment extends BaseFragment implements ListCharacte
             public void onClick(View v) {
                 Bundle b = new Bundle();
                 b.putParcelable(Book.TAG, selectedBook);
-               callback.addNewCharacter(b, ModeAddEdit.ADD_MODE);
+                callback.addNewCharacter(b, ModeAddEdit.ADD_MODE);
             }
         });
 
@@ -85,9 +83,7 @@ public class CharacterList_Fragment extends BaseFragment implements ListCharacte
             public void onCharacterClick(Character c) {
                 Bundle b = new Bundle();
                 b.putParcelable(Character.TAG, c);
-                Intent intent = new Intent(getActivity(), DetailCharactersActivity.class);
-                intent.putExtra(Character.TAG, b);
-                startActivity(intent);
+                callback.viewSelectedCharacter(b);
             }
         };
 

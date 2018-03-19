@@ -36,8 +36,6 @@
 
         <activity android:name=".ui.user.RegisterActivity" />
         <activity android:name=".ui.BookManagerActivity" />
-        <activity android:name=".ui.characters.DetailCharactersActivity" />
-        <activity android:name=".ui.characters.AddEditCharacterActitivy"></activity>
     </application>
 
 </manifest>

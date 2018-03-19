@@ -14,6 +14,7 @@ import android.widget.EditText;
 import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.base.BaseFragment;
 import com.geekstorming.storymapper.data.pojo.Book;
+import com.geekstorming.storymapper.ui.BookManagerActivity;
 import com.geekstorming.storymapper.ui.characters.CharactersActivity;
 
 /**
@@ -32,7 +33,7 @@ public class DetailBook_Fragment extends BaseFragment {
     private EditText edT_bookNWords;
 
     private FloatingActionButton fab_editSelectedBook;
-    private Button btn_seeCharacters;
+    private Button btn_ManageProject;
 
     private DetailBookClickListener callback;
 
@@ -68,15 +69,15 @@ public class DetailBook_Fragment extends BaseFragment {
             }
         });
 
-        btn_seeCharacters = (Button) viewRoot.findViewById(R.id.btn_SeeCharacters);
-        btn_seeCharacters.setOnClickListener(new View.OnClickListener() {
+        btn_ManageProject = (Button) viewRoot.findViewById(R.id.btn_ManageProject);
+        btn_ManageProject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle b = new Bundle();
                 b.putParcelable(Book.TAG, viewBook);
-                Intent seeChars = new Intent(getActivity(), CharactersActivity.class);
-                seeChars.putExtras(b);
-                startActivity(seeChars);
+                Intent manageBook = new Intent(getActivity(), BookManagerActivity.class);
+                manageBook.putExtras(b);
+                startActivity(manageBook);
             }
         });
 
