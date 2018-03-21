@@ -36,6 +36,8 @@ public class BookManagerActivity extends BaseActivity implements AddEditCharacte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_manager);
 
+        initViews();
+
         viewBook = getIntent().getExtras().getParcelable(Book.TAG);
         bottomnv_bookManager = (BottomNavigationView) findViewById(R.id.bottomnv_bookManager);
 

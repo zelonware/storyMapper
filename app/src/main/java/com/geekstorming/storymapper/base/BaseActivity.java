@@ -39,9 +39,7 @@ public class BaseActivity extends AppCompatActivity {
 
     AdviceDAOImpl dao;
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected final void initViews() {
         setContentView(R.layout.activity_base);
 
         dao = new AdviceDAOImpl();
