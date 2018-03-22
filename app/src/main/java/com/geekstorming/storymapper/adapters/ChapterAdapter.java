@@ -1,5 +1,6 @@
 package com.geekstorming.storymapper.adapters;
 
+
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,19 +12,14 @@ import android.widget.TextView;
 
 import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.data.pojo.Book;
-import com.geekstorming.storymapper.data.pojo.Faction;
-import com.geekstorming.storymapper.data.repos.FactionRepository;
+import com.geekstorming.storymapper.data.pojo.Chapter;
+import com.geekstorming.storymapper.data.repos.ChapterRepository;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
-/**
- * Faction Adapter
- * @author Elena Guzman Blanco (Beelzenef) - 3d10Mundos
- */
+public class ChapterAdapter extends ArrayAdapter<Chapter> {
 
-public class FactionAdapter extends ArrayAdapter<Faction> {
-
-    public FactionAdapter(@NonNull Context context, Book book) {
-        super(context, R.layout.item_faction, FactionRepository.getInstance().getFactions(book));
+    public ChapterAdapter(@NonNull Context context, Book book) {
+        super(context, R.layout.item_chapter, ChapterRepository.getInstance().getChapters(book));
     }
 
     @NonNull
@@ -37,12 +33,12 @@ public class FactionAdapter extends ArrayAdapter<Faction> {
             LayoutInflater inflador = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             // Inflate views
-            view = inflador.inflate(R.layout.item_faction, null);
+            view = inflador.inflate(R.layout.item_chapter, null);
             factionHolder = new FactionHolder();
 
             // Get views from layout
-            factionHolder.txtV_FactionName = (TextView) view.findViewById(R.id.txtV_FactionName);
-            factionHolder.FactionIcon = (MaterialLetterIcon) view.findViewById(R.id.materialLetterIcon);
+            factionHolder.txtV_ChapterName = (TextView) view.findViewById(R.id.txtV_ChapterName);
+            factionHolder.ChapterIcon = (MaterialLetterIcon) view.findViewById(R.id.materialLetterIcon);
 
             view.setTag(factionHolder);
         }
@@ -50,15 +46,15 @@ public class FactionAdapter extends ArrayAdapter<Faction> {
             factionHolder = (FactionHolder) view.getTag();
         }
 
-        factionHolder.txtV_FactionName.setText(getItem(position).getFactionName());
-        factionHolder.FactionIcon.setLetter(getItem(position).getFactionName().substring(0, 1));
+        factionHolder.txtV_ChapterName.setText(getItem(position).getChapterName());
+        factionHolder.ChapterIcon.setLetter(getItem(position).getChapterName().substring(0, 1));
 
         return view;
 
     }
 
     class FactionHolder {
-        MaterialLetterIcon FactionIcon;
-        TextView txtV_FactionName;
+        MaterialLetterIcon ChapterIcon;
+        TextView txtV_ChapterName;
     }
 }

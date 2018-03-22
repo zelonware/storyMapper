@@ -1,7 +1,6 @@
 package com.geekstorming.storymapper.data.dao;
 
 import android.content.ContentValues;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -12,10 +11,6 @@ import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.pojo.Character;
 
 import java.util.ArrayList;
-
-/**
- * Created by usuario on 22/02/18.
- */
 
 public class CharacterDAOImpl implements CharacterDAO {
 
@@ -53,7 +48,7 @@ public class CharacterDAOImpl implements CharacterDAO {
     public long add(Character character) {
         SQLiteDatabase sqLiteDatabase = DBOpenHelper.getInstance().openDB();
 
-        ContentValues datosColumnas = createBookCV(character);
+        ContentValues datosColumnas = createCharacterCV(character);
 
         long id = sqLiteDatabase.insert(StoriesContract.CharacterItem.TABLE, null, datosColumnas);
 
@@ -70,19 +65,19 @@ public class CharacterDAOImpl implements CharacterDAO {
     @Override
     public long delete(Character character) {
         SQLiteDatabase sqLiteDatabase = DBOpenHelper.getInstance().openDB();
-        ContentValues datosColumnas = createBookCV(character);
+        ContentValues datosColumnas = createCharacterCV(character);
         long id = sqLiteDatabase.update(StoriesContract.BookItem.TABLE, datosColumnas,
                 StoriesContract.CharacterItem._ID + " = ?",
                 new String[] {Integer.toString(character.getCharacterID())});
 
-        DBOpenHelper.getInstance().closeDB();;
+        DBOpenHelper.getInstance().closeDB();
         return id;
     }
 
     @Override
     public long update(Character character) {
         SQLiteDatabase sqLiteDatabase = DBOpenHelper.getInstance().openDB();
-        ContentValues datosColumnas = createBookCV(character);
+        ContentValues datosColumnas = createCharacterCV(character);
         long id = sqLiteDatabase.update(StoriesContract.CharacterItem.TABLE, datosColumnas,
                 StoriesContract.CharacterItem._ID + " = ?",
                 new String[] {Integer.toString(character.getCharacterID())});
@@ -91,7 +86,7 @@ public class CharacterDAOImpl implements CharacterDAO {
         return id;
     }
 
-    private ContentValues createBookCV (Character c) {
+    private ContentValues createCharacterCV(Character c) {
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(StoriesContract.CharacterItem.NAME, c.getCharacterName());

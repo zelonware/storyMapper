@@ -1,5 +1,7 @@
 package com.geekstorming.storymapper.data.repos;
 
+import com.geekstorming.storymapper.data.dao.FactionDAOImpl;
+import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.pojo.Faction;
 
 import java.util.ArrayList;
@@ -17,6 +19,8 @@ public class FactionRepository {
     ArrayList<Faction> factions;
     private static FactionRepository factionRepository;
 
+    FactionDAOImpl dao;
+
     // Constructor
     static {
         factionRepository = new FactionRepository();
@@ -24,13 +28,13 @@ public class FactionRepository {
 
     private FactionRepository() {
         factions = new ArrayList<>();
-        initializeFactions();
+        dao = new FactionDAOImpl();
     }
 
     // Methods
 
     public void addFaction(Faction f) {
-        factions.add(f);
+        dao.add(f);
     }
 
     private void initializeFactions() {
@@ -44,9 +48,21 @@ public class FactionRepository {
         return factionRepository;
     }
 
-    public ArrayList<Faction> getFactions() {
+    public ArrayList<Faction> getFactions(Book book) {
 
-        Collections.sort(factions);
+        factions = dao.loadAll(book);
         return factions;
+    }
+
+    public void addChapter(Faction f) {
+        dao.add(f);
+    }
+
+    public void removeChapter (Faction f) {
+        dao.delete(f);
+    }
+
+    public void editChapter (Faction f) {
+        dao.update(f);
     }
 }
