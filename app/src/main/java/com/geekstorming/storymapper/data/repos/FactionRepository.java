@@ -54,15 +54,11 @@ public class FactionRepository {
         return factions;
     }
 
-    public void addChapter(Faction f) {
-        dao.add(f);
-    }
-
-    public void removeChapter (Faction f) {
+    public void removeFaction(Faction f) {
         dao.delete(f);
     }
 
-    public void editChapter (Faction f) {
+    public void editFaction(Faction f) {
         dao.update(f);
     }
 }

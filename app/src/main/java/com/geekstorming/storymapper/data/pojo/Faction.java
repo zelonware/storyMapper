@@ -11,6 +11,8 @@ import android.support.annotation.NonNull;
 
 public class Faction implements Comparable, Parcelable {
 
+    public static final String TAG = "faction";
+
     // Atts
 
     int factionID;

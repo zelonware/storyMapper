@@ -64,6 +64,9 @@
     <string name="tiD_FactionObjetive">Objetivo</string>
     <string name="txtV_FactionBarrack">Sede</string>
 
+    <string name="factionDescEmpty">La facción no tiene objetivo</string>
+    <string name="factionNameEmpty">La facción no tiene nombre</string>
+
     <!-- Location Activity -->
     <string name="tiD_LocationName">Nombre de localización</string>
     <string name="tiD_LocationDesc">Descripción</string>

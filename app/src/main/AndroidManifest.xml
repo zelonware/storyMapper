@@ -21,9 +21,6 @@
         <activity android:name=".ui.characters.CharactersActivity" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".ui.settings.SettingsActivity" />
-        <activity android:name=".ui.factions.FactionsActivity" />
-        <activity android:name=".ui.factions.AddFactionActivity" />
-        <activity android:name=".ui.factions.EditFactionActivity" />
         <activity android:name=".ui.locations.LocationsActivity" />
         <activity android:name=".ui.locations.EditLocationActivity" />
         <activity android:name=".ui.locations.AddLocationActivity" />

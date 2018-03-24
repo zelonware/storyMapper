@@ -65,6 +65,9 @@
     <string name="tiD_FactionObjetive">Objective</string>
     <string name="txtV_FactionBarrack">Barrack</string>
 
+    <string name="factionDescEmpty">Faction has no description or objective</string>
+    <string name="factionNameEmpty">Faction has no name</string>
+
     <!-- Location Activity -->
     <string name="tiD_LocationName">Location name</string>
     <string name="tiD_LocationDesc">Description</string>

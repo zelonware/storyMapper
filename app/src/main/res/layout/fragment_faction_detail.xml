@@ -31,7 +31,7 @@
             android:layout_height="match_parent">
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/tIL_LocationName"
+                android:id="@+id/tIL_FactionName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -45,11 +45,12 @@
                     android:id="@+id/tiD_FactionName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/tiD_FactionName" />
+                    android:hint="@string/tiD_FactionName"
+                    android:enabled="false"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/tIL_LocationDesc"
+                android:id="@+id/tIL_FactionDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -58,45 +59,22 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tIL_LocationName">
+                app:layout_constraintTop_toBottomOf="@+id/tIL_FactionName">
 
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/tiD_FactionDesc"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:hint="@string/tiD_FactionObjetive" />
+                    android:hint="@string/tiD_FactionObjetive"
+                    android:enabled="false"/>
             </android.support.design.widget.TextInputLayout>
-
-            <TextView
-                android:id="@+id/txtV_FactionBarrack"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:text="@string/txtV_FactionBarrack"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tIL_LocationDesc" />
-
-            <Spinner
-                android:id="@+id/spn_FactionBarracks"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="32dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtV_FactionBarrack" />
 
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v4.widget.NestedScrollView>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_FactionEdited"
+        android:id="@+id/fab_editFaction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"

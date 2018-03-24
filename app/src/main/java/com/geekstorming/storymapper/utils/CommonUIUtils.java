@@ -10,11 +10,13 @@ import android.os.Bundle;
 import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.pojo.Character;
+import com.geekstorming.storymapper.data.pojo.Faction;
 import com.geekstorming.storymapper.ui.books.contracts.ListBookContract;
 import com.geekstorming.storymapper.ui.books.fragments.BookList_Fragment;
 import com.geekstorming.storymapper.ui.books.presenter.ListBookPresenter;
 import com.geekstorming.storymapper.ui.characters.contracts.ListCharacterContract;
 import com.geekstorming.storymapper.ui.characters.presenter.CharaterListPresenter;
+import com.geekstorming.storymapper.ui.factions.contracts.ListFactionContract;
 
 /**
  * Common UI utils for multiple purposes
@@ -59,6 +61,29 @@ public class CommonUIUtils {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         presenter.removeCharacter((Character) b.getParcelable(Character.TAG));
+                    }
+                })
+                .setNegativeButton(R.string.btn_dialog_cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+
+        return builder.create();
+    }
+
+    public static Dialog showDeleteFactionDialog (final Bundle b, Context context, final ListFactionContract.Presenter presenter) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+        builder
+                .setMessage(b.getString(MSG))
+                .setTitle(b.getString(TITLE))
+                .setPositiveButton(R.string.btn_dialog_confirm, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        presenter.removeFaction((Faction) b.getParcelable(Faction.TAG));
                     }
                 })
                 .setNegativeButton(R.string.btn_dialog_cancel, new DialogInterface.OnClickListener() {
