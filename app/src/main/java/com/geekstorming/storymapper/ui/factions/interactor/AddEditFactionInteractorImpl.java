@@ -24,7 +24,7 @@ public class AddEditFactionInteractorImpl implements AddEditFactionInteractor {
     }
 
     @Override
-    public void addCharacter(Faction c) {
+    public void addFaction(Faction c) {
         FactionRepository.getInstance().addFaction(c);
     }
 

@@ -9,8 +9,8 @@ import com.geekstorming.storymapper.data.pojo.Faction;
 
 public interface AddEditFactionInteractor {
 
-    void editFaction(Faction c);
-    void addCharacter(Faction c);
+    void editFaction(Faction f);
+    void addFaction(Faction f);
 
     void isValidData(String name, String desc);
 }

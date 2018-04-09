@@ -17,7 +17,6 @@ import com.geekstorming.storymapper.R;
 import com.geekstorming.storymapper.adapters.FactionAdapter;
 import com.geekstorming.storymapper.base.BasePresenter;
 import com.geekstorming.storymapper.data.pojo.Book;
-import com.geekstorming.storymapper.data.pojo.Character;
 import com.geekstorming.storymapper.data.pojo.Faction;
 import com.geekstorming.storymapper.ui.factions.contracts.ListFactionContract;
 import com.geekstorming.storymapper.utils.CommonUIUtils;
@@ -129,7 +128,7 @@ public class FactionList_Fragment extends ListFragment implements ListFactionCon
         {
             case R.id.action_delete_book:
                 Bundle bundle = new Bundle();
-                bundle.putParcelable(Character.TAG,  factionAdapter.getItem(info.position));
+                bundle.putParcelable(Faction.TAG,  factionAdapter.getItem(info.position));
                 bundle.putString(CommonUIUtils.MSG, "¿Quieres eliminar la facción \'" +
                         factionAdapter.getItem(info.position).getFactionName() + "\' ?");
                 bundle.putString(CommonUIUtils.TITLE, "Eliminar facción");

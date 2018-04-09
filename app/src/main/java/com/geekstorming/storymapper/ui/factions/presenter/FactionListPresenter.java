@@ -1,7 +1,6 @@
 package com.geekstorming.storymapper.ui.factions.presenter;
 
 import com.geekstorming.storymapper.data.pojo.Book;
-import com.geekstorming.storymapper.data.pojo.Character;
 import com.geekstorming.storymapper.data.pojo.Faction;
 import com.geekstorming.storymapper.ui.factions.contracts.ListFactionContract;
 import com.geekstorming.storymapper.ui.factions.interactor.ListFactionInteractorImpl;
@@ -25,8 +24,8 @@ public class FactionListPresenter implements ListFactionContract.Presenter, List
     }
 
     @Override
-    public void removeFaction(Faction character) {
-        interactor.removeFaction(character);
+    public void removeFaction(Faction faction) {
+        interactor.removeFaction(faction);
     }
 
     @Override

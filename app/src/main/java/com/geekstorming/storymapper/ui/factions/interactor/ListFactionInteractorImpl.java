@@ -4,9 +4,7 @@ import android.os.AsyncTask;
 
 import com.geekstorming.storymapper.data.db.InteractorCallback;
 import com.geekstorming.storymapper.data.pojo.Book;
-import com.geekstorming.storymapper.data.pojo.Character;
 import com.geekstorming.storymapper.data.pojo.Faction;
-import com.geekstorming.storymapper.data.repos.CharacterRepository;
 import com.geekstorming.storymapper.data.repos.FactionRepository;
 
 import java.util.List;

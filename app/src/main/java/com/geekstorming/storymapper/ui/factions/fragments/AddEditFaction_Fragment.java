@@ -76,7 +76,7 @@ public class AddEditFaction_Fragment extends BaseFragment implements AddEditFact
             @Override
             public void onClick(View v) {
                 //addOrEditFaction();
-                presenter.validateCharacterData(tID_FactionName.getText().toString(),
+                presenter.validateFactionData(tID_FactionName.getText().toString(),
                         tID_FactionDescription.getText().toString());
             }
         });

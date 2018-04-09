@@ -1,6 +1,5 @@
 package com.geekstorming.storymapper.ui.factions.presenter;
 
-import com.geekstorming.storymapper.data.pojo.Character;
 import com.geekstorming.storymapper.data.pojo.Faction;
 import com.geekstorming.storymapper.ui.factions.contracts.AddEditFactionContract;
 import com.geekstorming.storymapper.ui.factions.interactor.AddEditFactionInteractorImpl;
@@ -28,11 +27,11 @@ public class AddEditFactionPresenter implements AddEditFactionContract.Presenter
 
     @Override
     public void addFaction(Faction f) {
-        interactor.addCharacter(f);
+        interactor.addFaction(f);
     }
 
     @Override
-    public void validateCharacterData(String name, String desc) {
+    public void validateFactionData(String name, String desc) {
         interactor.isValidData(name, desc);
     }
 

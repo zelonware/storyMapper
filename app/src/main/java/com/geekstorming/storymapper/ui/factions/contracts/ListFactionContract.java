@@ -3,7 +3,6 @@ package com.geekstorming.storymapper.ui.factions.contracts;
 import com.geekstorming.storymapper.base.BasePresenter;
 import com.geekstorming.storymapper.base.BaseView;
 import com.geekstorming.storymapper.data.pojo.Book;
-import com.geekstorming.storymapper.data.pojo.Character;
 import com.geekstorming.storymapper.data.pojo.Faction;
 
 import java.util.List;
