@@ -13,9 +13,13 @@ public class Location implements Comparable, Parcelable {
 
     // Atts
 
+    public static final String TAG = "location";
+
     int locationID;
     String locationName;
     String locationDesc;
+
+    int IDBook;
 
     // Getters + Setters
 
@@ -43,12 +47,21 @@ public class Location implements Comparable, Parcelable {
         this.locationDesc = locationDesc;
     }
 
+    public int getIDBook() {
+        return IDBook;
+    }
+
+    public void setIDBook(int IDBook) {
+        this.IDBook = IDBook;
+    }
+
     // Constructor
 
-    public Location(int locationID, String locationName, String locationDesc) {
+    public Location(int locationID, String locationName, String locationDesc, int bookID) {
         this.locationID = locationID;
         this.locationName = locationName;
         this.locationDesc = locationDesc;
+        this.IDBook = bookID;
     }
 
     protected Location(Parcel in)

@@ -71,6 +71,9 @@
     <string name="tiD_LocationName">Nombre de localización</string>
     <string name="tiD_LocationDesc">Descripción</string>
 
+    <string name="locationDescEmpty">La localización no tiene descripción</string>
+    <string name="locationNameEmpty">La localización no tiene nombre</string>
+
     <!-- showDialog, delete item -->
     <string name="action_delete_book">Eliminar</string>
 

@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.geekstorming.storymapper.R;
+import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.pojo.Location;
 import com.geekstorming.storymapper.data.repos.LocationRepository;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
@@ -21,8 +22,8 @@ import com.github.ivbaranov.mli.MaterialLetterIcon;
 
 public class LocationAdapter extends ArrayAdapter<Location> {
 
-    public LocationAdapter(@NonNull Context context) {
-        super(context, R.layout.item_location, LocationRepository.getInstance().getLocations());
+    public LocationAdapter(@NonNull Context context, Book book) {
+        super(context, R.layout.item_location, LocationRepository.getInstance().getLocations(book));
     }
 
     @NonNull

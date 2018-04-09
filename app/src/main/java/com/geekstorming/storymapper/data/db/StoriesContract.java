@@ -189,4 +189,30 @@ public class StoriesContract {
         public static final String SQL_DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", TABLE);
 
     }
+
+    public static class LocationItem implements BaseColumns {
+
+        public static final String TABLE = "locations";
+        public static final String NAME = "name";
+        public static final String DESCRIPTION = "description";
+        public static final String BOOKID = "bookid";
+
+        public static final String[] ALLCOLUMNS = { BaseColumns._ID, NAME, DESCRIPTION, BOOKID };
+
+        public static final String[] SEARCHCOLUMN = { NAME };
+        public static final String DEFAULT_SORT = NAME;
+
+        public static final String SQL_CREATE_TABLE = String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "%s TEXT NOT NULL, " +
+                        "%s TEXT NOT NULL, " +
+                        "%s INTEGER NOT NULL, " +
+                        " FOREIGN KEY (%s) REFERENCES %s (%s) ON UPDATE CASCADE ON DELETE RESTRICT)",
+                TABLE, BaseColumns._ID,
+                NAME,
+                DESCRIPTION,
+                BOOKID,
+                BOOKID, BookItem.TABLE, BookItem._ID);
+
+        public static final String SQL_DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", TABLE);
+    }
 }

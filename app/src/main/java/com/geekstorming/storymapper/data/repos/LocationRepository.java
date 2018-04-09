@@ -1,5 +1,8 @@
 package com.geekstorming.storymapper.data.repos;
 
+import com.geekstorming.storymapper.base.daos.LocationDAO;
+import com.geekstorming.storymapper.data.dao.LocationDAOImpl;
+import com.geekstorming.storymapper.data.pojo.Book;
 import com.geekstorming.storymapper.data.pojo.Location;
 
 import java.util.ArrayList;
@@ -17,6 +20,8 @@ public class LocationRepository {
     ArrayList<Location> locations;
     private static LocationRepository locationRepository;
 
+    LocationDAO dao;
+
     // Constructor
     static {
         locationRepository = new LocationRepository();
@@ -24,27 +29,27 @@ public class LocationRepository {
 
     private LocationRepository() {
         locations = new ArrayList<>();
-        initializeLocations();
+        dao = new LocationDAOImpl();
     }
 
     // Methods
 
-    private void initializeLocations() {
-        addLocation(new Location(1, "Location 1", "Description 1"));
-        addLocation(new Location(2, "Location 2", "Description 2"));
-        addLocation(new Location(3, "Location 3", "Description 3"));
-    }
-
     public void addLocation(Location l) {
-        locations.add(l);
+        dao.add(l);
     }
 
     public static LocationRepository getInstance() {
         return locationRepository;
     }
 
-    public ArrayList<Location> getLocations() {
-        Collections.sort(locations);
+    public ArrayList<Location> getLocations(Book book) {
+        locations = dao.loadAll(book);
         return locations;
     }
+
+    public void removeLocation (Location l) { dao.delete(l); }
+
+    public void searchLocation (Location l) { dao.exists(l); }
+
+    public void editLocation (Location l) { dao.update(l); }
 }

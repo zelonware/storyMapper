@@ -72,6 +72,9 @@
     <string name="tiD_LocationName">Location name</string>
     <string name="tiD_LocationDesc">Description</string>
 
+    <string name="locationDescEmpty">Location has no description</string>
+    <string name="locationNameEmpty">Location has no name</string>
+
     <!-- Settings -->
     <string name="action_settings">Preferences</string>
 
