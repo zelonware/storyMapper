@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -33,6 +34,7 @@ public class BaseActivity extends AppCompatActivity {
 
     private DrawerLayout drawL_base;
     private NavigationView navigationView;
+    private BottomNavigationView bottomNavigationView;
     private Toolbar toolbar;
     private TextView txtV_username;
     private TextView txtV_email;
@@ -44,7 +46,7 @@ public class BaseActivity extends AppCompatActivity {
 
         dao = new AdviceDAOImpl();
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar_Main);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_home);
@@ -54,6 +56,11 @@ public class BaseActivity extends AppCompatActivity {
 
         navigationView = (NavigationView) findViewById(R.id.navigationView);
         setupNavigationView();
+    }
+
+    protected final BottomNavigationView initBottomNavigation() {
+        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomnv_bookManager);
+        return bottomNavigationView;
     }
 
     private void setupNavigationView() {

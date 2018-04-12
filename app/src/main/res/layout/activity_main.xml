@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar_Main"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
@@ -16,5 +16,15 @@
         app:titleTextColor="@android:color/white"/>
 
     <include layout="@layout/app_bar_main"/>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomnv_bookManager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:itemBackground="@color/colorPrimary"
+        app:itemIconTint="@android:color/white"
+        app:itemTextColor="@android:color/white"
+        app:menu="@menu/menu_bottomnv_books"/>
 
 </LinearLayout>
