@@ -11,7 +11,7 @@ public class StoriesContract {
     private StoriesContract() {
     }
 
-    public static final int DATABASE_VERSION = 22;
+    public static final int DATABASE_VERSION = 24;
     public static final String DATABASE_NAME = "stories.db";
 
     public static class BookItem implements BaseColumns {

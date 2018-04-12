@@ -56,6 +56,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             db.execSQL(StoriesContract.AdviceItem.SQL_INSERT_TOTABLE);
             db.execSQL(StoriesContract.BookItem.SQL_CREATE_TABLE);
             db.execSQL(StoriesContract.CharacterItem.SQL_CREATE_TABLE);
+            db.execSQL(StoriesContract.LocationItem.SQL_CREATE_TABLE);
             db.execSQL(StoriesContract.FactionItem.SQL_CREATE_TABLE);
             db.execSQL(StoriesContract.ChapterItem.SQL_CREATE_TABLE);
 
@@ -84,6 +85,8 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             db.execSQL(StoriesContract.CharacterItem.SQL_CREATE_TABLE);
             db.execSQL(StoriesContract.ChapterItem.SQL_DROP_TABLE);
             db.execSQL(StoriesContract.ChapterItem.SQL_CREATE_TABLE);
+            db.execSQL(StoriesContract.LocationItem.SQL_DROP_TABLE);
+            db.execSQL(StoriesContract.LocationItem.SQL_CREATE_TABLE);
             db.execSQL(StoriesContract.FactionItem.SQL_DROP_TABLE);
             db.execSQL(StoriesContract.FactionItem.SQL_CREATE_TABLE);
 
