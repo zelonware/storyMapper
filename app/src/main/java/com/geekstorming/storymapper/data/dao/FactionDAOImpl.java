@@ -18,7 +18,7 @@ public class FactionDAOImpl implements FactionDAO {
         ArrayList<Faction> factionList = new ArrayList<>();
 
         SQLiteDatabase sqLiteDatabase = DBOpenHelper.getInstance().openDB();
-        Cursor cursor = sqLiteDatabase.query(StoriesContract.ChapterItem.TABLE,
+        Cursor cursor = sqLiteDatabase.query(StoriesContract.FactionItem.TABLE,
                 StoriesContract.FactionItem.ALLCOLUMNS,
                 StoriesContract.FactionItem.BOOKID + " = ?",
                 new String[] { Integer.toString(bookID.getBookID()) },

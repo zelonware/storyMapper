@@ -55,10 +55,14 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             db.execSQL(StoriesContract.AdviceItem.SQL_CREATE_TABLE);
             db.execSQL(StoriesContract.AdviceItem.SQL_INSERT_TOTABLE);
             db.execSQL(StoriesContract.BookItem.SQL_CREATE_TABLE);
+            db.execSQL(StoriesContract.BookItem.SQL_INSERT_TOTABLE);
             db.execSQL(StoriesContract.CharacterItem.SQL_CREATE_TABLE);
+            db.execSQL(StoriesContract.CharacterItem.SQL_INSERT_TOTABLE);
             db.execSQL(StoriesContract.LocationItem.SQL_CREATE_TABLE);
+            db.execSQL(StoriesContract.LocationItem.SQL_INSERT_TOTABLE);
             db.execSQL(StoriesContract.FactionItem.SQL_CREATE_TABLE);
-            db.execSQL(StoriesContract.ChapterItem.SQL_CREATE_TABLE);
+            db.execSQL(StoriesContract.FactionItem.SQL_INSERT_TOTABLE);
+            //db.execSQL(StoriesContract.ChapterItem.SQL_CREATE_TABLE);
 
             db.setTransactionSuccessful();
         } catch (SQLiteException e) {
@@ -81,14 +85,19 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             db.execSQL(StoriesContract.AdviceItem.SQL_INSERT_TOTABLE);
             db.execSQL(StoriesContract.BookItem.SQL_DROP_TABLE);
             db.execSQL(StoriesContract.BookItem.SQL_CREATE_TABLE);
+            db.execSQL(StoriesContract.BookItem.SQL_INSERT_TOTABLE);
             db.execSQL(StoriesContract.CharacterItem.SQL_DROP_TABLE);
             db.execSQL(StoriesContract.CharacterItem.SQL_CREATE_TABLE);
-            db.execSQL(StoriesContract.ChapterItem.SQL_DROP_TABLE);
-            db.execSQL(StoriesContract.ChapterItem.SQL_CREATE_TABLE);
+            db.execSQL(StoriesContract.CharacterItem.SQL_INSERT_TOTABLE);
+            //db.execSQL(StoriesContract.ChapterItem.SQL_DROP_TABLE);
+            //db.execSQL(StoriesContract.ChapterItem.SQL_CREATE_TABLE);
+            //db.execSQL(StoriesContract.ChapterItem.SQL_INSERT_TOTABLE);
             db.execSQL(StoriesContract.LocationItem.SQL_DROP_TABLE);
             db.execSQL(StoriesContract.LocationItem.SQL_CREATE_TABLE);
+            db.execSQL(StoriesContract.LocationItem.SQL_INSERT_TOTABLE);
             db.execSQL(StoriesContract.FactionItem.SQL_DROP_TABLE);
             db.execSQL(StoriesContract.FactionItem.SQL_CREATE_TABLE);
+            db.execSQL(StoriesContract.FactionItem.SQL_INSERT_TOTABLE);
 
             db.setTransactionSuccessful();
         } catch (SQLiteException e) {

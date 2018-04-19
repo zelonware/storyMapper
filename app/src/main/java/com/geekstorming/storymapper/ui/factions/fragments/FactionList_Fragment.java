@@ -101,8 +101,6 @@ public class FactionList_Fragment extends ListFragment implements ListFactionCon
                 callback.addNewFaction(b, ModeAddEdit.ADD_MODE);
             }
         });
-
-        presenter.loadFactions(selectedBook);
     }
 
     @Override

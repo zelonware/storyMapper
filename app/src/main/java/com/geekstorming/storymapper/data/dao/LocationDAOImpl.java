@@ -18,7 +18,7 @@ public class LocationDAOImpl implements LocationDAO {
         ArrayList<Location> locationList = new ArrayList<>();
 
         SQLiteDatabase sqLiteDatabase = DBOpenHelper.getInstance().openDB();
-        Cursor cursor = sqLiteDatabase.query(StoriesContract.ChapterItem.TABLE,
+        Cursor cursor = sqLiteDatabase.query(StoriesContract.LocationItem.TABLE,
                 StoriesContract.LocationItem.ALLCOLUMNS,
                 StoriesContract.LocationItem.BOOKID + " = ?",
                 new String[] { Integer.toString(bookID.getBookID()) },

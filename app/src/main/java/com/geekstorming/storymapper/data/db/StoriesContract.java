@@ -11,8 +11,66 @@ public class StoriesContract {
     private StoriesContract() {
     }
 
-    public static final int DATABASE_VERSION = 24;
+    public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "stories.db";
+
+    public static class AdviceItem implements BaseColumns {
+
+        public static final String TABLE = "advices";
+        public static final String ADVICE = "advice";
+
+        public static final String[] ALLCOLUMNS = { BaseColumns._ID, ADVICE };
+
+        public static final String SQL_CREATE_TABLE = String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        "%s TEXT NOT NULL)",
+                TABLE,
+                BaseColumns._ID,
+                ADVICE);
+
+        public static final String SQL_DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", TABLE);
+
+        public static final String SQL_INSERT_TOTABLE = String.format("INSERT INTO %s (%s) VALUES ('%s'), ('%s'), ('%s'), ('%s'), ('%s'), ('%s')",
+                TABLE, ADVICE,
+                "Empieza con algo sencillo",
+                "La organización es clave",
+                "No tengas miedo a experimentar",
+                "No te obsesiones con la perfección",
+                "Escribe para ti",
+                "Escribe para ser feliz"
+        );
+    }
+
+    public static class UserItem implements BaseColumns {
+        public static final String TABLE = "users";
+        public static final String USER = "user";
+        public static final String USERNAME = "username";
+        public static final String EMAIL = "email";
+        public static final String PASSWORD = "password";
+
+        public static final String[] ALLCOLUMNS = { BaseColumns._ID, USER, USERNAME, EMAIL, PASSWORD };
+        public static final String[] SEARCHCOLUMNS = { USER, PASSWORD };
+
+        public static final String DEFAULT_SORT = USER;
+
+        public static final String SQL_CREATE_TABLE = String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "%s TEXT NOT NULL, " +
+                        "%s TEXT NOT NULL, " +
+                        "%s TEXT NOT NULL, " +
+                        "%s TEXT NOT NULL) ",
+                TABLE, BaseColumns._ID,
+                USER,
+                USERNAME,
+                EMAIL,
+                PASSWORD);
+
+        public static final String SQL_DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", TABLE);
+
+        public static final String SQL_INSERT_TOTABLE = String.format("INSERT INTO %s (%s, %s, %s, %s) VALUES ('%s', '%s', '%s', '%s'), ('%s', '%s', '%s', '%s')",
+                TABLE,
+                USER, USERNAME, EMAIL, PASSWORD,
+                "Beelzenef", "Elena G", "elena.guzbla@gmail.com", "elenagb",
+                "moronlu", "Lourdes", "moronlu@gmail.com", "moronlu");
+    }
 
     public static class BookItem implements BaseColumns {
         public static final String TABLE = "book";
@@ -43,6 +101,11 @@ public class StoriesContract {
                 USER);
 
         public static final String SQL_DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", TABLE);
+
+        public static final String SQL_INSERT_TOTABLE = String.format("INSERT INTO %s (%s, %s, %s, %s, %s) VALUES ('%s', '%s', '%s', '%s', '%s')",
+                TABLE,
+                TITLE, DESCRIPTION, GENRE, NWORDS, USER,
+                "Ocaso", "Una historia de muerte y estrellas", "Space Opera", "20000", "1");
     }
 
     public static class CharacterItem implements BaseColumns {
@@ -77,64 +140,11 @@ public class StoriesContract {
                 BOOKID, BookItem.TABLE, BookItem._ID);
 
         public static final String SQL_DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", TABLE);
-    }
 
-    public static class AdviceItem implements BaseColumns {
-
-        public static final String TABLE = "advices";
-        public static final String ADVICE = "advice";
-
-        public static final String[] ALLCOLUMNS = { BaseColumns._ID, ADVICE };
-
-        public static final String SQL_CREATE_TABLE = String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "%s TEXT NOT NULL)",
+        public static final String SQL_INSERT_TOTABLE = String.format("INSERT INTO %s (%s, %s, %s, %s, %s) VALUES ('%s', '%s', '%s', '%s', '%s')",
                 TABLE,
-                BaseColumns._ID,
-                ADVICE);
-
-        public static final String SQL_DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", TABLE);
-
-        public static final String SQL_INSERT_TOTABLE = String.format("INSERT INTO %s (%s) VALUES ('%s'), ('%s'), ('%s'), ('%s'), ('%s'), ('%s')",
-            TABLE, ADVICE,
-                "Empieza con algo sencillo",
-                "La organización es clave",
-                "No tengas miedo a experimentar",
-                "No te obsesiones con la perfección",
-                "Escribe para ti",
-                "Escribe para ser feliz"
-        );
-    }
-
-    public static class UserItem implements BaseColumns {
-        public static final String TABLE = "users";
-        public static final String USER = "user";
-        public static final String USERNAME = "username";
-        public static final String EMAIL = "email";
-        public static final String PASSWORD = "password";
-
-        public static final String[] ALLCOLUMNS = { BaseColumns._ID, USER, USERNAME, EMAIL, PASSWORD };
-        public static final String[] SEARCHCOLUMNS = { USER, PASSWORD };
-
-        public static final String DEFAULT_SORT = USER;
-
-        public static final String SQL_CREATE_TABLE = String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "%s TEXT NOT NULL, " +
-                "%s TEXT NOT NULL, " +
-                "%s TEXT NOT NULL, " +
-                "%s TEXT NOT NULL) ",
-                TABLE, BaseColumns._ID,
-                USER,
-                USERNAME,
-                EMAIL,
-                PASSWORD);
-
-        public static final String SQL_DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", TABLE);
-
-        public static final String SQL_INSERT_TOTABLE = String.format("INSERT INTO %s (%s, %s, %s, %s) VALUES ('%s', '%s', '%s', '%s'), ('%s', '%s', '%s', '%s')",
-                TABLE,
-                USER, USERNAME, EMAIL, PASSWORD,
-                "Beelzenef", "Elena G", "elena.guzbla@gmail.com", "elenagb",
-                "moronlu", "Lourdes", "moronlu@gmail.com", "moronlu");
+                NAME, DESCRIPTION, HOME, FACTION, BOOKID,
+                "Personaje 1", "Descripcion", "1", "1", "1");
     }
 
     public static class FactionItem implements BaseColumns {
@@ -161,6 +171,11 @@ public class StoriesContract {
                 BOOKID, BookItem.TABLE, BookItem._ID);
 
         public static final String SQL_DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", TABLE);
+
+        public static final String SQL_INSERT_TOTABLE = String.format("INSERT INTO %s (%s, %s, %s) VALUES ('%s', '%s', '%s')",
+                TABLE,
+                NAME, OBJECTIVE, BOOKID,
+                "Faccion 1", "Una faccion cualquiera", "1");
     }
 
     public static class ChapterItem implements BaseColumns {
@@ -188,6 +203,8 @@ public class StoriesContract {
 
         public static final String SQL_DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", TABLE);
 
+
+
     }
 
     public static class LocationItem implements BaseColumns {
@@ -212,6 +229,11 @@ public class StoriesContract {
                 DESCRIPTION,
                 BOOKID,
                 BOOKID, BookItem.TABLE, BookItem._ID);
+
+        public static final String SQL_INSERT_TOTABLE = String.format("INSERT INTO %s (%s, %s, %s) VALUES ('%s', '%s', '%s')",
+                TABLE,
+                NAME, DESCRIPTION, BOOKID,
+                "Lugar 1", "Un lugar cualquiera", "1");
 
         public static final String SQL_DROP_TABLE = String.format("DROP TABLE IF EXISTS %s", TABLE);
     }
